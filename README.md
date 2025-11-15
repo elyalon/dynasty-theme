@@ -1,2 +1,3 @@
-# dynasty-theme
-Issue tracker for Dynasty Theme
+# Dynasty Theme
+
+Issue tracker for [Dynasty Theme](https://dynasty.ely.al).
