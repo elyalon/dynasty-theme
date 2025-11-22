@@ -1,0 +1,50 @@
+---
+import SyntaxComment from "../syntax/SyntaxComment.astro";
+import SyntaxFunction from "../syntax/SyntaxFunction.astro";
+import SyntaxItalic from "../syntax/SyntaxItalic.astro";
+import SyntaxKeyword from "../syntax/SyntaxKeyword.astro";
+import SyntaxNumberLiteral from "../syntax/SyntaxNumberLiteral.astro";
+import SyntaxOperator from "../syntax/SyntaxOperator.astro";
+import SyntaxPunctuation from "../syntax/SyntaxPunctuation.astro";
+import SyntaxSpecialFunction from "../syntax/SyntaxSpecialFunction.astro";
+import SyntaxStringLiteral from "../syntax/SyntaxStringLiteral.astro";
+import SyntaxType from "../syntax/SyntaxType.astro";
+---
+
+<pre>
+<SyntaxKeyword>package</SyntaxKeyword> <SyntaxType>mux_test</SyntaxType>
+
+<SyntaxKeyword>import</SyntaxKeyword> <SyntaxPunctuation>(</SyntaxPunctuation>
+	<SyntaxStringLiteral>"</SyntaxStringLiteral><SyntaxType>fmt</SyntaxType><SyntaxStringLiteral>"</SyntaxStringLiteral>
+	<SyntaxStringLiteral>"</SyntaxStringLiteral><SyntaxType>github.com/gorilla/mux</SyntaxType><SyntaxStringLiteral>"</SyntaxStringLiteral>
+<SyntaxPunctuation>)</SyntaxPunctuation>
+
+<SyntaxComment>// This example demonstrates building a dynamic URL using</SyntaxComment>
+<SyntaxComment>// required vars and values retrieve from another source</SyntaxComment>
+<SyntaxKeyword>func</SyntaxKeyword> <SyntaxFunction>ExampleRoute_GetVarNames</SyntaxFunction><SyntaxPunctuation>()</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+	r <SyntaxOperator>:=</SyntaxOperator> mux<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>NewRouter</SyntaxFunction><SyntaxPunctuation>()</SyntaxPunctuation>
+
+	route <SyntaxOperator>:=</SyntaxOperator> r<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>Host</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxStringLiteral>"{'{'}domain{'}'}"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>.</SyntaxPunctuation>
+		<SyntaxFunction>Path</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxStringLiteral>"/{'{'}group{'}'}/{'{'}item_id{'}'}"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>.</SyntaxPunctuation>
+		<SyntaxFunction>Queries</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxStringLiteral>"some_data1"</SyntaxStringLiteral><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxStringLiteral>"{'{'}some_data1{'}'}"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>.</SyntaxPunctuation>
+		<SyntaxFunction>Queries</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxStringLiteral>"some_data2_and_3"</SyntaxStringLiteral><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxStringLiteral>"{'{'}some_data2{'}'}.{'{'}some_data3{'}'}"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation>
+
+	dataSource <SyntaxOperator>:=</SyntaxOperator> <SyntaxKeyword>func</SyntaxKeyword><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>key</SyntaxItalic> <SyntaxKeyword>string</SyntaxKeyword><SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxKeyword>string</SyntaxKeyword> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+		<SyntaxKeyword>return</SyntaxKeyword> <SyntaxStringLiteral>"my_value_for_"</SyntaxStringLiteral> <SyntaxOperator>+</SyntaxOperator> <SyntaxItalic>key</SyntaxItalic>
+	<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+
+	varNames<SyntaxPunctuation>,</SyntaxPunctuation> _ <SyntaxOperator>:=</SyntaxOperator> route<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>GetVarNames</SyntaxFunction><SyntaxPunctuation>()</SyntaxPunctuation>
+
+	pairs <SyntaxOperator>:=</SyntaxOperator> <SyntaxSpecialFunction>make</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxKeyword>string</SyntaxKeyword><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxNumberLiteral>0</SyntaxNumberLiteral><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxSpecialFunction>len</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation>varNames<SyntaxPunctuation>)</SyntaxPunctuation><SyntaxOperator>*</SyntaxOperator><SyntaxNumberLiteral>2</SyntaxNumberLiteral><SyntaxPunctuation>)</SyntaxPunctuation>
+
+	<SyntaxKeyword>for</SyntaxKeyword> _<SyntaxPunctuation>,</SyntaxPunctuation> varName <SyntaxOperator>:=</SyntaxOperator> <SyntaxKeyword>range</SyntaxKeyword> varNames <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+		pairs <SyntaxOperator>=</SyntaxOperator> <SyntaxSpecialFunction>append</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation>pairs<SyntaxPunctuation>,</SyntaxPunctuation> varName<SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxFunction>dataSource</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>varName<SyntaxPunctuation>))</SyntaxPunctuation>
+	<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+
+	url<SyntaxPunctuation>,</SyntaxPunctuation> err <SyntaxOperator>:=</SyntaxOperator> route<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>URL</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>pairs<SyntaxOperator>...</SyntaxOperator><SyntaxPunctuation>)</SyntaxPunctuation>
+	<SyntaxKeyword>if</SyntaxKeyword> err <SyntaxOperator>!=</SyntaxOperator> <SyntaxKeyword>nil</SyntaxKeyword> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+		<SyntaxSpecialFunction>panic</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation>err<SyntaxPunctuation>)</SyntaxPunctuation>
+	<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+	fmt<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>Println</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>url<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>String</SyntaxFunction><SyntaxPunctuation>())</SyntaxPunctuation>
+<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+</pre>

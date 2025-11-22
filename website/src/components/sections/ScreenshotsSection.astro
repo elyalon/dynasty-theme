@@ -1,0 +1,65 @@
+---
+import screenshot1 from "../../assets/screenshots/Screenshot 2025-11-09 204214.png";
+import screenshot2 from "../../assets/screenshots/Screenshot 2025-11-09 202531.png";
+---
+
+<div class="bg-(--n900) pt-20 pb-55">
+  <div class="mx-auto max-w-210 px-3">
+    <h2 class="mb-8 text-3xl font-semibold text-(--n200)">Screenshots</h2>
+    <div class="flex flex-col gap-10" id="screenshots-container">
+      <img
+        src={screenshot1.src}
+        alt="Dynasty theme screenshot 1"
+        class="cursor-zoom-in rounded-md border border-(--n700) shadow-xl/30"
+      />
+      <img
+        src={screenshot2.src}
+        alt="Dynasty theme screenshot 2"
+        class="cursor-zoom-in rounded-md border border-(--n700) shadow-xl/30"
+      />
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const container = document.getElementById("screenshots-container");
+    if (!container) return;
+    const imgs = container.querySelectorAll("img");
+    imgs.forEach((img) => {
+      img.addEventListener("click", () =>
+        openLightbox(img.src, img.alt || "Screenshot")
+      );
+    });
+
+    function openLightbox(src: string, alt: string) {
+      const overlay = document.createElement("div");
+      overlay.className =
+        "fixed inset-0 z-[1000] bg-(--n950)/80 flex items-center justify-center p-4 cursor-zoom-out";
+      overlay.setAttribute("role", "dialog");
+      overlay.setAttribute("aria-label", "Image preview");
+
+      const image = document.createElement("img");
+      image.src = src;
+      image.alt = alt;
+      image.className =
+        "max-w-screen max-h-[90vh] w-auto h-auto object-contain shadow-2xl";
+
+      overlay.appendChild(image);
+
+      function cleanup() {
+        window.removeEventListener("keydown", onKey);
+        if (overlay.parentNode) document.body.removeChild(overlay);
+      }
+
+      function onKey(e: KeyboardEvent) {
+        if (e.key === "Escape") cleanup();
+      }
+
+      overlay.addEventListener("click", cleanup);
+      window.addEventListener("keydown", onKey);
+
+      document.body.appendChild(overlay);
+    }
+  })();
+</script>

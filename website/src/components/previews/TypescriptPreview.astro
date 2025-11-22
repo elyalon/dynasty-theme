@@ -1,0 +1,48 @@
+---
+import SyntaxPunctuation from "../syntax/SyntaxPunctuation.astro";
+import SyntaxStringLiteral from "../syntax/SyntaxStringLiteral.astro";
+import SyntaxKeyword from "../syntax/SyntaxKeyword.astro";
+import SyntaxOperator from "../syntax/SyntaxOperator.astro";
+import SyntaxType from "../syntax/SyntaxType.astro";
+import SyntaxFunction from "../syntax/SyntaxFunction.astro";
+import SyntaxNumberLiteral from "../syntax/SyntaxNumberLiteral.astro";
+import SyntaxItalic from "../syntax/SyntaxItalic.astro";
+---
+
+<pre>
+<SyntaxKeyword>export</SyntaxKeyword> <SyntaxKeyword>type</SyntaxKeyword> <SyntaxType>Todo</SyntaxType> <SyntaxOperator>=</SyntaxOperator> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+  id<SyntaxOperator>:</SyntaxOperator> <SyntaxType>string</SyntaxType><SyntaxPunctuation>;</SyntaxPunctuation>
+  text<SyntaxOperator>:</SyntaxOperator> <SyntaxType>string</SyntaxType><SyntaxPunctuation>;</SyntaxPunctuation>
+  completed<SyntaxOperator>:</SyntaxOperator> <SyntaxType>boolean</SyntaxType><SyntaxPunctuation>;</SyntaxPunctuation>
+<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+
+<SyntaxKeyword>export class</SyntaxKeyword> <SyntaxType>TodoService</SyntaxType> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+  <SyntaxKeyword>async</SyntaxKeyword> <SyntaxFunction>get</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxOperator>:</SyntaxOperator> <SyntaxType>Promise</SyntaxType><SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxType>Todo</SyntaxType><SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxPunctuation>&gt;</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+    <SyntaxKeyword>const</SyntaxKeyword> todos <SyntaxOperator>=</SyntaxOperator> <SyntaxKeyword>await</SyntaxKeyword> <SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation>env<SyntaxPunctuation>.</SyntaxPunctuation>TODOS<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>get</SyntaxFunction><SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxType>Todo</SyntaxType><SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxPunctuation>&gt;</SyntaxPunctuation><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation>userID<SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxStringLiteral>"json"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation>
+    <SyntaxKeyword>return</SyntaxKeyword> todos <SyntaxOperator>||</SyntaxOperator> <SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxPunctuation>;</SyntaxPunctuation>
+  <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+
+  <SyntaxKeyword>async</SyntaxKeyword> <SyntaxFunction>set</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>todos</SyntaxItalic><SyntaxOperator>:</SyntaxOperator> <SyntaxType>Todo</SyntaxType><SyntaxPunctuation>[])</SyntaxPunctuation><SyntaxOperator>:</SyntaxOperator> <SyntaxType>Promise</SyntaxType><SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxType>Todo</SyntaxType><SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxPunctuation>&gt;</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+    <SyntaxKeyword>const</SyntaxKeyword> sorted <SyntaxOperator>=</SyntaxOperator> <SyntaxItalic>todos</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>sort</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>t1</SyntaxItalic><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxItalic>t2</SyntaxItalic><SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxKeyword>=&gt;</SyntaxKeyword> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+      <SyntaxKeyword>if</SyntaxKeyword> <SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>t1</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation>completed <SyntaxOperator>===</SyntaxOperator> <SyntaxItalic>t2</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation>completed<SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+        <SyntaxKeyword>return</SyntaxKeyword> <SyntaxItalic>t1</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation>id<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>localeCompare</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>t2</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation>id<SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>;</SyntaxPunctuation>
+      <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+      <SyntaxKeyword>return</SyntaxKeyword> <SyntaxItalic>t1</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation>completed <SyntaxOperator>?</SyntaxOperator> <SyntaxNumberLiteral>1</SyntaxNumberLiteral> <SyntaxOperator>:</SyntaxOperator> <SyntaxOperator>-</SyntaxOperator><SyntaxNumberLiteral>1</SyntaxNumberLiteral><SyntaxPunctuation>;</SyntaxPunctuation>
+    <SyntaxPunctuation>{'}'});</SyntaxPunctuation>
+
+    <SyntaxKeyword>await</SyntaxKeyword> <SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation>env<SyntaxPunctuation>.</SyntaxPunctuation>TODOS<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>put</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation>userID<SyntaxPunctuation>,</SyntaxPunctuation> JSON<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>stringify</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>sorted<SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>)</SyntaxPunctuation>
+    <SyntaxKeyword>return</SyntaxKeyword> sorted
+  <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+
+  <SyntaxKeyword>async</SyntaxKeyword> <SyntaxFunction>add</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>todoText</SyntaxItalic><SyntaxOperator>:</SyntaxOperator> <SyntaxType>string</SyntaxType><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxOperator>:</SyntaxOperator> <SyntaxType>Promise</SyntaxType><SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxType>Todo</SyntaxType><SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxPunctuation>&gt;</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+    <SyntaxKeyword>const</SyntaxKeyword> todos <SyntaxOperator>=</SyntaxOperator> <SyntaxKeyword>await</SyntaxKeyword> <SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>get</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>)</SyntaxPunctuation>
+    <SyntaxKeyword>const</SyntaxKeyword> newTodo<SyntaxOperator>:</SyntaxOperator> <SyntaxType>Todo</SyntaxType> <SyntaxOperator>=</SyntaxOperator> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+      id<SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxType>Date</SyntaxType><SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>now</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>toString</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>,</SyntaxPunctuation>
+      text<SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxItalic>todoText</SyntaxItalic><SyntaxPunctuation>,</SyntaxPunctuation>
+      completed<SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxKeyword>false</SyntaxKeyword>
+    <SyntaxPunctuation>{'}'};</SyntaxPunctuation>
+    todos<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>push</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>newTodo<SyntaxPunctuation>)</SyntaxPunctuation>
+    <SyntaxKeyword>return</SyntaxKeyword> <SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>set</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>todos<SyntaxPunctuation>)</SyntaxPunctuation>
+  <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+</pre>

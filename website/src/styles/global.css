@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "Google Sans Code", monospace;
+  --spacing: 4px;
+
+  --color-*: initial;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}

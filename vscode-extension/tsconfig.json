@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "preserve",
+    "target": "es2020",
+    "lib": ["ES2020", "WebWorker"],
+    "strict": true,
+    "skipLibCheck": true
+  }
+}

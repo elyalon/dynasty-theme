@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "website"
+    },
+    {
+      "path": "vscode-extension"
+    },
+    {
+      "path": "color-palette"
+    }
+  ],
+  "settings": {}
+}

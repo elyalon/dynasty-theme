@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+import dynasty from "../../../color-palette/palette.json";
+import NavBar from "../components/NavBar.astro";
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon-flat.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Dynasty Theme - {title}</title>
+  </head>
+  <body class="bg-(--n950) font-mono text-(--n200)">
+    <NavBar />
+    <slot />
+  </body>
+</html>
+
+<style
+  define:vars={{
+    n050: dynasty.n050,
+    n100: dynasty.n100,
+    n200: dynasty.n200,
+    n200: dynasty.n200,
+    n300: dynasty.n300,
+    n700: dynasty.n700,
+    n800: dynasty.n800,
+    n900: dynasty.n900,
+    n950: dynasty.n950,
+
+    dyPrimary: dynasty.dyPrimary,
+    dyPrimaryDark: dynasty.dyPrimaryDark,
+
+    syntaxType: dynasty.syntaxType,
+    syntaxOperator: dynasty.syntaxOperator,
+    syntaxKeyword: dynasty.syntaxKeyword,
+    syntaxSpecial: dynasty.syntaxSpecial,
+    syntaxFunction: dynasty.syntaxFunction,
+    syntaxString: dynasty.syntaxString,
+    syntaxNumber: dynasty.syntaxNumber,
+  }}
+></style>

@@ -1,0 +1,74 @@
+{
+  "name": "dynasty-theme",
+  "displayName": "Dynasty Theme",
+  "icon": "./icon-full@4x.jpg",
+  "description": "A high-contrast theme designed for clarity.",
+  "version": "0.2.2",
+  "publisher": "elyalon",
+  "bugs": {
+    "url": "https://github.com/elyalon/dynasty-theme/issues"
+  },
+  "license": "MIT",
+  "homepage": "https://dynasty.ely.al",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "galleryBanner": {
+    "color": "#090B11",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "browser": "./dist/web/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dynasty-theme.activateLicense",
+        "title": "Dynasty Theme: Activate License"
+      },
+      {
+        "command": "dynasty-theme.showLicenseStatus",
+        "title": "Dynasty Theme: Show License Status"
+      }
+    ],
+    "themes": [
+      {
+        "label": "Dynasty Dark",
+        "uiTheme": "vs-dark",
+        "path": "./_themes/Dynasty-dark-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "themes:generate": "tsx ./scripts/generate-themes.ts",
+    "themes:watch": "tsx watch --include ../color-palette/palette.json ./scripts/generate-themes.ts",
+    "compile-web": "webpack",
+    "watch-web": "webpack --watch",
+    "package-web": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src",
+    "vsix-package": "vsce package --allow-missing-repository",
+    "vsix-publish": "vsce publish --allow-missing-repository",
+    "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. .",
+    "vscode:prepublish": "pnpm run package-web"
+  },
+  "devDependencies": {
+    "@types/chroma-js": "^3.1.2",
+    "@types/node": "^24.10.1",
+    "@types/vscode": "^1.105.0",
+    "@types/webpack-env": "^1.18.8",
+    "@vscode/test-web": "^0.0.75",
+    "@vscode/vsce": "^3.7.0",
+    "chroma-js": "^3.1.2",
+    "eslint": "^9.39.1",
+    "ts-loader": "^9.5.4",
+    "tsx": "^4.7.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
+  }
+}

@@ -1,0 +1,53 @@
+---
+import SyntaxItalic from "../syntax/SyntaxItalic.astro";
+import SyntaxUnderline from "../syntax/SyntaxUnderline.astro";
+import SyntaxPunctuation from "../syntax/SyntaxPunctuation.astro";
+import SyntaxComment from "../syntax/SyntaxComment.astro";
+import SyntaxStringLiteral from "../syntax/SyntaxStringLiteral.astro";
+import SyntaxKeyword from "../syntax/SyntaxKeyword.astro";
+import SyntaxOperator from "../syntax/SyntaxOperator.astro";
+import SyntaxType from "../syntax/SyntaxType.astro";
+import SyntaxFunction from "../syntax/SyntaxFunction.astro";
+import SyntaxSpecialFunction from "../syntax/SyntaxSpecialFunction.astro";
+---
+
+<pre>
+<SyntaxKeyword>pub use</SyntaxKeyword> <SyntaxType>text</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxPunctuation>{'{'}</SyntaxPunctuation><SyntaxType>GlyphCache</SyntaxType><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxType>LoaderApi</SyntaxType><SyntaxPunctuation>{'}'};</SyntaxPunctuation>
+
+<SyntaxKeyword>use</SyntaxKeyword> <SyntaxType>shader</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxType>ShaderVersion</SyntaxType><SyntaxPunctuation>;</SyntaxPunctuation>
+<SyntaxKeyword>use</SyntaxKeyword> <SyntaxType>text</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxPunctuation>{'{'}</SyntaxPunctuation><SyntaxType>Gles2Renderer</SyntaxType><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxType>Glsl3Renderer</SyntaxType><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxType>TextRenderer</SyntaxType><SyntaxPunctuation>{'}'};</SyntaxPunctuation>
+
+<SyntaxComment>/// Whether the OpenGL functions have been loaded.</SyntaxComment>
+<SyntaxKeyword>pub static</SyntaxKeyword> GL_FUNS_LOADED<SyntaxOperator>:</SyntaxOperator> <SyntaxType>AtomicBool</SyntaxType> <SyntaxOperator>=</SyntaxOperator> <SyntaxType>AtomicBool</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxFunction>new</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxKeyword>false</SyntaxKeyword><SyntaxPunctuation>);</SyntaxPunctuation>
+
+<SyntaxPunctuation>#[</SyntaxPunctuation><SyntaxSpecialFunction>derive</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxType>Debug</SyntaxType><SyntaxPunctuation>)]</SyntaxPunctuation>
+<SyntaxKeyword>pub enum</SyntaxKeyword> <SyntaxType>Error</SyntaxType> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+    <SyntaxComment>/// Shader error.</SyntaxComment>
+    <SyntaxOperator>Shader</SyntaxOperator><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxType>ShaderError</SyntaxType><SyntaxPunctuation>),</SyntaxPunctuation>
+
+    <SyntaxComment>/// Other error.</SyntaxComment>
+    <SyntaxOperator>Other</SyntaxOperator><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxType>String</SyntaxType><SyntaxPunctuation>),</SyntaxPunctuation>
+<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+
+<SyntaxKeyword>impl</SyntaxKeyword> <SyntaxType>std</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxType>error</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxType>Error</SyntaxType> <SyntaxKeyword>for</SyntaxKeyword> <SyntaxType>Error</SyntaxType> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+    <SyntaxKeyword>fn</SyntaxKeyword> <SyntaxFunction>source</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxOperator>&</SyntaxOperator><SyntaxKeyword>self</SyntaxKeyword><SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxOperator>-></SyntaxOperator> <SyntaxType>Option</SyntaxType><SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxOperator>&</SyntaxOperator><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxKeyword>dyn</SyntaxKeyword> <SyntaxType>std</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxType>error</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxType>Error</SyntaxType> <SyntaxOperator>+</SyntaxOperator> <SyntaxKeyword>'static</SyntaxKeyword><SyntaxPunctuation>)&gt;</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+        <SyntaxKeyword>match self</SyntaxKeyword> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+            <SyntaxType>Error</SyntaxType><SyntaxOperator>::Shader</SyntaxOperator><SyntaxPunctuation>(</SyntaxPunctuation>err<SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxOperator>=&gt;</SyntaxOperator> err<SyntaxOperator>.</SyntaxOperator><SyntaxFunction>source</SyntaxFunction><SyntaxPunctuation>(),</SyntaxPunctuation>
+            <SyntaxType>Error</SyntaxType><SyntaxOperator>::Other</SyntaxOperator><SyntaxPunctuation>(</SyntaxPunctuation>_<SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxOperator>=&gt;</SyntaxOperator> <SyntaxOperator>None</SyntaxOperator><SyntaxPunctuation>,</SyntaxPunctuation>
+        <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+    <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+
+<SyntaxKeyword>impl</SyntaxKeyword> <SyntaxType>fmt</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxType>Display</SyntaxType> <SyntaxKeyword>for</SyntaxKeyword> <SyntaxType>Error</SyntaxType> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+    <SyntaxKeyword>fn</SyntaxKeyword> <SyntaxFunction>fmt</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxOperator>&</SyntaxOperator><SyntaxKeyword>self</SyntaxKeyword><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxUnderline><SyntaxItalic>f</SyntaxItalic></SyntaxUnderline><SyntaxOperator>: &</SyntaxOperator><SyntaxKeyword>mut</SyntaxKeyword> <SyntaxType>fmt</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxType>Formatter</SyntaxType><SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxKeyword>'_</SyntaxKeyword><SyntaxPunctuation>&gt;)</SyntaxPunctuation> <SyntaxOperator>-&gt;</SyntaxOperator> <SyntaxType>fmt</SyntaxType><SyntaxOperator>::</SyntaxOperator><SyntaxType>Result</SyntaxType> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+        <SyntaxKeyword>match self</SyntaxKeyword> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+            <SyntaxType>Error</SyntaxType><SyntaxOperator>::Shader</SyntaxOperator><SyntaxPunctuation>(</SyntaxPunctuation>err<SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxOperator>=&gt;</SyntaxOperator> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+                <SyntaxSpecialFunction>write!</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxUnderline><SyntaxItalic>f</SyntaxItalic></SyntaxUnderline><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxStringLiteral>"There was an error initializing the shaders:</SyntaxStringLiteral> <SyntaxOperator>{'{'}</SyntaxOperator>err<SyntaxOperator>{'}'}</SyntaxOperator><SyntaxStringLiteral>"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation>
+            <SyntaxPunctuation>{'}'},</SyntaxPunctuation>
+            <SyntaxType>Error</SyntaxType><SyntaxOperator>::Other</SyntaxOperator><SyntaxPunctuation>(</SyntaxPunctuation>err<SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxOperator>=&gt;</SyntaxOperator> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
+                <SyntaxSpecialFunction>write!</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxUnderline><SyntaxItalic>f</SyntaxItalic></SyntaxUnderline><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxStringLiteral>"</SyntaxStringLiteral><SyntaxOperator>{'{'}</SyntaxOperator>err<SyntaxOperator>{'}'}</SyntaxOperator><SyntaxStringLiteral>"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation>
+            <SyntaxPunctuation>{'}'},</SyntaxPunctuation>
+        <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+    <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+</pre>
