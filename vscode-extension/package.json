@@ -8,7 +8,6 @@
   "bugs": {
     "url": "https://github.com/elyalon/dynasty-theme/issues"
   },
-  "license": "MIT",
   "homepage": "https://dynasty.ely.al",
   "engines": {
     "vscode": "^1.105.0"
@@ -54,8 +53,8 @@
     "watch-web": "webpack --watch",
     "package-web": "webpack --mode production --devtool hidden-source-map",
     "lint": "eslint src",
-    "vsix-package": "vsce package --allow-missing-repository",
-    "vsix-publish": "vsce publish --allow-missing-repository",
+    "vsix-package": "vsce package",
+    "vsix-publish": "vsce publish",
     "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. .",
     "vscode:prepublish": "pnpm run package-web"
   },
