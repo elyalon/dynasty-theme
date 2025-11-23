@@ -10,4 +10,4 @@ webpack.config.js
 **/*.ts
 pnpm-lock.yaml
 CHANGELOG.md
-assets/
+assets
