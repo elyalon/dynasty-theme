@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 import chroma from "chroma-js";
-import dynasty from "../../color-palette/palette.json";
-import { VscodeWorkbenchColors } from "./schemaTypes";
+import dynasty from "../assets/palette/dark.json" with { type: "json" };
+import { type VscodeWorkbenchColors } from "./vscode-schema-types.ts";
 
 const transparent = "#0000";
 const debugColor = "#f0f";
@@ -392,12 +392,12 @@ function generateTheme() {
 
 const themeJson = generateTheme();
 
-const themesDir = path.join(__dirname, "..", "_themes");
-if (!fs.existsSync(themesDir)) {
-  fs.mkdirSync(themesDir);
+if (!fs.existsSync("./_themes")) {
+  fs.mkdirSync("./_themes");
 }
 
 fs.writeFileSync(
-  path.join(themesDir, "Dynasty-dark-color-theme.json"),
-  JSON.stringify(themeJson, null, 2)
+  path.resolve("./_themes/Dynasty-dark-color-theme.json"),
+  JSON.stringify(themeJson, null, 2),
+  "utf-8"
 );

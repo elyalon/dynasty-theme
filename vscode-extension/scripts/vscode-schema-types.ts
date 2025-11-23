@@ -1,3 +1,5 @@
+/* from https://github.com/wraith13/vscode-schemas */
+
 export interface VscodeWorkbenchColors {
   /**
    * Overall foreground color. This color is only used if not overridden by a component.

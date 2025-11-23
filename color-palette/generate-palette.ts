@@ -1,6 +1,5 @@
 import chroma from "chroma-js";
 import * as fs from "fs";
-import * as path from "path";
 
 const syntaxType = chroma("oklch(91% 0.119 91)").hex();
 const syntaxOperator = chroma("oklch(80% 0.11 59)").hex();
@@ -80,6 +79,8 @@ const colors = {
   tAnsiBrightWhite,
 };
 
-const outPath = path.resolve("./palette.json");
-fs.mkdirSync(path.dirname(outPath), { recursive: true });
-fs.writeFileSync(outPath, JSON.stringify(colors, null, 2) + "\n", "utf8");
+fs.writeFileSync(
+  "./assets/palette/dark.json",
+  JSON.stringify(colors, null, 2) + "\n",
+  "utf8"
+);

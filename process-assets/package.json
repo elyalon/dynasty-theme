@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "node ./make-currentColor.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "svgo": "^4.0.0",
+    "typescript": "^5.9.3"
+  }
+}

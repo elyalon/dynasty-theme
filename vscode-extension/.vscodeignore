@@ -1,6 +1,6 @@
-src/**
-scripts/**
-node_modules/**
+src/
+scripts/
+node_modules/
 .prettierrc
 .gitignore
 webpack.config.js
@@ -10,4 +10,4 @@ webpack.config.js
 **/*.ts
 pnpm-lock.yaml
 CHANGELOG.md
-themes/
+assets/

@@ -1,9 +1,9 @@
 {
   "name": "dynasty-theme",
   "displayName": "Dynasty Theme",
-  "icon": "./icon-full@4x.jpg",
+  "icon": "./icon.jpg",
   "description": "A high-contrast theme designed for clarity.",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "publisher": "elyalon",
   "bugs": {
     "url": "https://github.com/elyalon/dynasty-theme/issues"
@@ -12,6 +12,10 @@
   "homepage": "https://dynasty.ely.al",
   "engines": {
     "vscode": "^1.105.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elyalon/dynasty-theme"
   },
   "categories": [
     "Themes"
@@ -44,8 +48,8 @@
     ]
   },
   "scripts": {
-    "themes:generate": "tsx ./scripts/generate-themes.ts",
-    "themes:watch": "tsx watch --include ../color-palette/palette.json ./scripts/generate-themes.ts",
+    "themes:generate": "node ./scripts/generate-themes.mts",
+    "themes:watch": "node --watch --watch-preserve-output ./scripts/generate-themes.mts",
     "compile-web": "webpack",
     "watch-web": "webpack --watch",
     "package-web": "webpack --mode production --devtool hidden-source-map",
@@ -65,7 +69,6 @@
     "chroma-js": "^3.1.2",
     "eslint": "^9.39.1",
     "ts-loader": "^9.5.4",
-    "tsx": "^4.7.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.4",
     "webpack": "^5.102.1",
