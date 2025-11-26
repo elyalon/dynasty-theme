@@ -1,62 +1,59 @@
 import fs from "fs";
 import path from "path";
 import chroma from "chroma-js";
-import dynasty from "../assets/palette/dark.json" with { type: "json" };
-import { type VscodeWorkbenchColors } from "./vscode-schema-types.ts";
+import paletteNone from "../assets/palette/palette-none.json" with { type: "json" };
+import {
+  type VscodeTokenSpec,
+  type VscodeWorkbenchColors,
+} from "./vscode-schema-types.ts";
+import { type Palette } from "../assets/types/palette-type.ts";
 
-const transparent = "#0000";
+const transparentColor = "#0000";
 const debugColor = "#f0f";
 
-function asHex(color: string): string {
-  return chroma(color).hex();
+function getSemanticTokenColors(palette: Palette) {
+  return {
+    namespace: palette.dySyntaxType,
+    class: palette.dySyntaxType,
+    enum: palette.dySyntaxType,
+    interface: palette.dySyntaxType,
+    struct: palette.dySyntaxType,
+    typeParameter: { foreground: palette.dySyntaxType, italic: true },
+    type: palette.dySyntaxType,
+    parameter: { italic: true },
+    variable: palette.dyNeutralFgMain,
+    property: palette.dyNeutralFgMain,
+    enumMember: palette.dySyntaxOperator,
+    decorator: palette.dySyntaxSpecial,
+    event: palette.dySyntaxOperator,
+    function: palette.dySyntaxFunction,
+    method: palette.dySyntaxFunction,
+    macro: palette.dySyntaxSpecial,
+    label: palette.dySyntaxOperator,
+    comment: palette.dyNeutralFgDim,
+    string: palette.dySyntaxString,
+    keyword: palette.dySyntaxKeyword,
+    number: palette.dySyntaxNumber,
+    regexp: palette.dySyntaxString,
+    operator: palette.dySyntaxOperator,
+  };
 }
 
-function generateTheme() {
-  const semanticTokenColors = {
-    namespace: dynasty.syntaxType,
-    class: dynasty.syntaxType,
-    enum: dynasty.syntaxType,
-    interface: dynasty.syntaxType,
-    struct: dynasty.syntaxType,
-    typeParameter: { foreground: dynasty.syntaxType, italic: true },
-    type: dynasty.syntaxType,
-    parameter: { italic: true },
-    variable: dynasty.n100,
-    property: dynasty.n100,
-    enumMember: dynasty.syntaxOperator,
-    decorator: dynasty.syntaxSpecial,
-    event: dynasty.syntaxOperator,
-    function: dynasty.syntaxFunction,
-    method: dynasty.syntaxFunction,
-    macro: dynasty.syntaxSpecial,
-    label: dynasty.syntaxOperator,
-    comment: dynasty.n300,
-    string: dynasty.syntaxString,
-    keyword: dynasty.syntaxKeyword,
-    number: dynasty.syntaxNumber,
-    regexp: dynasty.syntaxString,
-    operator: dynasty.syntaxOperator,
-  };
-
-  const tokenColors = [
+function getTokenColors(palette: Palette) {
+  const tokenColors: VscodeTokenSpec[] = [
     {
-      scope: [],
-      settings: { foreground: debugColor },
+      scope: ["invalid", "invalid.illegal", "invalid.deprecated"],
+      settings: {
+        foreground: chroma("hsl(0 100% 62%)").hex(),
+        fontStyle: "italic",
+      },
     },
-    // {
-    //   scope: ["markup.deleted"],
-    //   settings: { foreground: asHex("hsl(0 100% 50%)") }, // CHANGE
-    // },
-    // {
-    //   scope: ["markup.inserted"],
-    //   settings: { foreground: asHex("hsl(120 100% 50%)") }, // CHANGE
-    // },
     {
       scope: ["markup.bold"],
       settings: { fontStyle: "bold" },
     },
     {
-      scope: ["markup.italic"],
+      scope: ["markup.italic", "markup.quote"],
       settings: { fontStyle: "italic" },
     },
     {
@@ -64,20 +61,14 @@ function generateTheme() {
       settings: { fontStyle: "underline" },
     },
     {
-      scope: "markup.underline.link",
-      settings: { foreground: dynasty.syntaxFunction, fontStyle: "underline" },
-    },
-    {
-      scope: ["markup.quote"],
-      settings: { foreground: dynasty.syntaxType, fontStyle: "italic" },
-    },
-    {
       scope: [
-        "support.function.builtin",
-        "entity.name.function.support.builtin",
-        "entity.name.function.preprocessor",
+        "comment",
+        "comment.line",
+        "comment.block",
+        "comment.block.documentation",
+        "punctuation.definition.comment",
       ],
-      settings: { foreground: dynasty.syntaxSpecial },
+      settings: { foreground: palette.dyNeutralFgDim, fontStyle: "italic" },
     },
     {
       scope: [
@@ -91,7 +82,15 @@ function generateTheme() {
         "source.ts meta.brace",
         "source.tsx meta.brace",
       ],
-      settings: { foreground: dynasty.n200 },
+      settings: { foreground: palette.dyNeutralFgAlt },
+    },
+    {
+      scope: [
+        "support.function.builtin",
+        "entity.name.function.support.builtin",
+        "entity.name.function.preprocessor",
+      ],
+      settings: { foreground: palette.dySyntaxSpecial },
     },
     {
       scope: [
@@ -116,8 +115,9 @@ function generateTheme() {
         "support.module",
         "variable.annotation",
         "punctuation.definition.annotation",
+        "markup.quote",
       ],
-      settings: { foreground: dynasty.syntaxType },
+      settings: { foreground: palette.dySyntaxType },
     },
     {
       scope: [
@@ -127,8 +127,9 @@ function generateTheme() {
         "entity.name.tag",
         "support.function",
         "entity.name.function.member",
+        "markup.underline.link",
       ],
-      settings: { foreground: dynasty.syntaxFunction },
+      settings: { foreground: palette.dySyntaxFunction },
     },
     {
       scope: [
@@ -148,7 +149,7 @@ function generateTheme() {
         "variable.other.event",
         "meta.attribute.rust",
       ],
-      settings: { foreground: dynasty.syntaxOperator },
+      settings: { foreground: palette.dySyntaxOperator },
     },
     {
       scope: [
@@ -162,7 +163,7 @@ function generateTheme() {
         "entity.name.variable",
         "entity.name.constant",
       ],
-      settings: { foreground: dynasty.n100 },
+      settings: { foreground: palette.dyNeutralFgMain },
     },
     {
       scope: ["variable.parameter"],
@@ -175,7 +176,7 @@ function generateTheme() {
         "constant.numeric.float",
         "constant.numeric.complex",
       ],
-      settings: { foreground: dynasty.syntaxNumber },
+      settings: { foreground: palette.dySyntaxNumber },
     },
     {
       scope: [
@@ -210,194 +211,253 @@ function generateTheme() {
         "punctuation.section.interpolation",
         "punctuation.definition.interpolation",
       ],
-      settings: { foreground: dynasty.syntaxKeyword },
+      settings: { foreground: palette.dySyntaxKeyword },
     },
     {
       scope: ["string", "punctuation.definition.string"],
-      settings: { foreground: dynasty.syntaxString },
-    },
-    {
-      scope: [
-        "comment",
-        "comment.line",
-        "comment.block",
-        "comment.block.documentation",
-        "punctuation.definition.comment",
-      ],
-      settings: { foreground: dynasty.n300, fontStyle: "italic" },
-    },
-    {
-      scope: ["invalid", "invalid.illegal", "invalid.deprecated"],
-      settings: {
-        foreground: asHex("hsl(0 100% 62%)"),
-        fontStyle: "italic",
-      },
+      settings: { foreground: palette.dySyntaxString },
     },
   ];
 
+  return tokenColors;
+}
+
+function getWorkbenchColors(palette: Palette) {
+  const selectionColor = chroma(palette.dyPrimary400).alpha(0.2).hex();
+
   const colors: VscodeWorkbenchColors = {
-    "textBlockQuote.background": dynasty.n900,
-    "textBlockQuote.border": dynasty.n700,
-    "textCodeBlock.background": dynasty.n900,
-    "textLink.activeForeground": dynasty.syntaxFunction,
-    "textLink.foreground": dynasty.syntaxFunction,
-    "textPreformat.background": dynasty.n900,
-    "textPreformat.foreground": dynasty.syntaxOperator,
+    // GENERAL / BASE
+    "foreground": palette.dyNeutralFgAlt,
+    "icon.foreground": palette.dyNeutralFgAlt,
+    "disabledForeground": palette.dyNeutralFgDim,
+    "selection.background": selectionColor,
+    "descriptionForeground": palette.dyNeutralFgAlt,
+    "errorForeground": palette.dySyntaxKeyword,
+    
+    // MARKDOWN RENDERING
+    "textBlockQuote.background": palette.dyNeutralBgAlt,
+    "textBlockQuote.border": palette.dyNeutralBorder,
+    "textCodeBlock.background": palette.dyNeutralBgAlt,
+    "textLink.activeForeground": palette.dyPrimary400,
+    "textLink.foreground": palette.dyPrimary400,
+    "textPreformat.background": palette.dyNeutralBgAlt,
+    "textPreformat.foreground": palette.dySyntaxOperator,
 
-    "editor.lineHighlightBorder": transparent,
-    "editor.lineHighlightBackground": chroma(dynasty.n900).alpha(0.8).hex(),
-    "editor.selectionBackground": asHex("hsla(207.17 100% 68.82% / 0.25)"),
+    // EDITOR
+    "editor.background": palette.dyNeutralBgMain,
+    "editor.foreground": palette.dyNeutralFgMain,
+    "editor.lineHighlightBorder": transparentColor,
+    "editor.lineHighlightBackground": chroma(palette.dyNeutralBgSub)
+      .alpha(0.25)
+      .hex(),
+    "editor.selectionBackground": selectionColor,
+    "editorLineNumber.foreground": chroma(palette.dyNeutralFgDim)
+      .alpha(0.7)
+      .hex(),
 
-    "editorBracketHighlight.foreground1": chroma(dynasty.syntaxType)
+    // COLORED BRACKETS
+    "editorBracketHighlight.foreground1": chroma(palette.dySyntaxType)
       .darken(0.5)
       .hex(),
-    "editorBracketHighlight.foreground2": chroma(dynasty.syntaxFunction)
+    "editorBracketHighlight.foreground2": chroma(palette.dySyntaxFunction)
       .darken(0.5)
       .hex(),
-    "editorBracketHighlight.foreground3": chroma(dynasty.syntaxSpecial)
+    "editorBracketHighlight.foreground3": chroma(palette.dySyntaxSpecial)
       .darken(0.5)
       .hex(),
 
-    "titleBar.activeForeground": dynasty.n200,
-    "titleBar.activeBackground": dynasty.n900,
-    "titleBar.inactiveForeground": dynasty.n200,
-    "titleBar.inactiveBackground": dynasty.n950,
-    "titleBar.border": dynasty.n700,
+    // TITLEBAR
+    "titleBar.activeForeground": palette.dyNeutralFgAlt,
+    "titleBar.activeBackground": palette.dyNeutralBgAlt,
+    "titleBar.inactiveForeground": palette.dyNeutralFgDim,
+    "titleBar.inactiveBackground": palette.dyNeutralBgMain,
+    "titleBar.border": palette.dyNeutralBorder,
 
-    "panel.border": dynasty.n700,
-    "panel.background": dynasty.n900,
-    "panelTitle.border": dynasty.n700,
+    // SIDEBAR
+    "sideBar.background": palette.dyNeutralBgAlt,
+    "sideBar.foreground": palette.dyNeutralFgAlt,
+    "sideBar.border": palette.dyNeutralBorder,
+    "sideBarTitle.foreground": palette.dyNeutralFgAlt,
+    "sideBarSectionHeader.background": palette.dyNeutralBgSub,
+    "sideBarSectionHeader.foreground": palette.dyNeutralFgAlt,
 
-    "sideBar.background": dynasty.n900,
-    "sideBar.foreground": dynasty.n200,
-    "sideBar.border": dynasty.n700,
-
-    "input.background": dynasty.n950,
-    "input.foreground": dynasty.n100,
-    "input.border": dynasty.n700,
-    "input.placeholderForeground": chroma(dynasty.n200).alpha(0.7).hex(),
-
-    "inputOption.activeBackground": chroma(dynasty.dyPrimaryDark)
+    // INPUT
+    "input.background": palette.dyNeutralBgMain,
+    "input.foreground": palette.dyNeutralFgMain,
+    "input.border": palette.dyNeutralBorder,
+    "input.placeholderForeground": palette.dyNeutralFgDim,
+    // for the inline icons like "match case" and "match whole word" on inputs
+    "inputOption.hoverBackground": chroma(palette.dyNeutralFgMain)
+      .alpha(0.2)
+      .hex(),
+    "inputOption.activeBackground": chroma(palette.dyPrimary600)
       .alpha(0.4)
       .hex(),
-    "inputOption.activeBorder": dynasty.dyPrimary,
-    "inputOption.activeForeground": dynasty.n050,
+    "inputOption.activeBorder": palette.dyPrimary500,
+    "inputOption.activeForeground": palette.dyNeutralFgBright,
+    // for the icons next to the tabs, like "maximized" icon
+    "actionBar.toggledBackground": chroma(palette.dyPrimary500)
+      .alpha(0.3)
+      .hex(),
 
-    "scrollbar.shadow": chroma(dynasty.n900).brighten(0.5).hex(),
-    "scrollbarSlider.activeBackground": chroma(dynasty.dyPrimary)
+    // QUICK INPUT / QUICK PICK
+    "quickInputTitle.background": palette.dyNeutralBgSub,
+    "quickInput.background": palette.dyNeutralBgAlt,
+    "quickInput.foreground": palette.dyNeutralFgAlt,
+    "quickInputList.focusBackground": chroma(palette.dyNeutralFgAlt)
+      .alpha(0.12)
+      .hex(),
+    "quickInputList.focusForeground": palette.dyNeutralFgMain,
+
+    // WIDGET
+    "widget.border": palette.dyNeutralBorder,
+    "editorWidget.background": palette.dyNeutralBgAlt,
+    "editorWidget.foreground": palette.dyNeutralFgAlt,
+    "editorWidget.border": palette.dyNeutralBorder,
+    "editorWidget.resizeBorder": palette.dyNeutralBorder,
+
+    // BUTTON
+    "button.background": palette.dyPrimary600,
+    "button.hoverBackground": palette.dyPrimary500,
+    "button.foreground": palette.dyNeutralFgBright,
+
+    // SCROLLBAR
+    "scrollbarSlider.background": chroma(palette.dyNeutralFgMain)
+      .alpha(0.2)
+      .hex(),
+    "scrollbarSlider.hoverBackground": chroma(palette.dyNeutralFgMain)
+      .alpha(0.3)
+      .hex(),
+    "scrollbarSlider.activeBackground": chroma(palette.dyPrimary700)
       .alpha(0.6)
       .hex(),
-    "scrollbarSlider.background": chroma("white").alpha(0.1).hex(),
-    "scrollbarSlider.hoverBackground": chroma("white").alpha(0.2).hex(),
-
-    "editorWidget.background": dynasty.n900,
-
-    "toolbar.hoverBackground": asHex("hsla(0 0% 100% / 0.1)"),
-
-    "button.background": dynasty.dyPrimaryDark,
-    "button.hoverBackground": chroma(dynasty.dyPrimaryDark).darken(0.15).hex(),
-    "button.foreground": dynasty.n050,
-    "button.border": dynasty.n700,
-
-    "editorIndentGuide.background": chroma(dynasty.n300).alpha(0.3).hex(),
-    "editorIndentGuide.activeBackground": chroma(dynasty.n300).alpha(0.7).hex(),
-
-    "dropdown.background": dynasty.n900,
-    "dropdown.foreground": dynasty.n100,
-    "dropdown.border": dynasty.n700,
-
-    "activityBar.foreground": dynasty.n050,
-    "activityBarBadge.background": dynasty.dyPrimaryDark,
-
-    "statusBar.background": dynasty.n900,
-    "statusBar.foreground": dynasty.n200,
-    "statusBar.border": dynasty.n700,
-
-    "editorGroup.border": dynasty.n700,
-    "editorGroupHeader.noTabsBackground": dynasty.n950,
-    "editorGroupHeader.tabsBackground": dynasty.n900,
-    "editorGroupHeader.tabsBorder": dynasty.n700,
-
-    "tab.activeBackground": dynasty.n950,
-    "tab.inactiveBackground": dynasty.n900,
-    "tab.unfocusedActiveBackground": dynasty.n950,
-    "tab.unfocusedInactiveBackground": dynasty.n900,
-    "tab.border": dynasty.n700,
-    "tab.activeBorder": dynasty.n950,
-    "tab.unfocusedActiveBorder": dynasty.n950,
-    "tab.activeForeground": dynasty.n100,
-    "tab.inactiveForeground": dynasty.n200,
-    "tab.unfocusedActiveForeground": dynasty.n100,
-    "tab.unfocusedInactiveForeground": dynasty.n200,
-    "tab.activeBorderTop": dynasty.dyPrimary,
-    "tab.unfocusedActiveBorderTop": transparent,
-    "tab.hoverBackground": chroma(dynasty.n950).mix(dynasty.n900, 0.4).hex(),
-    "tab.unfocusedHoverBackground": chroma(dynasty.n950)
-      .mix(dynasty.n900, 0.4)
+    // the "sticky" shadow
+    "scrollbar.shadow": chroma(palette.dyNeutralFgMain).alpha(0.2).hex(),
+    // when hovering over sticky line
+    "editorStickyScrollHover.background": chroma(palette.dyNeutralFgMain)
+      .alpha(0.08)
       .hex(),
 
-    "editor.background": dynasty.n950,
-    "editor.foreground": dynasty.n100,
-    "editorLineNumber.foreground": chroma(dynasty.n300).alpha(0.7).hex(),
+    // IDNENT GUIDES
+    "editorIndentGuide.background1": chroma(palette.dyNeutralFgDim)
+      .alpha(0.3)
+      .hex(),
+    "editorIndentGuide.activeBackground1": chroma(palette.dyNeutralFgDim)
+      .alpha(0.7)
+      .hex(),
 
-    "list.activeSelectionBackground": dynasty.n800,
-    "list.inactiveSelectionBackground": dynasty.n800,
+    // DROPDOWN MENU
+    "dropdown.background": palette.dyNeutralBgAlt,
+    "dropdown.foreground": palette.dyNeutralFgMain,
+    "dropdown.border": palette.dyNeutralBorder,
 
-    "sideBarSectionHeader.background": dynasty.n800,
-    "sideBarSectionHeader.foreground": dynasty.n200,
+    // ACTIVITY BAR
+    "activityBar.foreground": palette.dyNeutralFgMain,
+    "activityBar.inactiveForeground": palette.dyNeutralFgDim,
+    "activityBar.background": palette.dyNeutralBgAlt,
+    "activityBar.border": palette.dyNeutralBorder,
+    "activityBarBadge.foreground": palette.dyNeutralFgBright,
+    "activityBarBadge.background": palette.dyPrimary600,
 
-    "terminal.foreground": dynasty.n100,
-    "terminal.background": dynasty.n950,
-    "terminalCursor.foreground": dynasty.n100,
-    "terminalCursor.background": dynasty.n950,
+    // STATUS BAR
+    "statusBar.background": palette.dyNeutralBgAlt,
+    "statusBar.foreground": palette.dyNeutralFgAlt,
+    "statusBar.border": palette.dyNeutralBorder,
 
-    "terminal.ansiBlack": dynasty.tAnsiBlack,
-    "terminal.ansiRed": dynasty.tAnsiRed,
-    "terminal.ansiGreen": dynasty.tAnsiGreen,
-    "terminal.ansiYellow": dynasty.tAnsiYellow,
-    "terminal.ansiBlue": dynasty.tAnsiBlue,
-    "terminal.ansiMagenta": dynasty.tAnsiMagenta,
-    "terminal.ansiCyan": dynasty.tAnsiCyan,
-    "terminal.ansiWhite": dynasty.tAnsiWhite,
-    "terminal.ansiBrightBlack": dynasty.tAnsiBrightBlack,
-    "terminal.ansiBrightRed": dynasty.tAnsiBrightRed,
-    "terminal.ansiBrightGreen": dynasty.tAnsiBrightGreen,
-    "terminal.ansiBrightYellow": dynasty.tAnsiBrightYellow,
-    "terminal.ansiBrightBlue": dynasty.tAnsiBrightBlue,
-    "terminal.ansiBrightMagenta": dynasty.tAnsiBrightMagenta,
-    "terminal.ansiBrightCyan": dynasty.tAnsiBrightCyan,
-    "terminal.ansiBrightWhite": dynasty.tAnsiBrightWhite,
+    // BREADCRUMBS
+    "breadcrumb.foreground": palette.dyNeutralFgDim,
+    "breadcrumb.focusForeground": palette.dyNeutralFgMain,
+    "breadcrumb.activeSelectionForeground": palette.dyNeutralFgBright,
 
-    "borderFocus": dynasty.dyPrimary,
-    "foreground": dynasty.n100,
-    "disabledForeground": dynasty.n300,
-    "widget.border": dynasty.n700,
-    "selection.background": asHex("hsla(207.17 100% 68.82% / 0.44)"),
-    "descriptionForeground": dynasty.n200,
-    "errorForeground": dynasty.syntaxKeyword,
-    "icon.foreground": dynasty.n100,
-    "sash.hoverBorder": dynasty.dyPrimaryDark,
+    // split panes separator
+    "editorGroup.border": palette.dyNeutralBorder,
+    "sash.hoverBorder": palette.dyPrimary600,
+
+    // TABS BAR
+    "editorGroupHeader.noTabsBackground": palette.dyNeutralBgMain,
+    "editorGroupHeader.tabsBackground": palette.dyNeutralBgAlt,
+    "editorGroupHeader.tabsBorder": palette.dyNeutralBorder,
+    "tab.activeBackground": palette.dyNeutralBgMain,
+    "tab.activeForeground": palette.dyNeutralFgMain,
+    "tab.activeBorderTop": palette.dyPrimary400,
+    "tab.activeBorder": palette.dyNeutralBgMain,
+    "tab.inactiveBackground": palette.dyNeutralBgAlt,
+    "tab.inactiveForeground": palette.dyNeutralFgAlt,
+    "tab.unfocusedActiveBackground": palette.dyNeutralBgMain,
+    "tab.unfocusedActiveForeground": palette.dyNeutralFgMain,
+    "tab.unfocusedActiveBorderTop": transparentColor,
+    "tab.unfocusedActiveBorder": palette.dyNeutralBgMain,
+    "tab.unfocusedInactiveBackground": palette.dyNeutralBgAlt,
+    "tab.unfocusedInactiveForeground": palette.dyNeutralFgAlt,
+    "tab.unfocusedHoverBackground": palette.dyNeutralBgSub,
+    "tab.hoverBackground": palette.dyNeutralBgSub,
+    "tab.border": palette.dyNeutralBorder,
+    "tab.selectedBorderTop": transparentColor,
+
+    // LIST
+    "list.activeSelectionBackground": palette.dyNeutralBgSub,
+    "list.inactiveSelectionBackground": palette.dyNeutralBgSub,
+
+    // PANEL
+    "panel.border": palette.dyNeutralBorder,
+    "panel.background": palette.dyNeutralBgMain,
+    "panelTitle.activeForeground": palette.dyNeutralFgMain,
+    "panelTitle.inactiveForeground": palette.dyNeutralFgDim,
+    // for when you do a split in the panel
+    "panelSectionHeader.background": palette.dyNeutralBgAlt,
+    "panelSectionHeader.foreground": palette.dyNeutralFgAlt,
+    "panelSection.border": palette.dyNeutralBorder,
+
+    // TERMINAL
+    "terminal.foreground": palette.dyNeutralFgMain,
+    "terminal.background": palette.dyNeutralBgMain,
+    "terminalCursor.foreground": palette.dyNeutralFgMain,
+    "terminalCursor.background": palette.dyNeutralBgMain,
+    // ansi colors
+    "terminal.ansiBlack": palette.dyAnsiBlack,
+    "terminal.ansiRed": palette.dyAnsiRed,
+    "terminal.ansiGreen": palette.dyAnsiGreen,
+    "terminal.ansiYellow": palette.dyAnsiYellow,
+    "terminal.ansiBlue": palette.dyAnsiBlue,
+    "terminal.ansiMagenta": palette.dyAnsiMagenta,
+    "terminal.ansiCyan": palette.dyAnsiCyan,
+    "terminal.ansiWhite": palette.dyAnsiWhite,
+    "terminal.ansiBrightBlack": palette.dyAnsiBrightBlack,
+    "terminal.ansiBrightRed": palette.dyAnsiBrightRed,
+    "terminal.ansiBrightGreen": palette.dyAnsiBrightGreen,
+    "terminal.ansiBrightYellow": palette.dyAnsiBrightYellow,
+    "terminal.ansiBrightBlue": palette.dyAnsiBrightBlue,
+    "terminal.ansiBrightMagenta": palette.dyAnsiBrightMagenta,
+    "terminal.ansiBrightCyan": palette.dyAnsiBrightCyan,
+    "terminal.ansiBrightWhite": palette.dyAnsiBrightWhite,
   };
 
-  const themeJson = {
-    name: "Dynasty Dark",
+  return colors;
+}
+
+function generateTheme(palette: Palette, suffix: string) {
+  const semanticTokenColors = getSemanticTokenColors(palette);
+  const tokenColors = getTokenColors(palette);
+  const colors = getWorkbenchColors(palette);
+
+  const themeObj = {
+    name: "Dynasty Theme", // this doesn't need to change between pigments
     semanticHighlighting: true,
     semanticTokenColors,
     tokenColors,
     colors,
   };
 
-  return themeJson;
-}
+  const themeJson = JSON.stringify(themeObj, null, 2);
 
-const themeJson = generateTheme();
+  fs.writeFileSync(
+    path.resolve(`./_themes/Dynasty${suffix}-color-theme.json`),
+    themeJson,
+    "utf-8"
+  );
+}
 
 if (!fs.existsSync("./_themes")) {
   fs.mkdirSync("./_themes");
 }
-
-fs.writeFileSync(
-  path.resolve("./_themes/Dynasty-dark-color-theme.json"),
-  JSON.stringify(themeJson, null, 2),
-  "utf-8"
-);
+generateTheme(paletteNone, "None");

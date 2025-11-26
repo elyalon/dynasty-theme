@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import palette from "../../assets/palette/dark.json";
+import palette from "../../assets/palette/palette-none.json";
 import NavBar from "../components/NavBar.astro";
 
 const { title } = Astro.props;
@@ -22,7 +22,7 @@ const { title } = Astro.props;
 
     <title>Dynasty Theme - {title}</title>
   </head>
-  <body class="bg-(--n950) font-mono text-(--n200)">
+  <body class="bg-(--dyNeutralBgMain) font-mono text-(--dyNeutralFgAlt)">
     <NavBar />
     <slot />
   </body>
@@ -30,24 +30,33 @@ const { title } = Astro.props;
 
 <style
   define:vars={{
-    n050: palette.n050,
-    n100: palette.n100,
-    n200: palette.n200,
-    n300: palette.n300,
-    n700: palette.n700,
-    n800: palette.n800,
-    n900: palette.n900,
-    n950: palette.n950,
+    dyNeutralFgBright: palette.dyNeutralFgBright,
+    dyNeutralFgMain: palette.dyNeutralFgMain,
+    dyNeutralFgAlt: palette.dyNeutralFgAlt,
+    dyNeutralFgDim: palette.dyNeutralFgDim,
+    dyNeutralBorder: palette.dyNeutralBorder,
+    dyNeutralBgSub: palette.dyNeutralBgSub,
+    dyNeutralBgAlt: palette.dyNeutralBgAlt,
+    dyNeutralBgMain: palette.dyNeutralBgMain,
 
-    dyPrimary: palette.dyPrimary,
-    dyPrimaryDark: palette.dyPrimaryDark,
+    dyPrimary050: palette.dyPrimary050,
+    dyPrimary100: palette.dyPrimary100,
+    dyPrimary200: palette.dyPrimary200,
+    dyPrimary300: palette.dyPrimary300,
+    dyPrimary400: palette.dyPrimary400,
+    dyPrimary500: palette.dyPrimary500,
+    dyPrimary600: palette.dyPrimary600,
+    dyPrimary700: palette.dyPrimary700,
+    dyPrimary800: palette.dyPrimary800,
+    dyPrimary900: palette.dyPrimary900,
+    dyPrimary950: palette.dyPrimary950,
 
-    syntaxType: palette.syntaxType,
-    syntaxOperator: palette.syntaxOperator,
-    syntaxKeyword: palette.syntaxKeyword,
-    syntaxSpecial: palette.syntaxSpecial,
-    syntaxFunction: palette.syntaxFunction,
-    syntaxString: palette.syntaxString,
-    syntaxNumber: palette.syntaxNumber,
+    dySyntaxType: palette.dySyntaxType,
+    dySyntaxOperator: palette.dySyntaxOperator,
+    dySyntaxKeyword: palette.dySyntaxKeyword,
+    dySyntaxSpecial: palette.dySyntaxSpecial,
+    dySyntaxFunction: palette.dySyntaxFunction,
+    dySyntaxString: palette.dySyntaxString,
+    dySyntaxNumber: palette.dySyntaxNumber,
   }}
 ></style>

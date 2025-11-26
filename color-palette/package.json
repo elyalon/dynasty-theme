@@ -1,8 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "build": "node ./generate-palette.ts",
-    "watch": "node --watch --watch-preserve-output ./generate-palette.ts"
+    "build": "node ./generate-palettes.ts",
+    "watch": "node --watch --watch-preserve-output ./generate-palettes.ts"
   },
   "devDependencies": {
     "@types/chroma-js": "^3.1.2",

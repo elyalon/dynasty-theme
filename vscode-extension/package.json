@@ -40,9 +40,10 @@
     ],
     "themes": [
       {
-        "label": "Dynasty Dark",
+        "label": "Dynasty Theme",
+        "id": "Dynasty Theme (Default)",
         "uiTheme": "vs-dark",
-        "path": "./_themes/Dynasty-dark-color-theme.json"
+        "path": "./_themes/DynastyNone-color-theme.json"
       }
     ]
   },
