@@ -21,8 +21,8 @@ function getSemanticTokenColors(palette: Palette) {
     typeParameter: { foreground: palette.dySyntaxType, italic: true },
     type: palette.dySyntaxType,
     parameter: { italic: true },
-    variable: palette.dyNeutralFgMain,
-    property: palette.dyNeutralFgMain,
+    variable: palette.dyNeutralTextMain,
+    property: palette.dyNeutralTextMain,
     enumMember: palette.dySyntaxOperator,
     decorator: palette.dySyntaxSpecial,
     event: palette.dySyntaxOperator,
@@ -30,7 +30,7 @@ function getSemanticTokenColors(palette: Palette) {
     method: palette.dySyntaxFunction,
     macro: palette.dySyntaxSpecial,
     label: palette.dySyntaxOperator,
-    comment: palette.dyNeutralFgDim,
+    comment: palette.dyNeutralTextDim,
     string: palette.dySyntaxString,
     keyword: palette.dySyntaxKeyword,
     number: palette.dySyntaxNumber,
@@ -68,7 +68,7 @@ function getTokenColors(palette: Palette) {
         "comment.block.documentation",
         "punctuation.definition.comment",
       ],
-      settings: { foreground: palette.dyNeutralFgDim, fontStyle: "italic" },
+      settings: { foreground: palette.dyNeutralTextDim, fontStyle: "italic" },
     },
     {
       scope: [
@@ -82,7 +82,7 @@ function getTokenColors(palette: Palette) {
         "source.ts meta.brace",
         "source.tsx meta.brace",
       ],
-      settings: { foreground: palette.dyNeutralFgAlt },
+      settings: { foreground: palette.dyNeutralTextAlt },
     },
     {
       scope: [
@@ -163,7 +163,7 @@ function getTokenColors(palette: Palette) {
         "entity.name.variable",
         "entity.name.constant",
       ],
-      settings: { foreground: palette.dyNeutralFgMain },
+      settings: { foreground: palette.dyNeutralTextMain },
     },
     {
       scope: ["variable.parameter"],
@@ -227,11 +227,11 @@ function getWorkbenchColors(palette: Palette) {
 
   const colors: VscodeWorkbenchColors = {
     // GENERAL / BASE
-    "foreground": palette.dyNeutralFgAlt,
-    "icon.foreground": palette.dyNeutralFgAlt,
-    "disabledForeground": palette.dyNeutralFgDim,
+    "foreground": palette.dyNeutralTextAlt,
+    "icon.foreground": palette.dyNeutralTextAlt,
+    "disabledForeground": palette.dyNeutralTextDim,
     "selection.background": selectionColor,
-    "descriptionForeground": palette.dyNeutralFgAlt,
+    "descriptionForeground": palette.dyNeutralTextAlt,
     "errorForeground": palette.dySyntaxKeyword,
     
     // MARKDOWN RENDERING
@@ -245,13 +245,13 @@ function getWorkbenchColors(palette: Palette) {
 
     // EDITOR
     "editor.background": palette.dyNeutralBgMain,
-    "editor.foreground": palette.dyNeutralFgMain,
+    "editor.foreground": palette.dyNeutralTextMain,
     "editor.lineHighlightBorder": transparentColor,
     "editor.lineHighlightBackground": chroma(palette.dyNeutralBgSub)
       .alpha(0.25)
       .hex(),
     "editor.selectionBackground": selectionColor,
-    "editorLineNumber.foreground": chroma(palette.dyNeutralFgDim)
+    "editorLineNumber.foreground": chroma(palette.dyNeutralTextDim)
       .alpha(0.7)
       .hex(),
 
@@ -267,34 +267,34 @@ function getWorkbenchColors(palette: Palette) {
       .hex(),
 
     // TITLEBAR
-    "titleBar.activeForeground": palette.dyNeutralFgAlt,
+    "titleBar.activeForeground": palette.dyNeutralTextAlt,
     "titleBar.activeBackground": palette.dyNeutralBgAlt,
-    "titleBar.inactiveForeground": palette.dyNeutralFgDim,
+    "titleBar.inactiveForeground": palette.dyNeutralTextDim,
     "titleBar.inactiveBackground": palette.dyNeutralBgMain,
     "titleBar.border": palette.dyNeutralBorder,
 
     // SIDEBAR
     "sideBar.background": palette.dyNeutralBgAlt,
-    "sideBar.foreground": palette.dyNeutralFgAlt,
+    "sideBar.foreground": palette.dyNeutralTextAlt,
     "sideBar.border": palette.dyNeutralBorder,
-    "sideBarTitle.foreground": palette.dyNeutralFgAlt,
+    "sideBarTitle.foreground": palette.dyNeutralTextAlt,
     "sideBarSectionHeader.background": palette.dyNeutralBgSub,
-    "sideBarSectionHeader.foreground": palette.dyNeutralFgAlt,
+    "sideBarSectionHeader.foreground": palette.dyNeutralTextAlt,
 
     // INPUT
     "input.background": palette.dyNeutralBgMain,
-    "input.foreground": palette.dyNeutralFgMain,
+    "input.foreground": palette.dyNeutralTextMain,
     "input.border": palette.dyNeutralBorder,
-    "input.placeholderForeground": palette.dyNeutralFgDim,
+    "input.placeholderForeground": palette.dyNeutralTextDim,
     // for the inline icons like "match case" and "match whole word" on inputs
-    "inputOption.hoverBackground": chroma(palette.dyNeutralFgMain)
+    "inputOption.hoverBackground": chroma(palette.dyNeutralTextMain)
       .alpha(0.2)
       .hex(),
     "inputOption.activeBackground": chroma(palette.dyPrimary600)
       .alpha(0.4)
       .hex(),
     "inputOption.activeBorder": palette.dyPrimary500,
-    "inputOption.activeForeground": palette.dyNeutralFgBright,
+    "inputOption.activeForeground": palette.dyNeutralTextBright,
     // for the icons next to the tabs, like "maximized" icon
     "actionBar.toggledBackground": chroma(palette.dyPrimary500)
       .alpha(0.3)
@@ -303,71 +303,71 @@ function getWorkbenchColors(palette: Palette) {
     // QUICK INPUT / QUICK PICK
     "quickInputTitle.background": palette.dyNeutralBgSub,
     "quickInput.background": palette.dyNeutralBgAlt,
-    "quickInput.foreground": palette.dyNeutralFgAlt,
-    "quickInputList.focusBackground": chroma(palette.dyNeutralFgAlt)
+    "quickInput.foreground": palette.dyNeutralTextAlt,
+    "quickInputList.focusBackground": chroma(palette.dyNeutralTextAlt)
       .alpha(0.12)
       .hex(),
-    "quickInputList.focusForeground": palette.dyNeutralFgMain,
+    "quickInputList.focusForeground": palette.dyNeutralTextMain,
 
     // WIDGET
     "widget.border": palette.dyNeutralBorder,
     "editorWidget.background": palette.dyNeutralBgAlt,
-    "editorWidget.foreground": palette.dyNeutralFgAlt,
+    "editorWidget.foreground": palette.dyNeutralTextAlt,
     "editorWidget.border": palette.dyNeutralBorder,
     "editorWidget.resizeBorder": palette.dyNeutralBorder,
 
     // BUTTON
     "button.background": palette.dyPrimary600,
     "button.hoverBackground": palette.dyPrimary500,
-    "button.foreground": palette.dyNeutralFgBright,
+    "button.foreground": palette.dyNeutralTextBright,
 
     // SCROLLBAR
-    "scrollbarSlider.background": chroma(palette.dyNeutralFgMain)
+    "scrollbarSlider.background": chroma(palette.dyNeutralTextMain)
       .alpha(0.2)
       .hex(),
-    "scrollbarSlider.hoverBackground": chroma(palette.dyNeutralFgMain)
+    "scrollbarSlider.hoverBackground": chroma(palette.dyNeutralTextMain)
       .alpha(0.3)
       .hex(),
     "scrollbarSlider.activeBackground": chroma(palette.dyPrimary700)
       .alpha(0.6)
       .hex(),
     // the "sticky" shadow
-    "scrollbar.shadow": chroma(palette.dyNeutralFgMain).alpha(0.2).hex(),
+    "scrollbar.shadow": chroma(palette.dyNeutralTextMain).alpha(0.2).hex(),
     // when hovering over sticky line
-    "editorStickyScrollHover.background": chroma(palette.dyNeutralFgMain)
+    "editorStickyScrollHover.background": chroma(palette.dyNeutralTextMain)
       .alpha(0.08)
       .hex(),
 
     // IDNENT GUIDES
-    "editorIndentGuide.background1": chroma(palette.dyNeutralFgDim)
+    "editorIndentGuide.background1": chroma(palette.dyNeutralTextDim)
       .alpha(0.3)
       .hex(),
-    "editorIndentGuide.activeBackground1": chroma(palette.dyNeutralFgDim)
+    "editorIndentGuide.activeBackground1": chroma(palette.dyNeutralTextDim)
       .alpha(0.7)
       .hex(),
 
     // DROPDOWN MENU
     "dropdown.background": palette.dyNeutralBgAlt,
-    "dropdown.foreground": palette.dyNeutralFgMain,
+    "dropdown.foreground": palette.dyNeutralTextMain,
     "dropdown.border": palette.dyNeutralBorder,
 
     // ACTIVITY BAR
-    "activityBar.foreground": palette.dyNeutralFgMain,
-    "activityBar.inactiveForeground": palette.dyNeutralFgDim,
+    "activityBar.foreground": palette.dyNeutralTextMain,
+    "activityBar.inactiveForeground": palette.dyNeutralTextDim,
     "activityBar.background": palette.dyNeutralBgAlt,
     "activityBar.border": palette.dyNeutralBorder,
-    "activityBarBadge.foreground": palette.dyNeutralFgBright,
+    "activityBarBadge.foreground": palette.dyNeutralTextBright,
     "activityBarBadge.background": palette.dyPrimary600,
 
     // STATUS BAR
     "statusBar.background": palette.dyNeutralBgAlt,
-    "statusBar.foreground": palette.dyNeutralFgAlt,
+    "statusBar.foreground": palette.dyNeutralTextAlt,
     "statusBar.border": palette.dyNeutralBorder,
 
     // BREADCRUMBS
-    "breadcrumb.foreground": palette.dyNeutralFgDim,
-    "breadcrumb.focusForeground": palette.dyNeutralFgMain,
-    "breadcrumb.activeSelectionForeground": palette.dyNeutralFgBright,
+    "breadcrumb.foreground": palette.dyNeutralTextDim,
+    "breadcrumb.focusForeground": palette.dyNeutralTextMain,
+    "breadcrumb.activeSelectionForeground": palette.dyNeutralTextBright,
 
     // split panes separator
     "editorGroup.border": palette.dyNeutralBorder,
@@ -378,17 +378,17 @@ function getWorkbenchColors(palette: Palette) {
     "editorGroupHeader.tabsBackground": palette.dyNeutralBgAlt,
     "editorGroupHeader.tabsBorder": palette.dyNeutralBorder,
     "tab.activeBackground": palette.dyNeutralBgMain,
-    "tab.activeForeground": palette.dyNeutralFgMain,
+    "tab.activeForeground": palette.dyNeutralTextMain,
     "tab.activeBorderTop": palette.dyPrimary400,
     "tab.activeBorder": palette.dyNeutralBgMain,
     "tab.inactiveBackground": palette.dyNeutralBgAlt,
-    "tab.inactiveForeground": palette.dyNeutralFgAlt,
+    "tab.inactiveForeground": palette.dyNeutralTextAlt,
     "tab.unfocusedActiveBackground": palette.dyNeutralBgMain,
-    "tab.unfocusedActiveForeground": palette.dyNeutralFgMain,
+    "tab.unfocusedActiveForeground": palette.dyNeutralTextMain,
     "tab.unfocusedActiveBorderTop": transparentColor,
     "tab.unfocusedActiveBorder": palette.dyNeutralBgMain,
     "tab.unfocusedInactiveBackground": palette.dyNeutralBgAlt,
-    "tab.unfocusedInactiveForeground": palette.dyNeutralFgAlt,
+    "tab.unfocusedInactiveForeground": palette.dyNeutralTextAlt,
     "tab.unfocusedHoverBackground": palette.dyNeutralBgSub,
     "tab.hoverBackground": palette.dyNeutralBgSub,
     "tab.border": palette.dyNeutralBorder,
@@ -401,17 +401,17 @@ function getWorkbenchColors(palette: Palette) {
     // PANEL
     "panel.border": palette.dyNeutralBorder,
     "panel.background": palette.dyNeutralBgMain,
-    "panelTitle.activeForeground": palette.dyNeutralFgMain,
-    "panelTitle.inactiveForeground": palette.dyNeutralFgDim,
+    "panelTitle.activeForeground": palette.dyNeutralTextMain,
+    "panelTitle.inactiveForeground": palette.dyNeutralTextDim,
     // for when you do a split in the panel
     "panelSectionHeader.background": palette.dyNeutralBgAlt,
-    "panelSectionHeader.foreground": palette.dyNeutralFgAlt,
+    "panelSectionHeader.foreground": palette.dyNeutralTextAlt,
     "panelSection.border": palette.dyNeutralBorder,
 
     // TERMINAL
-    "terminal.foreground": palette.dyNeutralFgMain,
+    "terminal.foreground": palette.dyNeutralTextMain,
     "terminal.background": palette.dyNeutralBgMain,
-    "terminalCursor.foreground": palette.dyNeutralFgMain,
+    "terminalCursor.foreground": palette.dyNeutralTextMain,
     "terminalCursor.background": palette.dyNeutralBgMain,
     // ansi colors
     "terminal.ansiBlack": palette.dyAnsiBlack,

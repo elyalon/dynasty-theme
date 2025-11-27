@@ -23,7 +23,7 @@ const genTitle = title ? `${title} | Dynasty Theme` : "Dynasty Theme";
 
     <title>{genTitle}</title>
   </head>
-  <body class="bg-(--dyNeutralBgMain) font-mono text-(--dyNeutralFgAlt)">
+  <body class="bg-(--dyNeutralBgMain) font-mono text-(--dyNeutralTextAlt)">
     <NavBar />
     <slot />
   </body>
@@ -31,10 +31,10 @@ const genTitle = title ? `${title} | Dynasty Theme` : "Dynasty Theme";
 
 <style
   define:vars={{
-    dyNeutralFgBright: palette.dyNeutralFgBright,
-    dyNeutralFgMain: palette.dyNeutralFgMain,
-    dyNeutralFgAlt: palette.dyNeutralFgAlt,
-    dyNeutralFgDim: palette.dyNeutralFgDim,
+    dyNeutralTextBright: palette.dyNeutralTextBright,
+    dyNeutralTextMain: palette.dyNeutralTextMain,
+    dyNeutralTextAlt: palette.dyNeutralTextAlt,
+    dyNeutralTextDim: palette.dyNeutralTextDim,
     dyNeutralBorder: palette.dyNeutralBorder,
     dyNeutralBgSub: palette.dyNeutralBgSub,
     dyNeutralBgAlt: palette.dyNeutralBgAlt,

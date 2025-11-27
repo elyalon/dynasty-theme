@@ -1,8 +1,8 @@
 {
-  "dyNeutralFgBright": "#f1f2f3",
-  "dyNeutralFgMain": "#e0e1e5",
-  "dyNeutralFgAlt": "#b9babf",
-  "dyNeutralFgDim": "#7e8086",
+  "dyNeutralTextBright": "#f1f2f3",
+  "dyNeutralTextMain": "#e0e1e5",
+  "dyNeutralTextAlt": "#b9babf",
+  "dyNeutralTextDim": "#7e8086",
   "dyNeutralBorder": "#454750",
   "dyNeutralBgSub": "#272a30",
   "dyNeutralBgAlt": "#191c22",

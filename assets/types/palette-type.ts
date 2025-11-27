@@ -1,8 +1,8 @@
 export interface Palette {
-  dyNeutralFgBright: string;
-  dyNeutralFgMain: string;
-  dyNeutralFgAlt: string;
-  dyNeutralFgDim: string;
+  dyNeutralTextBright: string;
+  dyNeutralTextMain: string;
+  dyNeutralTextAlt: string;
+  dyNeutralTextDim: string;
   dyNeutralBorder: string;
   dyNeutralBgSub: string;
   dyNeutralBgAlt: string;

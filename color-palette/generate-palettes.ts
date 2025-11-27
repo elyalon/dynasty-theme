@@ -4,10 +4,10 @@ import * as fs from "fs";
 type Pigment = "none" | "red";
 
 function generatePalette(pigment: Pigment): void {
-  let dyNeutralFgBright;
-  let dyNeutralFgMain;
-  let dyNeutralFgAlt;
-  let dyNeutralFgDim;
+  let dyNeutralTextBright;
+  let dyNeutralTextMain;
+  let dyNeutralTextAlt;
+  let dyNeutralTextDim;
 
   let dyNeutralBorder;
   let dyNeutralBgSub;
@@ -28,10 +28,10 @@ function generatePalette(pigment: Pigment): void {
 
   switch (pigment) {
     case "none":
-      dyNeutralFgBright = chroma("oklch(96% 0.002 270)").hex();
-      dyNeutralFgMain = chroma("oklch(91% 0.005 270)").hex();
-      dyNeutralFgAlt = chroma("oklch(79% 0.007 270)").hex();
-      dyNeutralFgDim = chroma("oklch(60% 0.01 270)").hex();
+      dyNeutralTextBright = chroma("oklch(96% 0.002 270)").hex();
+      dyNeutralTextMain = chroma("oklch(91% 0.005 270)").hex();
+      dyNeutralTextAlt = chroma("oklch(79% 0.007 270)").hex();
+      dyNeutralTextDim = chroma("oklch(60% 0.01 270)").hex();
 
       dyNeutralBorder = chroma("oklch(40% 0.014 270)").hex();
       dyNeutralBgSub = chroma("oklch(28.4% 0.013 270)").hex();
@@ -69,22 +69,22 @@ function generatePalette(pigment: Pigment): void {
   const dyAnsiBlue = chroma("oklch(60.7% 0.2123 263.2)").hex();
   const dyAnsiMagenta = chroma("oklch(64.5% 0.238 304.8)").hex();
   const dyAnsiCyan = chroma("oklch(70.7% 0.1533 162.8)").hex();
-  const dyAnsiWhite = dyNeutralFgMain;
+  const dyAnsiWhite = dyNeutralTextMain;
 
-  const dyAnsiBrightBlack = dyNeutralFgDim;
+  const dyAnsiBrightBlack = dyNeutralTextDim;
   const dyAnsiBrightRed = chroma("oklch(68.8% 0.2012 22.9)").hex();
   const dyAnsiBrightGreen = chroma("oklch(86.3% 0.2005 141.3)").hex();
   const dyAnsiBrightYellow = chroma("oklch(88.4% 0.1275 85.3)").hex();
   const dyAnsiBrightBlue = chroma("oklch(74% 0.1413 228)").hex();
   const dyAnsiBrightMagenta = chroma("oklch(77.9% 0.1709 319.8)").hex();
   const dyAnsiBrightCyan = chroma("oklch(85.1% 0.1428 184.3)").hex();
-  const dyAnsiBrightWhite = dyNeutralFgBright;
+  const dyAnsiBrightWhite = dyNeutralTextBright;
 
   const paletteObj: Record<string, string> = {
-    dyNeutralFgBright,
-    dyNeutralFgMain,
-    dyNeutralFgAlt,
-    dyNeutralFgDim,
+    dyNeutralTextBright,
+    dyNeutralTextMain,
+    dyNeutralTextAlt,
+    dyNeutralTextDim,
 
     dyNeutralBorder,
     dyNeutralBgSub,

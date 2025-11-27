@@ -9,7 +9,7 @@ import TypescriptPreview from "../previews/TypescriptPreview.astro";
   class="border-t border-(--dyNeutralBorder) bg-(--dyNeutralBgAlt) pt-55 pb-30"
 >
   <div class="mx-auto max-w-210 px-3">
-    <h2 class="mb-6 text-3xl font-semibold text-(--dyNeutralFgAlt)">
+    <h2 class="mb-6 text-3xl font-semibold text-(--dyNeutralTextAlt)">
       Code Preview
     </h2>
     <div
@@ -20,7 +20,7 @@ import TypescriptPreview from "../previews/TypescriptPreview.astro";
       >
         <select
           id="preview-select"
-          class="w-32 bg-(--dyNeutralBgAlt) text-(--dyNeutralFgAlt)"
+          class="w-32 bg-(--dyNeutralBgAlt) text-(--dyNeutralTextAlt)"
         >
           <option selected>TypeScript</option>
           <option>HTML & CSS</option>
@@ -28,7 +28,7 @@ import TypescriptPreview from "../previews/TypescriptPreview.astro";
           <option>Go</option>
         </select>
       </div>
-      <div class="overflow-x-auto p-4 text-(--dyNeutralFgMain)">
+      <div class="overflow-x-auto p-4 text-(--dyNeutralTextMain)">
         <div id="typescript-preview">
           <TypescriptPreview />
         </div>
