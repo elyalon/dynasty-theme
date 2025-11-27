@@ -1,7 +1,5 @@
 {
-  "name": "dynasty-website",
   "type": "module",
-  "version": "0.0.1",
   "devDependencies": {
     "@lucide/astro": "^0.552.0",
     "astro": "^5.15.2",
