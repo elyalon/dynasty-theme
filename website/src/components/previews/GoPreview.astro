@@ -1,50 +1,37 @@
----
-import SyntaxComment from "../syntax/SyntaxComment.astro";
-import SyntaxFunction from "../syntax/SyntaxFunction.astro";
-import SyntaxItalic from "../syntax/SyntaxItalic.astro";
-import SyntaxKeyword from "../syntax/SyntaxKeyword.astro";
-import SyntaxNumberLiteral from "../syntax/SyntaxNumberLiteral.astro";
-import SyntaxOperator from "../syntax/SyntaxOperator.astro";
-import SyntaxPunctuation from "../syntax/SyntaxPunctuation.astro";
-import SyntaxSpecialFunction from "../syntax/SyntaxSpecialFunction.astro";
-import SyntaxStringLiteral from "../syntax/SyntaxStringLiteral.astro";
-import SyntaxType from "../syntax/SyntaxType.astro";
----
-
 <pre>
-<SyntaxKeyword>package</SyntaxKeyword> <SyntaxType>mux_test</SyntaxType>
+<span class="TOKEN_keyword">package</span> <span class="TOKEN_type">mux_test</span>
 
-<SyntaxKeyword>import</SyntaxKeyword> <SyntaxPunctuation>(</SyntaxPunctuation>
-	<SyntaxStringLiteral>"</SyntaxStringLiteral><SyntaxType>fmt</SyntaxType><SyntaxStringLiteral>"</SyntaxStringLiteral>
-	<SyntaxStringLiteral>"</SyntaxStringLiteral><SyntaxType>github.com/gorilla/mux</SyntaxType><SyntaxStringLiteral>"</SyntaxStringLiteral>
-<SyntaxPunctuation>)</SyntaxPunctuation>
+<span class="TOKEN_keyword">import</span> <span class="TOKEN_punctuation">(</span>
+	<span class="TOKEN_string">"</span><span class="TOKEN_type">fmt</span><span class="TOKEN_string">"</span>
+	<span class="TOKEN_string">"</span><span class="TOKEN_type">github.com/gorilla/mux</span><span class="TOKEN_string">"</span>
+<span class="TOKEN_punctuation">)</span>
 
-<SyntaxComment>// This example demonstrates building a dynamic URL using</SyntaxComment>
-<SyntaxComment>// required vars and values retrieve from another source</SyntaxComment>
-<SyntaxKeyword>func</SyntaxKeyword> <SyntaxFunction>ExampleRoute_GetVarNames</SyntaxFunction><SyntaxPunctuation>()</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-	r <SyntaxOperator>:=</SyntaxOperator> mux<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>NewRouter</SyntaxFunction><SyntaxPunctuation>()</SyntaxPunctuation>
+<span class="TOKEN_comment">// This example demonstrates building a dynamic URL using</span>
+<span class="TOKEN_comment">// required vars and values retrieve from another source</span>
+<span class="TOKEN_keyword">func</span> <span class="TOKEN_function">ExampleRoute_GetVarNames</span><span class="TOKEN_punctuation">()</span> <span class="TOKEN_punctuation">{'{'}</span>
+	r <span class="TOKEN_operator">:=</span> mux<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">NewRouter</span><span class="TOKEN_punctuation">()</span>
 
-	route <SyntaxOperator>:=</SyntaxOperator> r<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>Host</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxStringLiteral>"{'{'}domain{'}'}"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>.</SyntaxPunctuation>
-		<SyntaxFunction>Path</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxStringLiteral>"/{'{'}group{'}'}/{'{'}item_id{'}'}"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>.</SyntaxPunctuation>
-		<SyntaxFunction>Queries</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxStringLiteral>"some_data1"</SyntaxStringLiteral><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxStringLiteral>"{'{'}some_data1{'}'}"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>.</SyntaxPunctuation>
-		<SyntaxFunction>Queries</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxStringLiteral>"some_data2_and_3"</SyntaxStringLiteral><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxStringLiteral>"{'{'}some_data2{'}'}.{'{'}some_data3{'}'}"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation>
+	route <span class="TOKEN_operator">:=</span> r<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">Host</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_string">"{'{'}domain{'}'}"</span><span class="TOKEN_punctuation">)</span><span class="TOKEN_punctuation">.</span>
+		<span class="TOKEN_function">Path</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_string">"/{'{'}group{'}'}/{'{'}item_id{'}'}"</span><span class="TOKEN_punctuation">)</span><span class="TOKEN_punctuation">.</span>
+		<span class="TOKEN_function">Queries</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_string">"some_data1"</span><span class="TOKEN_punctuation">,</span> <span class="TOKEN_string">"{'{'}some_data1{'}'}"</span><span class="TOKEN_punctuation">)</span><span class="TOKEN_punctuation">.</span>
+		<span class="TOKEN_function">Queries</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_string">"some_data2_and_3"</span><span class="TOKEN_punctuation">,</span> <span class="TOKEN_string">"{'{'}some_data2{'}'}.{'{'}some_data3{'}'}"</span><span class="TOKEN_punctuation">)</span>
 
-	dataSource <SyntaxOperator>:=</SyntaxOperator> <SyntaxKeyword>func</SyntaxKeyword><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>key</SyntaxItalic> <SyntaxKeyword>string</SyntaxKeyword><SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxKeyword>string</SyntaxKeyword> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-		<SyntaxKeyword>return</SyntaxKeyword> <SyntaxStringLiteral>"my_value_for_"</SyntaxStringLiteral> <SyntaxOperator>+</SyntaxOperator> <SyntaxItalic>key</SyntaxItalic>
-	<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+	dataSource <span class="TOKEN_operator">:=</span> <span class="TOKEN_keyword">func</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_parameter">key</span> <span class="TOKEN_keyword">string</span><span class="TOKEN_punctuation">)</span> <span class="TOKEN_keyword">string</span> <span class="TOKEN_punctuation">{'{'}</span>
+		<span class="TOKEN_keyword">return</span> <span class="TOKEN_string">"my_value_for_"</span> <span class="TOKEN_operator">+</span> <span class="TOKEN_parameter">key</span>
+	<span class="TOKEN_punctuation">{'}'}</span>
 
-	varNames<SyntaxPunctuation>,</SyntaxPunctuation> _ <SyntaxOperator>:=</SyntaxOperator> route<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>GetVarNames</SyntaxFunction><SyntaxPunctuation>()</SyntaxPunctuation>
+	varNames<span class="TOKEN_punctuation">,</span> _ <span class="TOKEN_operator">:=</span> route<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">GetVarNames</span><span class="TOKEN_punctuation">()</span>
 
-	pairs <SyntaxOperator>:=</SyntaxOperator> <SyntaxSpecialFunction>make</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxKeyword>string</SyntaxKeyword><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxNumberLiteral>0</SyntaxNumberLiteral><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxSpecialFunction>len</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation>varNames<SyntaxPunctuation>)</SyntaxPunctuation><SyntaxOperator>*</SyntaxOperator><SyntaxNumberLiteral>2</SyntaxNumberLiteral><SyntaxPunctuation>)</SyntaxPunctuation>
+	pairs <span class="TOKEN_operator">:=</span> <span class="TOKEN_special">make</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_punctuation">[]</span><span class="TOKEN_keyword">string</span><span class="TOKEN_punctuation">,</span> <span class="TOKEN_number">0</span><span class="TOKEN_punctuation">,</span> <span class="TOKEN_special">len</span><span class="TOKEN_punctuation">(</span>varNames<span class="TOKEN_punctuation">)</span><span class="TOKEN_operator">*</span><span class="TOKEN_number">2</span><span class="TOKEN_punctuation">)</span>
 
-	<SyntaxKeyword>for</SyntaxKeyword> _<SyntaxPunctuation>,</SyntaxPunctuation> varName <SyntaxOperator>:=</SyntaxOperator> <SyntaxKeyword>range</SyntaxKeyword> varNames <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-		pairs <SyntaxOperator>=</SyntaxOperator> <SyntaxSpecialFunction>append</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation>pairs<SyntaxPunctuation>,</SyntaxPunctuation> varName<SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxFunction>dataSource</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>varName<SyntaxPunctuation>))</SyntaxPunctuation>
-	<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+	<span class="TOKEN_keyword">for</span> _<span class="TOKEN_punctuation">,</span> varName <span class="TOKEN_operator">:=</span> <span class="TOKEN_keyword">range</span> varNames <span class="TOKEN_punctuation">{'{'}</span>
+		pairs <span class="TOKEN_operator">=</span> <span class="TOKEN_special">append</span><span class="TOKEN_punctuation">(</span>pairs<span class="TOKEN_punctuation">,</span> varName<span class="TOKEN_punctuation">,</span> <span class="TOKEN_function">dataSource</span><span class="TOKEN_punctuation">(</span>varName<span class="TOKEN_punctuation">))</span>
+	<span class="TOKEN_punctuation">{'}'}</span>
 
-	url<SyntaxPunctuation>,</SyntaxPunctuation> err <SyntaxOperator>:=</SyntaxOperator> route<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>URL</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>pairs<SyntaxOperator>...</SyntaxOperator><SyntaxPunctuation>)</SyntaxPunctuation>
-	<SyntaxKeyword>if</SyntaxKeyword> err <SyntaxOperator>!=</SyntaxOperator> <SyntaxKeyword>nil</SyntaxKeyword> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-		<SyntaxSpecialFunction>panic</SyntaxSpecialFunction><SyntaxPunctuation>(</SyntaxPunctuation>err<SyntaxPunctuation>)</SyntaxPunctuation>
-	<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
-	fmt<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>Println</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>url<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>String</SyntaxFunction><SyntaxPunctuation>())</SyntaxPunctuation>
-<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+	url<span class="TOKEN_punctuation">,</span> err <span class="TOKEN_operator">:=</span> route<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">URL</span><span class="TOKEN_punctuation">(</span>pairs<span class="TOKEN_operator">...</span><span class="TOKEN_punctuation">)</span>
+	<span class="TOKEN_keyword">if</span> err <span class="TOKEN_operator">!=</span> <span class="TOKEN_keyword">nil</span> <span class="TOKEN_punctuation">{'{'}</span>
+		<span class="TOKEN_special">panic</span><span class="TOKEN_punctuation">(</span>err<span class="TOKEN_punctuation">)</span>
+	<span class="TOKEN_punctuation">{'}'}</span>
+	fmt<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">Println</span><span class="TOKEN_punctuation">(</span>url<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">String</span><span class="TOKEN_punctuation">())</span>
+<span class="TOKEN_punctuation">{'}'}</span>
 </pre>

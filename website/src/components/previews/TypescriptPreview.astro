@@ -1,48 +1,37 @@
----
-import SyntaxPunctuation from "../syntax/SyntaxPunctuation.astro";
-import SyntaxStringLiteral from "../syntax/SyntaxStringLiteral.astro";
-import SyntaxKeyword from "../syntax/SyntaxKeyword.astro";
-import SyntaxOperator from "../syntax/SyntaxOperator.astro";
-import SyntaxType from "../syntax/SyntaxType.astro";
-import SyntaxFunction from "../syntax/SyntaxFunction.astro";
-import SyntaxNumberLiteral from "../syntax/SyntaxNumberLiteral.astro";
-import SyntaxItalic from "../syntax/SyntaxItalic.astro";
----
-
 <pre>
-<SyntaxKeyword>export</SyntaxKeyword> <SyntaxKeyword>type</SyntaxKeyword> <SyntaxType>Todo</SyntaxType> <SyntaxOperator>=</SyntaxOperator> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-  id<SyntaxOperator>:</SyntaxOperator> <SyntaxType>string</SyntaxType><SyntaxPunctuation>;</SyntaxPunctuation>
-  text<SyntaxOperator>:</SyntaxOperator> <SyntaxType>string</SyntaxType><SyntaxPunctuation>;</SyntaxPunctuation>
-  completed<SyntaxOperator>:</SyntaxOperator> <SyntaxType>boolean</SyntaxType><SyntaxPunctuation>;</SyntaxPunctuation>
-<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+<span class="TOKEN_keyword">export</span> <span class="TOKEN_keyword">type</span> <span class="TOKEN_type">Todo</span> <span class="TOKEN_operator">=</span> <span class="TOKEN_punctuation">{'{'}</span>
+  id<span class="TOKEN_operator">:</span> <span class="TOKEN_type">string</span><span class="TOKEN_punctuation">;</span>
+  text<span class="TOKEN_operator">:</span> <span class="TOKEN_type">string</span><span class="TOKEN_punctuation">;</span>
+  completed<span class="TOKEN_operator">:</span> <span class="TOKEN_type">boolean</span><span class="TOKEN_punctuation">;</span>
+<span class="TOKEN_punctuation">{'}'}</span>
 
-<SyntaxKeyword>export class</SyntaxKeyword> <SyntaxType>TodoService</SyntaxType> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-  <SyntaxKeyword>async</SyntaxKeyword> <SyntaxFunction>get</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxOperator>:</SyntaxOperator> <SyntaxType>Promise</SyntaxType><SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxType>Todo</SyntaxType><SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxPunctuation>&gt;</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-    <SyntaxKeyword>const</SyntaxKeyword> todos <SyntaxOperator>=</SyntaxOperator> <SyntaxKeyword>await</SyntaxKeyword> <SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation>env<SyntaxPunctuation>.</SyntaxPunctuation>TODOS<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>get</SyntaxFunction><SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxType>Todo</SyntaxType><SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxPunctuation>&gt;</SyntaxPunctuation><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation>userID<SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxStringLiteral>"json"</SyntaxStringLiteral><SyntaxPunctuation>)</SyntaxPunctuation>
-    <SyntaxKeyword>return</SyntaxKeyword> todos <SyntaxOperator>||</SyntaxOperator> <SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxPunctuation>;</SyntaxPunctuation>
-  <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+<span class="TOKEN_keyword">export class</span> <span class="TOKEN_type">TodoService</span> <span class="TOKEN_punctuation">{'{'}</span>
+  <span class="TOKEN_keyword">async</span> <span class="TOKEN_function">get</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_punctuation">)</span><span class="TOKEN_operator">:</span> <span class="TOKEN_type">Promise</span><span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_type">Todo</span><span class="TOKEN_punctuation">[]</span><span class="TOKEN_punctuation">&gt;</span> <span class="TOKEN_punctuation">{'{'}</span>
+    <span class="TOKEN_keyword">const</span> todos <span class="TOKEN_operator">=</span> <span class="TOKEN_keyword">await</span> <span class="TOKEN_keyword">this</span><span class="TOKEN_punctuation">.</span>env<span class="TOKEN_punctuation">.</span>TODOS<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">get</span><span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_type">Todo</span><span class="TOKEN_punctuation">[]</span><span class="TOKEN_punctuation">&gt;</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_keyword">this</span><span class="TOKEN_punctuation">.</span>userID<span class="TOKEN_punctuation">,</span> <span class="TOKEN_string">"json"</span><span class="TOKEN_punctuation">)</span>
+    <span class="TOKEN_keyword">return</span> todos <span class="TOKEN_operator">||</span> <span class="TOKEN_punctuation">[]</span><span class="TOKEN_punctuation">;</span>
+  <span class="TOKEN_punctuation">{'}'}</span>
 
-  <SyntaxKeyword>async</SyntaxKeyword> <SyntaxFunction>set</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>todos</SyntaxItalic><SyntaxOperator>:</SyntaxOperator> <SyntaxType>Todo</SyntaxType><SyntaxPunctuation>[])</SyntaxPunctuation><SyntaxOperator>:</SyntaxOperator> <SyntaxType>Promise</SyntaxType><SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxType>Todo</SyntaxType><SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxPunctuation>&gt;</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-    <SyntaxKeyword>const</SyntaxKeyword> sorted <SyntaxOperator>=</SyntaxOperator> <SyntaxItalic>todos</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>sort</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>t1</SyntaxItalic><SyntaxPunctuation>,</SyntaxPunctuation> <SyntaxItalic>t2</SyntaxItalic><SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxKeyword>=&gt;</SyntaxKeyword> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-      <SyntaxKeyword>if</SyntaxKeyword> <SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>t1</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation>completed <SyntaxOperator>===</SyntaxOperator> <SyntaxItalic>t2</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation>completed<SyntaxPunctuation>)</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-        <SyntaxKeyword>return</SyntaxKeyword> <SyntaxItalic>t1</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation>id<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>localeCompare</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>t2</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation>id<SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>;</SyntaxPunctuation>
-      <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
-      <SyntaxKeyword>return</SyntaxKeyword> <SyntaxItalic>t1</SyntaxItalic><SyntaxPunctuation>.</SyntaxPunctuation>completed <SyntaxOperator>?</SyntaxOperator> <SyntaxNumberLiteral>1</SyntaxNumberLiteral> <SyntaxOperator>:</SyntaxOperator> <SyntaxOperator>-</SyntaxOperator><SyntaxNumberLiteral>1</SyntaxNumberLiteral><SyntaxPunctuation>;</SyntaxPunctuation>
-    <SyntaxPunctuation>{'}'});</SyntaxPunctuation>
+  <span class="TOKEN_keyword">async</span> <span class="TOKEN_function">set</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_parameter">todos</span><span class="TOKEN_operator">:</span> <span class="TOKEN_type">Todo</span><span class="TOKEN_punctuation">[])</span><span class="TOKEN_operator">:</span> <span class="TOKEN_type">Promise</span><span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_type">Todo</span><span class="TOKEN_punctuation">[]</span><span class="TOKEN_punctuation">&gt;</span> <span class="TOKEN_punctuation">{'{'}</span>
+    <span class="TOKEN_keyword">const</span> sorted <span class="TOKEN_operator">=</span> <span class="TOKEN_parameter">todos</span><span class="TOKEN_punctuation">.</span><span class="TOKEN_function">sort</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_parameter">t1</span><span class="TOKEN_punctuation">,</span> <span class="TOKEN_parameter">t2</span><span class="TOKEN_punctuation">)</span> <span class="TOKEN_keyword">=&gt;</span> <span class="TOKEN_punctuation">{'{'}</span>
+      <span class="TOKEN_keyword">if</span> <span class="TOKEN_punctuation">(</span><span class="TOKEN_parameter">t1</span><span class="TOKEN_punctuation">.</span>completed <span class="TOKEN_operator">===</span> <span class="TOKEN_parameter">t2</span><span class="TOKEN_punctuation">.</span>completed<span class="TOKEN_punctuation">)</span> <span class="TOKEN_punctuation">{'{'}</span>
+        <span class="TOKEN_keyword">return</span> <span class="TOKEN_parameter">t1</span><span class="TOKEN_punctuation">.</span>id<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">localeCompare</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_parameter">t2</span><span class="TOKEN_punctuation">.</span>id<span class="TOKEN_punctuation">)</span><span class="TOKEN_punctuation">;</span>
+      <span class="TOKEN_punctuation">{'}'}</span>
+      <span class="TOKEN_keyword">return</span> <span class="TOKEN_parameter">t1</span><span class="TOKEN_punctuation">.</span>completed <span class="TOKEN_operator">?</span> <span class="TOKEN_number">1</span> <span class="TOKEN_operator">:</span> <span class="TOKEN_operator">-</span><span class="TOKEN_number">1</span><span class="TOKEN_punctuation">;</span>
+    <span class="TOKEN_punctuation">{'}'});</span>
 
-    <SyntaxKeyword>await</SyntaxKeyword> <SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation>env<SyntaxPunctuation>.</SyntaxPunctuation>TODOS<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>put</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation>userID<SyntaxPunctuation>,</SyntaxPunctuation> JSON<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>stringify</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>sorted<SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>)</SyntaxPunctuation>
-    <SyntaxKeyword>return</SyntaxKeyword> sorted
-  <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+    <span class="TOKEN_keyword">await</span> <span class="TOKEN_keyword">this</span><span class="TOKEN_punctuation">.</span>env<span class="TOKEN_punctuation">.</span>TODOS<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">put</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_keyword">this</span><span class="TOKEN_punctuation">.</span>userID<span class="TOKEN_punctuation">,</span> JSON<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">stringify</span><span class="TOKEN_punctuation">(</span>sorted<span class="TOKEN_punctuation">)</span><span class="TOKEN_punctuation">)</span>
+    <span class="TOKEN_keyword">return</span> sorted
+  <span class="TOKEN_punctuation">{'}'}</span>
 
-  <SyntaxKeyword>async</SyntaxKeyword> <SyntaxFunction>add</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxItalic>todoText</SyntaxItalic><SyntaxOperator>:</SyntaxOperator> <SyntaxType>string</SyntaxType><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxOperator>:</SyntaxOperator> <SyntaxType>Promise</SyntaxType><SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxType>Todo</SyntaxType><SyntaxPunctuation>[]</SyntaxPunctuation><SyntaxPunctuation>&gt;</SyntaxPunctuation> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-    <SyntaxKeyword>const</SyntaxKeyword> todos <SyntaxOperator>=</SyntaxOperator> <SyntaxKeyword>await</SyntaxKeyword> <SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>get</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>)</SyntaxPunctuation>
-    <SyntaxKeyword>const</SyntaxKeyword> newTodo<SyntaxOperator>:</SyntaxOperator> <SyntaxType>Todo</SyntaxType> <SyntaxOperator>=</SyntaxOperator> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-      id<SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxType>Date</SyntaxType><SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>now</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>toString</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation><SyntaxPunctuation>)</SyntaxPunctuation><SyntaxPunctuation>,</SyntaxPunctuation>
-      text<SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxItalic>todoText</SyntaxItalic><SyntaxPunctuation>,</SyntaxPunctuation>
-      completed<SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxKeyword>false</SyntaxKeyword>
-    <SyntaxPunctuation>{'}'};</SyntaxPunctuation>
-    todos<SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>push</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>newTodo<SyntaxPunctuation>)</SyntaxPunctuation>
-    <SyntaxKeyword>return</SyntaxKeyword> <SyntaxKeyword>this</SyntaxKeyword><SyntaxPunctuation>.</SyntaxPunctuation><SyntaxFunction>set</SyntaxFunction><SyntaxPunctuation>(</SyntaxPunctuation>todos<SyntaxPunctuation>)</SyntaxPunctuation>
-  <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
-<SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+  <span class="TOKEN_keyword">async</span> <span class="TOKEN_function">add</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_parameter">todoText</span><span class="TOKEN_operator">:</span> <span class="TOKEN_type">string</span><span class="TOKEN_punctuation">)</span><span class="TOKEN_operator">:</span> <span class="TOKEN_type">Promise</span><span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_type">Todo</span><span class="TOKEN_punctuation">[]</span><span class="TOKEN_punctuation">&gt;</span> <span class="TOKEN_punctuation">{'{'}</span>
+    <span class="TOKEN_keyword">const</span> todos <span class="TOKEN_operator">=</span> <span class="TOKEN_keyword">await</span> <span class="TOKEN_keyword">this</span><span class="TOKEN_punctuation">.</span><span class="TOKEN_function">get</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_punctuation">)</span>
+    <span class="TOKEN_keyword">const</span> newTodo<span class="TOKEN_operator">:</span> <span class="TOKEN_type">Todo</span> <span class="TOKEN_operator">=</span> <span class="TOKEN_punctuation">{'{'}</span>
+      id<span class="TOKEN_punctuation">:</span> <span class="TOKEN_type">Date</span><span class="TOKEN_punctuation">.</span><span class="TOKEN_function">now</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_punctuation">)</span><span class="TOKEN_punctuation">.</span><span class="TOKEN_function">toString</span><span class="TOKEN_punctuation">(</span><span class="TOKEN_punctuation">)</span><span class="TOKEN_punctuation">,</span>
+      text<span class="TOKEN_punctuation">:</span> <span class="TOKEN_parameter">todoText</span><span class="TOKEN_punctuation">,</span>
+      completed<span class="TOKEN_punctuation">:</span> <span class="TOKEN_keyword">false</span>
+    <span class="TOKEN_punctuation">{'}'};</span>
+    todos<span class="TOKEN_punctuation">.</span><span class="TOKEN_function">push</span><span class="TOKEN_punctuation">(</span>newTodo<span class="TOKEN_punctuation">)</span>
+    <span class="TOKEN_keyword">return</span> <span class="TOKEN_keyword">this</span><span class="TOKEN_punctuation">.</span><span class="TOKEN_function">set</span><span class="TOKEN_punctuation">(</span>todos<span class="TOKEN_punctuation">)</span>
+  <span class="TOKEN_punctuation">{'}'}</span>
+<span class="TOKEN_punctuation">{'}'}</span>
 </pre>

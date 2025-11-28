@@ -4,7 +4,7 @@
   --font-mono: "Google Sans Code", monospace;
   --spacing: 4px;
 
-  --color-*: initial;
+  /* --color-*: initial; */
 }
 
 @layer base {
@@ -14,5 +14,36 @@
 
   button {
     cursor: pointer;
+  }
+
+  .TOKEN_comment {
+    color: var(--dyNeutralTextDim);
+  }
+  .TOKEN_punctuation {
+    color: var(--dyNeutralTextAlt);
+  }
+  .TOKEN_type {
+    color: var(--dySyntaxType);
+  }
+  .TOKEN_operator {
+    color: var(--dySyntaxOperator);
+  }
+  .TOKEN_keyword {
+    color: var(--dySyntaxKeyword);
+  }
+  .TOKEN_special {
+    color: var(--dySyntaxSpecial);
+  }
+  .TOKEN_function {
+    color: var(--dySyntaxFunction);
+  }
+  .TOKEN_string {
+    color: var(--dySyntaxString);
+  }
+  .TOKEN_number {
+    color: var(--dySyntaxNumber);
+  }
+  .TOKEN_parameter {
+    font-style: italic;
   }
 }

@@ -1,0 +1,17 @@
+---
+interface Props {
+  href: string;
+  text: string;
+}
+const { href, text } = Astro.props;
+---
+
+<a
+  href={href}
+  class="flex h-full items-center gap-1.5 px-3.5 text-(--dyNeutralTextAlt) hover:bg-(--dyNeutralTextMain)/15 hover:text-(--dyNeutralTextMain)"
+>
+  <div>
+    <slot name="icon" />
+  </div>
+  <div>{text}</div>
+</a>

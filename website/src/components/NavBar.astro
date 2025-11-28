@@ -1,20 +1,27 @@
 ---
 import DynastyIcon from "../../assets/svgo/icon-currentColor.svg";
+import NavBarLink from "./NavBarLink.astro";
+import { Palette, ShoppingBag } from "@lucide/astro";
 ---
 
 <div
-  class="sticky top-0 z-100 h-10 w-full border-b border-(--dyNeutralBorder) bg-(--dyNeutralBgAlt) text-(--dyNeutralTextAlt)"
+  class="sticky top-0 z-100 h-10 w-full overflow-x-auto border-b border-(--dyNeutralBorder) bg-(--dyNeutralBgAlt) text-nowrap text-(--dyNeutralTextAlt) max-md:h-12"
 >
-  <div class="mx-auto flex h-full max-w-220 items-center justify-between px-6">
-    <a href="" class="group font-semibold">
-      <DynastyIcon
-        width={20}
-        height={20}
-        class="mr-1 inline-block shrink-0 -translate-y-px select-none"
-      /><span class="group-hover:underline">Dynasty</span>
+  <div class="mx-auto flex h-full max-w-220 items-center justify-between">
+    <a
+      href="/"
+      class="flex h-full items-center gap-1 px-4 font-semibold hover:bg-(--dyNeutralTextMain)/15 hover:text-(--dyNeutralTextMain) max-md:text-xl"
+    >
+      <DynastyIcon class="size-5 shrink-0 -translate-y-px max-md:size-6" />
+      <div>Dynasty</div>
     </a>
-    <div class="flex gap-8">
-      <a href="#purchase" class="hover:underline">Purchase</a>
+    <div class="flex h-full">
+      <NavBarLink href="/palette" text="Palette">
+        <Palette slot="icon" class="size-4.5" />
+      </NavBarLink>
+      <NavBarLink href="/purchase" text="Purchase">
+        <ShoppingBag slot="icon" class="size-4.5" />
+      </NavBarLink>
     </div>
   </div>
 </div>

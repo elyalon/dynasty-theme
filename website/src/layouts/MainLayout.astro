@@ -2,8 +2,12 @@
 import "../styles/global.css";
 import palette from "../../assets/palette/palette-none.json";
 import NavBar from "../components/NavBar.astro";
+import FooterSection from "../components/FooterSection.astro";
 
-const { title }: { title?: string } = Astro.props;
+interface Props {
+  title?: string;
+}
+const { title } = Astro.props;
 const genTitle = title ? `${title} | Dynasty Theme` : "Dynasty Theme";
 ---
 
@@ -23,9 +27,10 @@ const genTitle = title ? `${title} | Dynasty Theme` : "Dynasty Theme";
 
     <title>{genTitle}</title>
   </head>
-  <body class="bg-(--dyNeutralBgMain) font-mono text-(--dyNeutralTextAlt)">
+  <body class="bg-(--dyNeutralBgAlt) font-mono text-(--dyNeutralTextAlt)">
     <NavBar />
     <slot />
+    <FooterSection />
   </body>
 </html>
 
@@ -35,6 +40,7 @@ const genTitle = title ? `${title} | Dynasty Theme` : "Dynasty Theme";
     dyNeutralTextMain: palette.dyNeutralTextMain,
     dyNeutralTextAlt: palette.dyNeutralTextAlt,
     dyNeutralTextDim: palette.dyNeutralTextDim,
+
     dyNeutralBorder: palette.dyNeutralBorder,
     dyNeutralBgSub: palette.dyNeutralBgSub,
     dyNeutralBgAlt: palette.dyNeutralBgAlt,

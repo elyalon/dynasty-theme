@@ -1,41 +1,31 @@
----
-import SyntaxPunctuation from "../syntax/SyntaxPunctuation.astro";
-import SyntaxStringLiteral from "../syntax/SyntaxStringLiteral.astro";
-import SyntaxKeyword from "../syntax/SyntaxKeyword.astro";
-import SyntaxType from "../syntax/SyntaxType.astro";
-import SyntaxNumberLiteral from "../syntax/SyntaxNumberLiteral.astro";
-import SyntaxFunction from "../syntax/SyntaxFunction.astro";
-import SyntaxOperator from "../syntax/SyntaxOperator.astro";
----
-
 <pre>
-<SyntaxPunctuation>&lt;!</SyntaxPunctuation><SyntaxFunction>DOCTYPE</SyntaxFunction> <SyntaxOperator>html</SyntaxOperator><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-<SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxFunction>html</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-  <SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxFunction>head</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-    <SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxFunction>style</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
+<span class="TOKEN_punctuation">&lt;!</span><span class="TOKEN_function">DOCTYPE</span> <span class="TOKEN_operator">html</span><span class="TOKEN_punctuation">&gt;</span>
+<span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_function">html</span><span class="TOKEN_punctuation">&gt;</span>
+  <span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_function">head</span><span class="TOKEN_punctuation">&gt;</span>
+    <span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_function">style</span><span class="TOKEN_punctuation">&gt;</span>
 
-      <SyntaxFunction>body</SyntaxFunction> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-        <SyntaxType>font-family</SyntaxType><SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxKeyword>Arial</SyntaxKeyword><SyntaxPunctuation>;</SyntaxPunctuation>
-        <SyntaxType>margin</SyntaxType><SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxNumberLiteral>40</SyntaxNumberLiteral><SyntaxKeyword>px</SyntaxKeyword><SyntaxPunctuation>;</SyntaxPunctuation>
-      <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+      <span class="TOKEN_function">body</span> <span class="TOKEN_punctuation">{'{'}</span>
+        <span class="TOKEN_type">font-family</span><span class="TOKEN_punctuation">:</span> <span class="TOKEN_keyword">Arial</span><span class="TOKEN_punctuation">;</span>
+        <span class="TOKEN_type">margin</span><span class="TOKEN_punctuation">:</span> <span class="TOKEN_number">40</span><span class="TOKEN_keyword">px</span><span class="TOKEN_punctuation">;</span>
+      <span class="TOKEN_punctuation">{'}'}</span>
 
-      <SyntaxOperator>.box</SyntaxOperator> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-        <SyntaxType>padding</SyntaxType><SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxNumberLiteral>20</SyntaxNumberLiteral><SyntaxKeyword>px</SyntaxKeyword><SyntaxPunctuation>;</SyntaxPunctuation>
-        <SyntaxType>background</SyntaxType><SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxKeyword>#eee</SyntaxKeyword><SyntaxPunctuation>;</SyntaxPunctuation>
-        <SyntaxType>border-radius</SyntaxType><SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxNumberLiteral>6</SyntaxNumberLiteral><SyntaxKeyword>px</SyntaxKeyword><SyntaxPunctuation>;</SyntaxPunctuation>
-      <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+      <span class="TOKEN_operator">.box</span> <span class="TOKEN_punctuation">{'{'}</span>
+        <span class="TOKEN_type">padding</span><span class="TOKEN_punctuation">:</span> <span class="TOKEN_number">20</span><span class="TOKEN_keyword">px</span><span class="TOKEN_punctuation">;</span>
+        <span class="TOKEN_type">background</span><span class="TOKEN_punctuation">:</span> <span class="TOKEN_keyword">#eee</span><span class="TOKEN_punctuation">;</span>
+        <span class="TOKEN_type">border-radius</span><span class="TOKEN_punctuation">:</span> <span class="TOKEN_number">6</span><span class="TOKEN_keyword">px</span><span class="TOKEN_punctuation">;</span>
+      <span class="TOKEN_punctuation">{'}'}</span>
 
-      <SyntaxFunction>h1</SyntaxFunction> <SyntaxPunctuation>{'{'}</SyntaxPunctuation>
-        <SyntaxType>color</SyntaxType><SyntaxPunctuation>:</SyntaxPunctuation> <SyntaxKeyword>#333</SyntaxKeyword><SyntaxPunctuation>;</SyntaxPunctuation>
-      <SyntaxPunctuation>{'}'}</SyntaxPunctuation>
+      <span class="TOKEN_function">h1</span> <span class="TOKEN_punctuation">{'{'}</span>
+        <span class="TOKEN_type">color</span><span class="TOKEN_punctuation">:</span> <span class="TOKEN_keyword">#333</span><span class="TOKEN_punctuation">;</span>
+      <span class="TOKEN_punctuation">{'}'}</span>
 
-    <SyntaxPunctuation>&lt;/</SyntaxPunctuation><SyntaxFunction>style</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-  <SyntaxPunctuation>&lt;/</SyntaxPunctuation><SyntaxFunction>head</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-  <SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxFunction>body</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-    <SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxFunction>div</SyntaxFunction> <SyntaxOperator>class</SyntaxOperator><SyntaxPunctuation>=</SyntaxPunctuation><SyntaxStringLiteral>"box"</SyntaxStringLiteral><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-      <SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxFunction>h1</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>Hello<SyntaxPunctuation>&lt;/</SyntaxPunctuation><SyntaxFunction>h1</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-      <SyntaxPunctuation>&lt;</SyntaxPunctuation><SyntaxFunction>p</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>This is a basic HTML + CSS example.<SyntaxPunctuation>&lt;/</SyntaxPunctuation><SyntaxFunction>p</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-    <SyntaxPunctuation>&lt;/</SyntaxPunctuation><SyntaxFunction>div</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-  <SyntaxPunctuation>&lt;/</SyntaxPunctuation><SyntaxFunction>body</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
-<SyntaxPunctuation>&lt;/</SyntaxPunctuation><SyntaxFunction>html</SyntaxFunction><SyntaxPunctuation>&gt;</SyntaxPunctuation>
+    <span class="TOKEN_punctuation">&lt;/</span><span class="TOKEN_function">style</span><span class="TOKEN_punctuation">&gt;</span>
+  <span class="TOKEN_punctuation">&lt;/</span><span class="TOKEN_function">head</span><span class="TOKEN_punctuation">&gt;</span>
+  <span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_function">body</span><span class="TOKEN_punctuation">&gt;</span>
+    <span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_function">div</span> <span class="TOKEN_operator">class</span><span class="TOKEN_punctuation">=</span><span class="TOKEN_string">"box"</span><span class="TOKEN_punctuation">&gt;</span>
+      <span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_function">h1</span><span class="TOKEN_punctuation">&gt;</span>Hello<span class="TOKEN_punctuation">&lt;/</span><span class="TOKEN_function">h1</span><span class="TOKEN_punctuation">&gt;</span>
+      <span class="TOKEN_punctuation">&lt;</span><span class="TOKEN_function">p</span><span class="TOKEN_punctuation">&gt;</span>This is a basic HTML + CSS example.<span class="TOKEN_punctuation">&lt;/</span><span class="TOKEN_function">p</span><span class="TOKEN_punctuation">&gt;</span>
+    <span class="TOKEN_punctuation">&lt;/</span><span class="TOKEN_function">div</span><span class="TOKEN_punctuation">&gt;</span>
+  <span class="TOKEN_punctuation">&lt;/</span><span class="TOKEN_function">body</span><span class="TOKEN_punctuation">&gt;</span>
+<span class="TOKEN_punctuation">&lt;/</span><span class="TOKEN_function">html</span><span class="TOKEN_punctuation">&gt;</span>
 </pre>
