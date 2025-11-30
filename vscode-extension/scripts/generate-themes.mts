@@ -392,7 +392,7 @@ function getWorkbenchColors(palette: Palette) {
     "tab.unfocusedHoverBackground": palette.dyNeutralBgSub,
     "tab.hoverBackground": palette.dyNeutralBgSub,
     "tab.border": palette.dyNeutralBorder,
-    "tab.selectedBorderTop": transparentColor,
+    "tab.selectedBorderTop": palette.dyNeutralTextAlt,
 
     // LIST
     "list.activeSelectionBackground": palette.dyNeutralBgSub,
