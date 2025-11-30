@@ -18,7 +18,7 @@ const KEY = {
 };
 
 const TRIAL_DAYS = 14;
-const PURCHASE_URL = "https://dynasty.ely.al/#purchase";
+const PURCHASE_URL = "https://dynasty.ely.al/purchase";
 
 export async function activate(context: vscode.ExtensionContext) {
   // Make sure the states of the license being activated
