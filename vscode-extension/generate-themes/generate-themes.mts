@@ -454,7 +454,7 @@ function generateTheme(palette: Palette, suffix: string) {
   fs.writeFileSync(
     path.resolve(`./_themes/Dynasty${suffix}-color-theme.json`),
     themeJson,
-    "utf-8"
+    "utf-8",
   );
 }
 
