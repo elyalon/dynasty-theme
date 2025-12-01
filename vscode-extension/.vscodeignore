@@ -1,5 +1,5 @@
 src/
-scripts/
+generate-themes/
 node_modules/
 .prettierrc
 .gitignore

@@ -6,7 +6,7 @@ import {
   type VscodeTokenSpec,
   type VscodeWorkbenchColors,
 } from "./vscode-schema-types.ts";
-import { type Palette } from "../assets/types/palette-type.ts";
+import { type Palette } from "./palette-type.ts";
 
 const transparentColor = "#0000";
 const debugColor = "#f0f";
@@ -234,7 +234,7 @@ function getWorkbenchColors(palette: Palette) {
     "selection.background": selectionColor,
     "descriptionForeground": palette.dyNeutralTextAlt,
     "errorForeground": palette.dySyntaxKeyword,
-    
+
     // MARKDOWN RENDERING
     "textBlockQuote.background": palette.dyNeutralBgAlt,
     "textBlockQuote.border": palette.dyNeutralBorder,
