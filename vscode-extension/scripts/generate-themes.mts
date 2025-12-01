@@ -162,6 +162,7 @@ function getTokenColors(palette: Palette) {
         "punctuation.definition.variable",
         "entity.name.variable",
         "entity.name.constant",
+        "meta.embedded", // resets to default text color when entering embedded scope
       ],
       settings: { foreground: palette.dyNeutralTextMain },
     },
