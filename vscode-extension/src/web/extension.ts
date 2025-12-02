@@ -21,8 +21,7 @@ const TRIAL_DAYS = 14;
 const PURCHASE_URL = "https://dynasty.ely.al/purchase";
 
 export async function activate(context: vscode.ExtensionContext) {
-  // Make sure the states of the license being activated
-  // and the free trial start date are synced
+  // Make sure these globalState keys are synced
   context.globalState.setKeysForSync([
     KEY.global("dynasty-theme.isLicenseActivated"),
     KEY.global("dynasty-theme.trialStartDateMs"),
@@ -32,12 +31,12 @@ export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand(
       KEY.command("dynasty-theme.activateLicense"),
-      () => activateLicenseFlow(context)
+      () => activateLicenseFlow(context),
     ),
     vscode.commands.registerCommand(
       KEY.command("dynasty-theme.showLicenseStatus"),
-      () => showLicenseStatus(context)
-    )
+      () => showLicenseStatus(context),
+    ),
   );
 
   // Return if the user is licensed
@@ -47,7 +46,7 @@ export async function activate(context: vscode.ExtensionContext) {
   if (!Exists(trialStartDateMs(context))) {
     await context.globalState.update(
       KEY.global("dynasty-theme.trialStartDateMs"),
-      Date.now()
+      Date.now(),
     );
   }
 
@@ -71,7 +70,7 @@ function handleUnlicensedUser(context: vscode.ExtensionContext) {
     .showWarningMessage(
       "Dynasty Theme: Your free trial has run out.",
       "Activate License",
-      "Purchase License"
+      "Purchase License",
     )
     .then((choice) => {
       if (choice === "Activate License") {
@@ -85,7 +84,7 @@ function handleUnlicensedUser(context: vscode.ExtensionContext) {
 // Typed `globalState` getter
 function trialStartDateMs(context: vscode.ExtensionContext) {
   return context.globalState.get<number>(
-    KEY.global("dynasty-theme.trialStartDateMs")
+    KEY.global("dynasty-theme.trialStartDateMs"),
   );
 }
 
@@ -93,7 +92,7 @@ function trialStartDateMs(context: vscode.ExtensionContext) {
 //* Note that this returns `true | undefined`
 function isLicenseActivated(context: vscode.ExtensionContext) {
   return context.globalState.get<true>(
-    KEY.global("dynasty-theme.isLicenseActivated")
+    KEY.global("dynasty-theme.isLicenseActivated"),
   );
 }
 
@@ -116,9 +115,9 @@ async function showLicenseStatus(context: vscode.ExtensionContext) {
   vscode.window.showInformationMessage(
     remainingMs > 0
       ? `Dynasty Theme: (Unlicensed) Trial active — ${msToDays(
-          remainingMs
+          remainingMs,
         )} day(s) remaining.`
-      : "Dynasty Theme: (Unlicensed) Trial ended."
+      : "Dynasty Theme: (Unlicensed) Trial ended.",
   );
 }
 
@@ -137,10 +136,10 @@ async function activateLicenseFlow(context: vscode.ExtensionContext) {
     .then((data) => {
       context.globalState.update(
         KEY.global("dynasty-theme.isLicenseActivated"),
-        true
+        true,
       );
       vscode.window.showInformationMessage(
-        `Dynasty Theme: License key activated for ${data.customer_email}.`
+        `Dynasty Theme: License key activated for ${data.customer_email}.`,
       );
     })
     .catch((err) => {
