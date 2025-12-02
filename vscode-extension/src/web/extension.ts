@@ -69,8 +69,8 @@ function handleUnlicensedUser(context: vscode.ExtensionContext) {
   vscode.window
     .showWarningMessage(
       "Dynasty Theme: Your free trial has run out.",
-      "Activate License",
       "Purchase License",
+      "Activate License",
     )
     .then((choice) => {
       if (choice === "Activate License") {
