@@ -132,7 +132,7 @@ function generatePalette(pigment: Pigment): void {
 
   const paletteJson = JSON.stringify(paletteObj, null, 2);
   fs.writeFileSync(
-    `./assets/palette/palette-${pigment}.json`,
+    `../_shared/palette/palette-${pigment}.json`,
     paletteJson,
     "utf8"
   );

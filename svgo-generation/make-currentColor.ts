@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import { optimize } from "svgo";
 
-const content = readFileSync("./assets/figma/icon-flat.svg", "utf-8");
+const content = readFileSync("../_shared/figma/icon-flat.svg", "utf-8");
 
 const res = optimize(content, {
   plugins: [
@@ -14,4 +14,4 @@ const res = optimize(content, {
   ],
 });
 
-writeFileSync("./assets/svgo/icon-currentColor.svg", res.data, "utf-8");
+writeFileSync("../_shared/svgo/icon-currentColor.svg", res.data, "utf-8");

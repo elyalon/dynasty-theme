@@ -8,15 +8,6 @@
     },
     {
       "path": "vscode-extension"
-    },
-    {
-      "path": "color-palette"
-    },
-    {
-      "path": "assets"
-    },
-    {
-      "path": "process-assets"
     }
   ],
   "settings": {}
