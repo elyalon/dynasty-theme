@@ -234,6 +234,7 @@ function getWorkbenchColors(palette: Palette) {
     "selection.background": selectionColor,
     "descriptionForeground": palette.dyNeutralTextAlt,
     "errorForeground": palette.dySyntaxKeyword,
+    "focusBorder": palette.dyPrimary600,
 
     // MARKDOWN RENDERING
     "textBlockQuote.background": palette.dyNeutralBgAlt,
@@ -283,7 +284,6 @@ function getWorkbenchColors(palette: Palette) {
     "sideBarSectionHeader.foreground": palette.dyNeutralTextAlt,
 
     // INPUT
-    "focusBorder": palette.dyPrimary600,
     "input.background": palette.dyNeutralBgMain,
     "input.foreground": palette.dyNeutralTextMain,
     "input.border": palette.dyNeutralBorder,
@@ -453,13 +453,13 @@ function generateTheme(palette: Palette, suffix: string) {
   const themeJson = JSON.stringify(themeObj, null, 2);
 
   fs.writeFileSync(
-    path.resolve(`./_themes/Dynasty${suffix}-color-theme.json`),
+    path.resolve(`./themes/Dynasty${suffix}-color-theme.json`),
     themeJson,
     "utf-8",
   );
 }
 
-if (!fs.existsSync("./_themes")) {
-  fs.mkdirSync("./_themes");
+if (!fs.existsSync("./themes")) {
+  fs.mkdirSync("./themes");
 }
 generateTheme(paletteNone, "None");

@@ -43,7 +43,7 @@
         "label": "Dynasty Theme",
         "id": "Dynasty Theme (Default)",
         "uiTheme": "vs-dark",
-        "path": "./_themes/DynastyNone-color-theme.json"
+        "path": "./themes/DynastyNone-color-theme.json"
       }
     ]
   },
