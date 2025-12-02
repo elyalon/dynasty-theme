@@ -283,6 +283,7 @@ function getWorkbenchColors(palette: Palette) {
     "sideBarSectionHeader.foreground": palette.dyNeutralTextAlt,
 
     // INPUT
+    "focusBorder": palette.dyPrimary600,
     "input.background": palette.dyNeutralBgMain,
     "input.foreground": palette.dyNeutralTextMain,
     "input.border": palette.dyNeutralBorder,
@@ -294,7 +295,7 @@ function getWorkbenchColors(palette: Palette) {
     "inputOption.activeBackground": chroma(palette.dyPrimary600)
       .alpha(0.4)
       .hex(),
-    "inputOption.activeBorder": palette.dyPrimary500,
+    "inputOption.activeBorder": palette.dyPrimary600,
     "inputOption.activeForeground": palette.dyNeutralTextBright,
     // for the icons next to the tabs, like "maximized" icon
     "actionBar.toggledBackground": chroma(palette.dyPrimary500)
@@ -311,15 +312,15 @@ function getWorkbenchColors(palette: Palette) {
     "quickInputList.focusForeground": palette.dyNeutralTextMain,
 
     // WIDGET
-    "widget.border": palette.dyNeutralBorder,
+    "widget.border": palette.dyNeutralBorder, //
     "editorWidget.background": palette.dyNeutralBgAlt,
     "editorWidget.foreground": palette.dyNeutralTextAlt,
     "editorWidget.border": palette.dyNeutralBorder,
     "editorWidget.resizeBorder": palette.dyNeutralBorder,
 
     // BUTTON
-    "button.background": palette.dyPrimary600,
-    "button.hoverBackground": palette.dyPrimary500,
+    "button.background": palette.dyPrimary700,
+    "button.hoverBackground": palette.dyPrimary600,
     "button.foreground": palette.dyNeutralTextBright,
 
     // SCROLLBAR
