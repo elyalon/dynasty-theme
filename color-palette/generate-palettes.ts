@@ -1,7 +1,10 @@
 import chroma from "chroma-js";
 import * as fs from "fs";
+import * as path from "path";
 
 type Pigment = "none" | "red";
+
+const palettePath = path.resolve(import.meta.dirname, "../_shared/palette");
 
 function generatePalette(pigment: Pigment): void {
   let dyNeutralTextBright;
@@ -131,11 +134,15 @@ function generatePalette(pigment: Pigment): void {
   };
 
   const paletteJson = JSON.stringify(paletteObj, null, 2);
+
   fs.writeFileSync(
-    `../_shared/palette/palette-${pigment}.json`,
+    path.resolve(palettePath, `palette-${pigment}.json`),
     paletteJson,
     "utf8"
   );
 }
 
+if (!fs.existsSync(palettePath)) {
+  fs.mkdirSync(palettePath);
+}
 generatePalette("none");

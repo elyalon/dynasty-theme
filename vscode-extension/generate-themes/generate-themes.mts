@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import * as fs from "fs";
+import * as path from "path";
 import chroma from "chroma-js";
 import paletteNone from "../../_shared/palette/palette-none.json" with { type: "json" };
 import {
@@ -7,6 +7,8 @@ import {
   type VscodeWorkbenchColors,
 } from "./vscode-schema-types.ts";
 import { type Palette } from "./palette-type.ts";
+
+const themesPath = path.resolve(import.meta.dirname, "../themes");
 
 const transparentColor = "#0000";
 const debugColor = "#f0f";
@@ -453,13 +455,13 @@ function generateTheme(palette: Palette, suffix: string) {
   const themeJson = JSON.stringify(themeObj, null, 2);
 
   fs.writeFileSync(
-    path.resolve(`./themes/Dynasty${suffix}-color-theme.json`),
+    path.resolve(themesPath, `Dynasty${suffix}-color-theme.json`),
     themeJson,
     "utf-8",
   );
 }
 
-if (!fs.existsSync("./themes")) {
-  fs.mkdirSync("./themes");
+if (!fs.existsSync(themesPath)) {
+  fs.mkdirSync(themesPath);
 }
 generateTheme(paletteNone, "None");
