@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import chroma from "chroma-js";
-import paletteNone from "../../_shared/palette/palette-none.json" with { type: "json" };
+import paletteNone from "../../_shared/palettes/palette-none.json" with { type: "json" };
 import {
   type VscodeTokenSpec,
   type VscodeWorkbenchColors,

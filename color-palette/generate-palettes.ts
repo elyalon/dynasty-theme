@@ -4,7 +4,7 @@ import * as path from "path";
 
 type Pigment = "none" | "red";
 
-const palettePath = path.resolve(import.meta.dirname, "../_shared/palette");
+const palettesPath = path.resolve(import.meta.dirname, "../_shared/palettes");
 
 function generatePalette(pigment: Pigment): void {
   let dyNeutralTextBright;
@@ -136,13 +136,13 @@ function generatePalette(pigment: Pigment): void {
   const paletteJson = JSON.stringify(paletteObj, null, 2);
 
   fs.writeFileSync(
-    path.resolve(palettePath, `palette-${pigment}.json`),
+    path.resolve(palettesPath, `palette-${pigment}.json`),
     paletteJson,
     "utf8"
   );
 }
 
-if (!fs.existsSync(palettePath)) {
-  fs.mkdirSync(palettePath);
+if (!fs.existsSync(palettesPath)) {
+  fs.mkdirSync(palettesPath);
 }
 generatePalette("none");
