@@ -1,3 +1,5 @@
+/* this is just created using a vscode extension to translate json to type, it's not automatic */
+
 export interface Palette {
   dyNeutralTextBright: string;
   dyNeutralTextMain: string;

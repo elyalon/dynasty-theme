@@ -6,7 +6,7 @@ import { Store } from "@lucide/astro";
 ---
 
 <div
-  class="relative grid h-[90vh] grid-rows-3 bg-(--dyNeutralBgMain) max-md:h-[82vh]"
+  class="relative grid h-[90vh] grid-rows-3 bg-dyNeutralBgMain max-md:h-[82vh]"
 >
   <div class="pointer-events-none absolute h-[40%] w-full select-none">
     <img
@@ -14,13 +14,13 @@ import { Store } from "@lucide/astro";
       class="absolute h-full w-full object-cover object-top-left"
     />
     <div
-      class="absolute inset-0 bg-linear-to-t from-(--dyNeutralBgMain) to-transparent"
+      class="absolute inset-0 bg-linear-to-t from-dyNeutralBgMain to-transparent"
     >
     </div>
   </div>
 
   <div
-    class="relative bg-linear-to-b from-(--dyNeutralBgMain) to-transparent to-30%"
+    class="relative bg-linear-to-b from-dyNeutralBgMain to-transparent to-30%"
   >
   </div>
   <div
@@ -31,7 +31,7 @@ import { Store } from "@lucide/astro";
         <DynastyWordmark class="shrink-0 select-none max-md:scale-80" />
       </div>
     </div>
-    <div class="text-center text-lg text-(--dyNeutralTextDim) max-md:text-base">
+    <div class="text-center text-lg text-dyNeutralTextDim max-md:text-base">
       A high-contrast color theme<br />designed for <strong>clarity</strong>.
     </div>
   </div>
@@ -40,7 +40,7 @@ import { Store } from "@lucide/astro";
   >
     <a
       href="vscode:extension/elyalon.dynasty-theme"
-      class="flex items-center justify-center gap-2 rounded-md bg-(--dyPrimary700) py-4 font-semibold text-(--dyNeutralTextBright) max-md:w-full max-md:py-2.5 md:px-8 md:text-xl"
+      class="flex items-center justify-center gap-2 rounded-md bg-dyPrimary700 py-4 font-semibold text-dyNeutralTextBright max-md:w-full max-md:py-2.5 md:px-8 md:text-xl"
     >
       <Vscode class="size-5.5 max-md:size-4.5" />
       <div>Install for VS Code</div>
@@ -49,7 +49,7 @@ import { Store } from "@lucide/astro";
       <a
         href="https://marketplace.visualstudio.com/items?itemName=elyalon.dynasty-theme"
         target="_blank"
-        class="flex items-center justify-center gap-2 rounded-md bg-(--dyNeutralBgSub) py-4 font-semibold text-(--dyNeutralTextAlt) max-md:py-2.5 md:px-8 md:text-xl"
+        class="flex items-center justify-center gap-2 rounded-md bg-dyNeutralBgSub py-4 font-semibold text-dyNeutralTextAlt max-md:py-2.5 md:px-8 md:text-xl"
       >
         <Store class="size-6 max-md:size-5" />
         <div>Go to Marketplace</div>
@@ -57,7 +57,7 @@ import { Store } from "@lucide/astro";
       <a
         href="https://open-vsx.org/extension/elyalon/dynasty-theme"
         target="_blank"
-        class="absolute top-[calc(100%+6px)] right-2 text-center text-sm text-(--dyNeutralTextDim) hover:underline"
+        class="absolute top-[calc(100%+6px)] right-2 text-center text-sm text-dyNeutralTextDim hover:underline"
         >OpenVSX Marketplace</a
       >
     </div>

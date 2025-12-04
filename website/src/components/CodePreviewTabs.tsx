@@ -27,8 +27,8 @@ function TabButton({
       className={cn(
         "flex h-full items-center gap-2 px-4",
         selected
-          ? "bg-(--dyNeutralBgMain) text-(--dyNeutralTextMain)"
-          : "hover:bg-(--dyNeutralBgSub)",
+          ? "bg-dyNeutralBgMain text-dyNeutralTextMain"
+          : "hover:bg-dyNeutralBgSub",
       )}
     >
       <div>{icon}</div>
@@ -58,8 +58,8 @@ export function CodePreview() {
   }
 
   return (
-    <div className="border-t border-(--dyNeutralBorder) bg-(--dyNeutralBgMain) text-(--dyNeutralTextMain)">
-      <div className="flex h-10 overflow-x-auto bg-(--dyNeutralBgAlt) text-(--dyNeutralTextAlt)">
+    <div className="border-t border-dyNeutralBorder bg-dyNeutralBgMain text-dyNeutralTextMain">
+      <div className="flex h-10 overflow-x-auto bg-dyNeutralBgAlt text-dyNeutralTextAlt">
         <TabButton
           text="Typescript"
           icon={<Icons.TypeScript className="size-5" />}

@@ -1,10 +1,12 @@
 @import "tailwindcss";
+@import "../../generate-tailwind-colors/dynasty-tw-colors.css";
 
 @theme {
+  --color-debug: #f0f;
+  --color-debugAlt: #f00;
+
   --font-mono: "Google Sans Code", monospace;
   --spacing: 4px;
-
-  /* --color-*: initial; */
 }
 
 @layer base {
@@ -17,31 +19,31 @@
   }
 
   .TOKEN_comment {
-    color: var(--dyNeutralTextDim);
+    color: var(--color-dyNeutralTextDim);
   }
   .TOKEN_punctuation {
-    color: var(--dyNeutralTextAlt);
+    color: var(--color-dyNeutralTextAlt);
   }
   .TOKEN_type {
-    color: var(--dySyntaxType);
+    color: var(--color-dySyntaxType);
   }
   .TOKEN_operator {
-    color: var(--dySyntaxOperator);
+    color: var(--color-dySyntaxOperator);
   }
   .TOKEN_keyword {
-    color: var(--dySyntaxKeyword);
+    color: var(--color-dySyntaxKeyword);
   }
   .TOKEN_special {
-    color: var(--dySyntaxSpecial);
+    color: var(--color-dySyntaxSpecial);
   }
   .TOKEN_function {
-    color: var(--dySyntaxFunction);
+    color: var(--color-dySyntaxFunction);
   }
   .TOKEN_string {
-    color: var(--dySyntaxString);
+    color: var(--color-dySyntaxString);
   }
   .TOKEN_number {
-    color: var(--dySyntaxNumber);
+    color: var(--color-dySyntaxNumber);
   }
   .TOKEN_parameter {
     font-style: italic;

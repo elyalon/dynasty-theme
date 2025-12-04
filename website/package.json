@@ -1,6 +1,8 @@
 {
   "type": "module",
   "scripts": {
+    "twcolors:generate": "node ./generate-tailwind-colors/generate-tailwind-colors.ts",
+    "twcolors:watch": "node --watch --watch-preserve-output ./generate-tailwind-colors/generate-tailwind-colors.ts",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -9,10 +11,11 @@
   "devDependencies": {
     "@lucide/astro": "^0.552.0",
     "@tailwindcss/vite": "^4.1.16",
+    "@types/node": "^24.10.1",
     "astro": "^5.15.2",
-    "prettier": "^3.6.2",
+    "prettier": "^3.7.4",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.7.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.1.16"
   },
   "dependencies": {

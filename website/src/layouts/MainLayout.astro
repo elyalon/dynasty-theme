@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import palette from "../../../_shared/palettes/palette-none.json";
 import NavBar from "../components/NavBar.astro";
 import FooterSection from "../components/FooterSection.astro";
 import iconSvg from "../../../_shared/figma/icon-gradient.svg";
@@ -28,43 +27,9 @@ const genTitle = title ? `${title} | Dynasty Theme` : "Dynasty Theme";
 
     <title>{genTitle}</title>
   </head>
-  <body class="bg-(--dyNeutralBgAlt) font-mono text-(--dyNeutralTextAlt)">
+  <body class="bg-dyNeutralBgAlt font-mono text-dyNeutralTextAlt">
     <NavBar />
     <slot />
     <FooterSection />
   </body>
 </html>
-
-<style
-  define:vars={{
-    dyNeutralTextBright: palette.dyNeutralTextBright,
-    dyNeutralTextMain: palette.dyNeutralTextMain,
-    dyNeutralTextAlt: palette.dyNeutralTextAlt,
-    dyNeutralTextDim: palette.dyNeutralTextDim,
-
-    dyNeutralBorder: palette.dyNeutralBorder,
-    dyNeutralBgSub: palette.dyNeutralBgSub,
-    dyNeutralBgAlt: palette.dyNeutralBgAlt,
-    dyNeutralBgMain: palette.dyNeutralBgMain,
-
-    dyPrimary050: palette.dyPrimary050,
-    dyPrimary100: palette.dyPrimary100,
-    dyPrimary200: palette.dyPrimary200,
-    dyPrimary300: palette.dyPrimary300,
-    dyPrimary400: palette.dyPrimary400,
-    dyPrimary500: palette.dyPrimary500,
-    dyPrimary600: palette.dyPrimary600,
-    dyPrimary700: palette.dyPrimary700,
-    dyPrimary800: palette.dyPrimary800,
-    dyPrimary900: palette.dyPrimary900,
-    dyPrimary950: palette.dyPrimary950,
-
-    dySyntaxType: palette.dySyntaxType,
-    dySyntaxOperator: palette.dySyntaxOperator,
-    dySyntaxKeyword: palette.dySyntaxKeyword,
-    dySyntaxSpecial: palette.dySyntaxSpecial,
-    dySyntaxFunction: palette.dySyntaxFunction,
-    dySyntaxString: palette.dySyntaxString,
-    dySyntaxNumber: palette.dySyntaxNumber,
-  }}
-></style>
