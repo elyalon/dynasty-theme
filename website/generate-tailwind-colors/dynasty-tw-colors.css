@@ -1,14 +1,14 @@
 @theme {
   --color-*: initial;
 
-  --color-dyNeutralTextBright: #f1f2f3;
-  --color-dyNeutralTextMain: #e0e1e5;
-  --color-dyNeutralTextAlt: #b9babf;
-  --color-dyNeutralTextDim: #7e8086;
-  --color-dyNeutralBorder: #454750;
-  --color-dyNeutralBgSub: #272a30;
-  --color-dyNeutralBgAlt: #191c22;
-  --color-dyNeutralBgMain: #090b0f;
+  --color-dyNeutralTextBright: #f1f2f5;
+  --color-dyNeutralTextMain: #dee1e8;
+  --color-dyNeutralTextAlt: #b7bac4;
+  --color-dyNeutralTextDim: #7b808d;
+  --color-dyNeutralBorder: #424757;
+  --color-dyNeutralBgSub: #252937;
+  --color-dyNeutralBgAlt: #171b27;
+  --color-dyNeutralBgMain: #080b14;
   --color-dyPrimary050: #eff6fe;
   --color-dyPrimary100: #ddedff;
   --color-dyPrimary200: #beddfe;
@@ -27,20 +27,20 @@
   --color-dySyntaxFunction: #7cb9f8;
   --color-dySyntaxString: #92dce8;
   --color-dySyntaxNumber: #b4e59a;
-  --color-dyAnsiBlack: #090b0f;
+  --color-dyAnsiBlack: #080b14;
   --color-dyAnsiRed: #fc3238;
   --color-dyAnsiGreen: #52c129;
   --color-dyAnsiYellow: #ffa541;
   --color-dyAnsiBlue: #3a77ff;
   --color-dyAnsiMagenta: #b058ff;
   --color-dyAnsiCyan: #00bd84;
-  --color-dyAnsiWhite: #e0e1e5;
-  --color-dyAnsiBrightBlack: #7e8086;
+  --color-dyAnsiWhite: #dee1e8;
+  --color-dyAnsiBrightBlack: #7b808d;
   --color-dyAnsiBrightRed: #ff595d;
   --color-dyAnsiBrightGreen: #7ef16e;
   --color-dyAnsiBrightYellow: #ffd270;
   --color-dyAnsiBrightBlue: #15bbf0;
   --color-dyAnsiBrightMagenta: #e690fa;
   --color-dyAnsiBrightCyan: #30ecd9;
-  --color-dyAnsiBrightWhite: #f1f2f3;
+  --color-dyAnsiBrightWhite: #f1f2f5;
 }

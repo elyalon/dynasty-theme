@@ -31,15 +31,15 @@ function generatePalette(pigment: Pigment): void {
 
   switch (pigment) {
     case "none":
-      dyNeutralTextBright = chroma("oklch(96% 0.002 270)").hex();
-      dyNeutralTextMain = chroma("oklch(91% 0.005 270)").hex();
-      dyNeutralTextAlt = chroma("oklch(79% 0.007 270)").hex();
-      dyNeutralTextDim = chroma("oklch(60% 0.01 270)").hex();
+      dyNeutralTextBright = chroma("oklch(96% 0.004 270)").hex();
+      dyNeutralTextMain = chroma("oklch(91% 0.010 270)").hex();
+      dyNeutralTextAlt = chroma("oklch(79% 0.014 270)").hex();
+      dyNeutralTextDim = chroma("oklch(60% 0.02 270)").hex();
 
-      dyNeutralBorder = chroma("oklch(40% 0.014 270)").hex();
-      dyNeutralBgSub = chroma("oklch(28.4% 0.013 270)").hex();
-      dyNeutralBgAlt = chroma("oklch(22.5% 0.012 270)").hex();
-      dyNeutralBgMain = chroma("oklch(15% 0.01 270)").hex();
+      dyNeutralBorder = chroma("oklch(40% 0.028 270)").hex();
+      dyNeutralBgSub = chroma("oklch(28.4% 0.026 270)").hex();
+      dyNeutralBgAlt = chroma("oklch(22.5% 0.024 270)").hex();
+      dyNeutralBgMain = chroma("oklch(15% 0.02 270)").hex();
 
       dyPrimary050 = chroma("oklch(97.1% 0.0131 251)").hex();
       dyPrimary100 = chroma("oklch(94% 0.0296 251)").hex();
