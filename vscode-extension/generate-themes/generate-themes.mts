@@ -367,6 +367,12 @@ function getWorkbenchColors(palette: Palette) {
     "statusBar.background": palette.dyNeutralBgAlt,
     "statusBar.foreground": palette.dyNeutralTextAlt,
     "statusBar.border": palette.dyNeutralBorder,
+    "statusBar.noFolderBackground": chroma("oklch(22.5% 0.0348 317)").hex(),
+    "statusBar.noFolderForeground": chroma("oklch(79% 0.0907 317)").hex(),
+    "statusBar.noFolderBorder": chroma("oklch(40% 0.0388 317)").hex(),
+    "statusBar.debuggingBackground": chroma("oklch(22.5% 0.0348 48)").hex(),
+    "statusBar.debuggingForeground": chroma("oklch(79% 0.0907 48)").hex(),
+    "statusBar.debuggingBorder": chroma("oklch(40% 0.0388 48)").hex(),
 
     // BREADCRUMBS
     "breadcrumb.foreground": palette.dyNeutralTextDim,
