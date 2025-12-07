@@ -217,6 +217,8 @@
     "editor.lineHighlightBackground": "#25293740",
     "editor.selectionBackground": "#54a8fe33",
     "editorLineNumber.foreground": "#7b808db3",
+    "debugToolBar.background": "#171b27",
+    "debugToolBar.border": "#424757",
     "editorBracketHighlight.foreground1": "#e4c669",
     "editorBracketHighlight.foreground2": "#62a1de",
     "editorBracketHighlight.foreground3": "#a184d5",

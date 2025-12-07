@@ -208,6 +208,10 @@ function getWorkbenchColors(palette: Palette) {
       .alpha(0.7)
       .hex(),
 
+    // DEBUG TOOLBAR
+    "debugToolBar.background": palette.dyNeutralBgAlt,
+    "debugToolBar.border": palette.dyNeutralBorder,
+
     // COLORED BRACKETS
     "editorBracketHighlight.foreground1": chroma(palette.dySyntaxType)
       .darken(0.5)
