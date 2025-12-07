@@ -132,14 +132,14 @@ async function activateLicenseFlow(context: vscode.ExtensionContext) {
     .then((val) => val?.trim());
   if (!Exists(inputLicenseKey)) return;
 
-  ls.activateLicenseKey(inputLicenseKey)
+  ls.activateLicense(inputLicenseKey)
     .then((data) => {
       context.globalState.update(
         KEY.global("dynasty-theme.isLicenseActivated"),
         true,
       );
       vscode.window.showInformationMessage(
-        `Dynasty Theme: License key activated for ${data.customer_email}.`,
+        `Dynasty Theme: License activated for ${data.customer_email}.`,
       );
     })
     .catch((err) => {

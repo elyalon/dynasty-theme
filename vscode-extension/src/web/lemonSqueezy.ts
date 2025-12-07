@@ -7,7 +7,7 @@ const LS_ACTIVATE_LICENSE_KEY_URL =
 const LS_STORE_ID = 237013;
 const LS_PRODUCT_ID = 695242;
 
-export async function activateLicenseKey(licenseKey: string) {
+export async function activateLicense(licenseKey: string) {
   const resp = await fetch(LS_ACTIVATE_LICENSE_KEY_URL, {
     method: "POST",
     headers: {
@@ -26,13 +26,13 @@ export async function activateLicenseKey(licenseKey: string) {
 
   if (resp.meta.store_id !== LS_STORE_ID) {
     throw new Error(
-      "The provided license key does not belong to the Dynasty Theme store."
+      "The provided license key does not belong to the Dynasty Theme store.",
     );
   }
 
   if (resp.meta.product_id !== LS_PRODUCT_ID) {
     throw new Error(
-      "The provided license key does not belong to the Dynasty Theme product."
+      "The provided license key does not belong to the Dynasty Theme product.",
     );
   }
 
@@ -43,7 +43,7 @@ export async function activateLicenseKey(licenseKey: string) {
   };
 }
 
-export async function validateLicenseKey(licenseKey: string) {
+export async function validateLicense(licenseKey: string) {
   const resp = await fetch(LS_VALIDATE_LICENSE_KEY_URL, {
     method: "POST",
     headers: {
@@ -61,19 +61,19 @@ export async function validateLicenseKey(licenseKey: string) {
 
   if (resp.meta.store_id !== LS_STORE_ID) {
     throw new Error(
-      "The provided license key does not belong to the Dynasty Theme store."
+      "The provided license key does not belong to the Dynasty Theme store.",
     );
   }
 
   if (resp.meta.product_id !== LS_PRODUCT_ID) {
     throw new Error(
-      "The provided license key does not belong to the Dynasty Theme product."
+      "The provided license key does not belong to the Dynasty Theme product.",
     );
   }
 
   if (resp.license_key.status !== "active") {
     throw new Error(
-      `The provided license key is not active (\`license_key.status\` is "${resp.license_key.status}").`
+      `The provided license key is not active (\`license_key.status\` is "${resp.license_key.status}").`,
     );
   }
 
