@@ -356,6 +356,7 @@ function getWorkbenchColors(palette: Palette) {
     // LIST
     "list.activeSelectionBackground": palette.dyNeutralBgSub,
     "list.inactiveSelectionBackground": palette.dyNeutralBgSub,
+    "list.hoverBackground": chroma(palette.dyNeutralBgSub).alpha(0.5).hex(),
 
     // PANEL
     "panel.border": palette.dyNeutralBorder,

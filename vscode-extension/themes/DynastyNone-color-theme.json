@@ -304,6 +304,7 @@
     "tab.selectedBorderTop": "#b7bac4",
     "list.activeSelectionBackground": "#252937",
     "list.inactiveSelectionBackground": "#252937",
+    "list.hoverBackground": "#25293780",
     "panel.border": "#424757",
     "panel.background": "#080b14",
     "panelTitle.activeForeground": "#dee1e8",
