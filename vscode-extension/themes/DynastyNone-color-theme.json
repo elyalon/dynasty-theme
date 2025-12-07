@@ -34,9 +34,7 @@
   "tokenColors": [
     {
       "scope": [
-        "invalid",
-        "invalid.illegal",
-        "invalid.deprecated"
+        "invalid"
       ],
       "settings": {
         "foreground": "#ff3d3d",
@@ -53,6 +51,7 @@
     },
     {
       "scope": [
+        "variable.parameter",
         "markup.italic",
         "markup.quote"
       ],
@@ -70,10 +69,30 @@
     },
     {
       "scope": [
+        "variable",
+        "punctuation.definition.variable",
+        "entity.name.variable",
+        "entity.name.constant",
+        "meta.embedded"
+      ],
+      "settings": {
+        "foreground": "#dee1e8"
+      }
+    },
+    {
+      "scope": [
+        "punctuation",
+        "source.js meta.brace",
+        "source.ts meta.brace",
+        "source.tsx meta.brace"
+      ],
+      "settings": {
+        "foreground": "#b7bac4"
+      }
+    },
+    {
+      "scope": [
         "comment",
-        "comment.line",
-        "comment.block",
-        "comment.block.documentation",
         "punctuation.definition.comment"
       ],
       "settings": {
@@ -83,17 +102,70 @@
     },
     {
       "scope": [
-        "punctuation",
-        "punctuation.separator",
-        "punctuation.separator.continuation",
-        "punctuation.terminator",
-        "punctuation.accessor",
-        "source.js meta.brace",
-        "source.ts meta.brace",
-        "source.tsx meta.brace"
+        "keyword",
+        "punctuation.definition.keyword",
+        "variable.language",
+        "constant.language",
+        "constant.character",
+        "constant.character punctuation.definition",
+        "constant.other.placeholder",
+        "storage.type",
+        "storage.modifier",
+        "support.constant",
+        "punctuation.section.embedded",
+        "punctuation.definition.template-expression",
+        "punctuation.section.interpolation",
+        "punctuation.definition.interpolation",
+        "entity.name.section",
+        "markup.heading",
+        "punctuation.definition.heading"
       ],
       "settings": {
-        "foreground": "#b7bac4"
+        "foreground": "#ff727c"
+      }
+    },
+    {
+      "scope": [
+        "keyword.operator",
+        "entity.name.label",
+        "entity.other.attribute-name",
+        "variable.other.enummember",
+        "variable.other.event",
+        "markup.inline.raw",
+        "markup.raw.inline",
+        "markup.raw.block",
+        "meta.attribute.rust",
+        "entity.other.attribute-name punctuation.definition"
+      ],
+      "settings": {
+        "foreground": "#f3ac74"
+      }
+    },
+    {
+      "scope": [
+        "entity.name",
+        "entity.other.inherited-class",
+        "support.class",
+        "support.type",
+        "punctuation.support.type",
+        "support.module",
+        "variable.annotation",
+        "punctuation.definition.annotation"
+      ],
+      "settings": {
+        "foreground": "#ffdf81"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.function",
+        "variable.function",
+        "support.function",
+        "entity.name.command",
+        "entity.name.tag"
+      ],
+      "settings": {
+        "foreground": "#7cb9f8"
       }
     },
     {
@@ -108,139 +180,10 @@
     },
     {
       "scope": [
-        "entity.name",
-        "entity.name.class",
-        "entity.name.struct",
-        "entity.name.enum",
-        "entity.name.union",
-        "entity.name.trait",
-        "entity.name.interface",
-        "entity.name.impl",
-        "entity.name.type",
-        "entity.name.type.class",
-        "entity.other.inherited-class",
-        "entity.name.namespace",
-        "support.class",
-        "entity.name.type.interface",
-        "entity.name.type.enum",
-        "support.type",
-        "punctuation.support.type",
-        "entity.name.tag.yaml",
-        "support.module",
-        "variable.annotation",
-        "punctuation.definition.annotation",
-        "markup.quote"
-      ],
-      "settings": {
-        "foreground": "#ffdf81"
-      }
-    },
-    {
-      "scope": [
-        "entity.name.function",
-        "variable.function",
-        "entity.name.command",
-        "entity.name.tag",
-        "support.function",
-        "entity.name.function.member",
-        "markup.underline.link"
-      ],
-      "settings": {
-        "foreground": "#7cb9f8"
-      }
-    },
-    {
-      "scope": [
-        "keyword.operator",
-        "keyword.operator.assignment",
-        "keyword.operator.arithmetic",
-        "keyword.operator.bitwise",
-        "keyword.operator.logical",
-        "keyword.operator.word",
-        "entity.name.label",
-        "entity.other.attribute-name",
-        "entity.other.attribute-name punctuation.definition",
-        "markup.inline.raw",
-        "markup.raw.inline",
-        "markup.raw.block",
-        "variable.other.enummember",
-        "variable.other.event",
-        "meta.attribute.rust"
-      ],
-      "settings": {
-        "foreground": "#f3ac74"
-      }
-    },
-    {
-      "scope": [
-        "variable",
-        "variable.other",
-        "variable.other.readwrite",
-        "variable.other.constant",
-        "variable.other.property",
-        "variable.other.constant.property",
-        "punctuation.definition.variable",
-        "entity.name.variable",
-        "entity.name.constant",
-        "meta.embedded"
-      ],
-      "settings": {
-        "foreground": "#dee1e8"
-      }
-    },
-    {
-      "scope": [
-        "variable.parameter"
-      ],
-      "settings": {
-        "fontStyle": "italic"
-      }
-    },
-    {
-      "scope": [
-        "constant.numeric",
-        "constant.numeric.integer",
-        "constant.numeric.float",
-        "constant.numeric.complex"
+        "constant.numeric"
       ],
       "settings": {
         "foreground": "#b4e59a"
-      }
-    },
-    {
-      "scope": [
-        "keyword",
-        "keyword.other",
-        "keyword.control",
-        "keyword.control.conditional",
-        "keyword.control.import",
-        "keyword.declaration",
-        "variable.language",
-        "constant.language",
-        "constant.character",
-        "constant.character.escape",
-        "constant.character.entity",
-        "constant.character.entity punctuation.definition",
-        "constant.other.placeholder",
-        "punctuation.definition.constant",
-        "storage.type",
-        "storage.type.function",
-        "storage.type.struct",
-        "storage.modifier",
-        "keyword.declaration.function",
-        "entity.name.section",
-        "punctuation.definition.heading",
-        "punctuation.definition.keyword",
-        "markup.heading",
-        "keyword.control punctuation.definition",
-        "support.constant",
-        "punctuation.section.embedded",
-        "punctuation.definition.template-expression",
-        "punctuation.section.interpolation",
-        "punctuation.definition.interpolation"
-      ],
-      "settings": {
-        "foreground": "#ff727c"
       }
     },
     {
