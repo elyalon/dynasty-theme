@@ -16,7 +16,4 @@ ${colorProps.map((p) => `  ${p}`).join("\n")}
 }
 `;
 
-if (!fs.existsSync(outPath)) {
-  fs.mkdirSync(outPath);
-}
 fs.writeFileSync(outPath, cssText, "utf-8");
