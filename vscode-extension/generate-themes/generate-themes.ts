@@ -46,7 +46,7 @@ function getTokenColors(palette: Palette) {
     {
       scope: ["invalid"],
       settings: {
-        foreground: chroma("hsl(0 100% 62%)").hex(),
+        foreground: palette.dySyntaxKeyword,
         fontStyle: "italic",
       },
     },
@@ -70,6 +70,10 @@ function getTokenColors(palette: Palette) {
         "entity.name.constant",
         // resets to default text color when entering embedded scope
         "meta.embedded",
+        // for JSON and TOML keys
+        "support.type.property-name",
+        // for YAML keys
+        "entity.name.tag.yaml",
       ],
       settings: { foreground: palette.dyNeutralTextMain },
     },
@@ -80,6 +84,8 @@ function getTokenColors(palette: Palette) {
         "source.js meta.brace",
         "source.ts meta.brace",
         "source.tsx meta.brace",
+        // for JSON keys' quotes
+        "punctuation.support.type.property-name",
       ],
       settings: { foreground: palette.dyNeutralTextAlt },
     },
@@ -104,10 +110,11 @@ function getTokenColors(palette: Palette) {
         "punctuation.definition.template-expression",
         "punctuation.section.interpolation",
         "punctuation.definition.interpolation",
-        // for markdown headings
-        "entity.name.section",
-        "markup.heading",
-        "punctuation.definition.heading",
+        // for markdown code
+        "markup.inline.raw",
+        "markup.raw.inline",
+        "markup.raw.block",
+        "punctuation.definition.raw.markdown",
       ],
       settings: { foreground: palette.dySyntaxKeyword },
     },
@@ -119,10 +126,6 @@ function getTokenColors(palette: Palette) {
         "variable.other.enummember",
         // for C# events
         "variable.other.event",
-        // for markdown code
-        "markup.inline.raw",
-        "markup.raw.inline",
-        "markup.raw.block",
         // for Rust attributes like `#[inline]`
         "meta.attribute.rust",
         // for CSS (e.g. the `.` in `:root`)
@@ -150,6 +153,10 @@ function getTokenColors(palette: Palette) {
         "support.function",
         "entity.name.command",
         "entity.name.tag",
+        // for markdown headings
+        "entity.name.section",
+        "markup.heading",
+        "punctuation.definition.heading",
       ],
       settings: { foreground: palette.dySyntaxFunction },
     },
@@ -207,6 +214,8 @@ function getWorkbenchColors(palette: Palette) {
     "editorLineNumber.foreground": chroma(palette.dyNeutralTextDim)
       .alpha(0.7)
       .hex(),
+    // code lens
+    "editorCodeLens.foreground": palette.dyNeutralTextDim,
 
     // DEBUG TOOLBAR
     "debugToolBar.background": palette.dyNeutralBgAlt,
@@ -377,23 +386,6 @@ function getWorkbenchColors(palette: Palette) {
     "terminal.background": palette.dyNeutralBgMain,
     "terminalCursor.foreground": palette.dyNeutralTextMain,
     "terminalCursor.background": palette.dyNeutralBgMain,
-    // ansi colors
-    "terminal.ansiBlack": palette.dyAnsiBlack,
-    "terminal.ansiRed": palette.dyAnsiRed,
-    "terminal.ansiGreen": palette.dyAnsiGreen,
-    "terminal.ansiYellow": palette.dyAnsiYellow,
-    "terminal.ansiBlue": palette.dyAnsiBlue,
-    "terminal.ansiMagenta": palette.dyAnsiMagenta,
-    "terminal.ansiCyan": palette.dyAnsiCyan,
-    "terminal.ansiWhite": palette.dyAnsiWhite,
-    "terminal.ansiBrightBlack": palette.dyAnsiBrightBlack,
-    "terminal.ansiBrightRed": palette.dyAnsiBrightRed,
-    "terminal.ansiBrightGreen": palette.dyAnsiBrightGreen,
-    "terminal.ansiBrightYellow": palette.dyAnsiBrightYellow,
-    "terminal.ansiBrightBlue": palette.dyAnsiBrightBlue,
-    "terminal.ansiBrightMagenta": palette.dyAnsiBrightMagenta,
-    "terminal.ansiBrightCyan": palette.dyAnsiBrightCyan,
-    "terminal.ansiBrightWhite": palette.dyAnsiBrightWhite,
   };
 
   return colors;

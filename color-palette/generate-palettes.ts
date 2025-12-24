@@ -31,57 +31,39 @@ function generatePalette(pigment: Pigment): void {
 
   switch (pigment) {
     case "none":
-      dyNeutralTextBright = chroma("oklch(96% 0.004 270)").hex();
-      dyNeutralTextMain = chroma("oklch(91% 0.010 270)").hex();
-      dyNeutralTextAlt = chroma("oklch(79% 0.014 270)").hex();
-      dyNeutralTextDim = chroma("oklch(60% 0.02 270)").hex();
+      dyNeutralTextBright = chroma("oklch(92% 0.0139 290)").hex();
+      dyNeutralTextMain = chroma("oklch(81.5% 0.0302 290)").hex();
+      dyNeutralTextAlt = chroma("oklch(71% 0.0467 290)").hex();
+      dyNeutralTextDim = chroma("oklch(53.1% 0.0497 290)").hex();
 
-      dyNeutralBorder = chroma("oklch(40% 0.028 270)").hex();
-      dyNeutralBgSub = chroma("oklch(28.4% 0.026 270)").hex();
-      dyNeutralBgAlt = chroma("oklch(22.5% 0.024 270)").hex();
-      dyNeutralBgMain = chroma("oklch(15% 0.02 270)").hex();
+      dyNeutralBorder = chroma("oklch(33.1% 0.0328 290)").hex();
+      dyNeutralBgSub = chroma("oklch(26.7% 0.0302 290)").hex();
+      dyNeutralBgAlt = chroma("oklch(22.5% 0.0276 290)").hex();
+      dyNeutralBgMain = chroma("oklch(17.5% 0.0243 290)").hex();
 
-      dyPrimary050 = chroma("oklch(97.1% 0.0131 251)").hex();
-      dyPrimary100 = chroma("oklch(94% 0.0296 251)").hex();
-      dyPrimary200 = chroma("oklch(88.5% 0.0565 251)").hex();
-      dyPrimary300 = chroma("oklch(78.4% 0.1124 251)").hex();
-      dyPrimary400 = chroma("oklch(71.7% 0.1499 251)").hex();
-      dyPrimary500 = chroma("oklch(63.3% 0.1611 251)").hex();
-      dyPrimary600 = chroma("oklch(56.9% 0.1558 251)").hex();
-      dyPrimary700 = chroma("oklch(50.5% 0.1348 251)").hex();
-      dyPrimary800 = chroma("oklch(44.3% 0.115 251)").hex();
-      dyPrimary900 = chroma("oklch(38.8% 0.0973 251)").hex();
-      dyPrimary950 = chroma("oklch(29.3% 0.0848 251)").hex();
+      dyPrimary050 = chroma("oklch(97.1% 0.0131 290)").hex();
+      dyPrimary100 = chroma("oklch(94% 0.0296 290)").hex();
+      dyPrimary200 = chroma("oklch(88.5% 0.0565 290)").hex();
+      dyPrimary300 = chroma("oklch(78.4% 0.1124 290)").hex();
+      dyPrimary400 = chroma("oklch(71.7% 0.1499 290)").hex();
+      dyPrimary500 = chroma("oklch(63.3% 0.1611 290)").hex();
+      dyPrimary600 = chroma("oklch(56.9% 0.1558 290)").hex();
+      dyPrimary700 = chroma("oklch(50.5% 0.1348 290)").hex();
+      dyPrimary800 = chroma("oklch(44.3% 0.115 290)").hex();
+      dyPrimary900 = chroma("oklch(38.8% 0.0973 290)").hex();
+      dyPrimary950 = chroma("oklch(29.3% 0.0848 290)").hex();
       break;
     case "red":
       throw new Error("TODO");
   }
 
-  const dySyntaxType = chroma("oklch(91% 0.119 91)").hex();
-  const dySyntaxOperator = chroma("oklch(80% 0.11 59)").hex();
-  const dySyntaxKeyword = chroma("oklch(72.4% 0.1715 18)").hex();
-  const dySyntaxSpecial = chroma("oklch(75% 0.12 300)").hex();
-  const dySyntaxFunction = chroma("oklch(77% 0.11 250)").hex();
-  const dySyntaxString = chroma("oklch(85% 0.075 208.7)").hex();
-  const dySyntaxNumber = chroma("oklch(87% 0.1118 135)").hex();
-
-  const dyAnsiBlack = dyNeutralBgMain;
-  const dyAnsiRed = chroma("oklch(64.3% 0.2346 25.8)").hex();
-  const dyAnsiGreen = chroma("oklch(71.9% 0.2097 139.1)").hex();
-  const dyAnsiYellow = chroma("oklch(79.5% 0.1536 64.5)").hex();
-  const dyAnsiBlue = chroma("oklch(60.7% 0.2123 263.2)").hex();
-  const dyAnsiMagenta = chroma("oklch(64.5% 0.238 304.8)").hex();
-  const dyAnsiCyan = chroma("oklch(70.7% 0.1533 162.8)").hex();
-  const dyAnsiWhite = dyNeutralTextMain;
-
-  const dyAnsiBrightBlack = dyNeutralTextDim;
-  const dyAnsiBrightRed = chroma("oklch(68.8% 0.2012 22.9)").hex();
-  const dyAnsiBrightGreen = chroma("oklch(86.3% 0.2005 141.3)").hex();
-  const dyAnsiBrightYellow = chroma("oklch(88.4% 0.1275 85.3)").hex();
-  const dyAnsiBrightBlue = chroma("oklch(74% 0.1413 228)").hex();
-  const dyAnsiBrightMagenta = chroma("oklch(77.9% 0.1709 319.8)").hex();
-  const dyAnsiBrightCyan = chroma("oklch(85.1% 0.1428 184.3)").hex();
-  const dyAnsiBrightWhite = dyNeutralTextBright;
+  const dySyntaxType = chroma("oklch(80% 0.1203 76.7)").hex();
+  const dySyntaxOperator = chroma("oklch(71.4% 0.1367 48.8)").hex();
+  const dySyntaxKeyword = chroma("oklch(65.9% 0.1819 20.1)").hex();
+  const dySyntaxSpecial = chroma("oklch(63.7% 0.1322 300)").hex();
+  const dySyntaxFunction = chroma("oklch(63.9% 0.1292 259.2)").hex();
+  const dySyntaxString = chroma("oklch(74.8% 0.094 227.2)").hex();
+  const dySyntaxNumber = chroma("oklch(74% 0.1256 135)").hex();
 
   const paletteObj: Record<string, string> = {
     dyNeutralTextBright,
@@ -113,24 +95,6 @@ function generatePalette(pigment: Pigment): void {
     dySyntaxFunction,
     dySyntaxString,
     dySyntaxNumber,
-
-    dyAnsiBlack,
-    dyAnsiRed,
-    dyAnsiGreen,
-    dyAnsiYellow,
-    dyAnsiBlue,
-    dyAnsiMagenta,
-    dyAnsiCyan,
-    dyAnsiWhite,
-
-    dyAnsiBrightBlack,
-    dyAnsiBrightRed,
-    dyAnsiBrightGreen,
-    dyAnsiBrightYellow,
-    dyAnsiBrightBlue,
-    dyAnsiBrightMagenta,
-    dyAnsiBrightCyan,
-    dyAnsiBrightWhite,
   };
 
   const paletteJson = JSON.stringify(paletteObj, null, 2);
@@ -138,7 +102,7 @@ function generatePalette(pigment: Pigment): void {
   fs.writeFileSync(
     path.resolve(palettesPath, `palette-${pigment}.json`),
     paletteJson,
-    "utf8"
+    "utf8",
   );
 }
 

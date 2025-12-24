@@ -27,20 +27,4 @@ export interface Palette {
   dySyntaxFunction: string;
   dySyntaxString: string;
   dySyntaxNumber: string;
-  dyAnsiBlack: string;
-  dyAnsiRed: string;
-  dyAnsiGreen: string;
-  dyAnsiYellow: string;
-  dyAnsiBlue: string;
-  dyAnsiMagenta: string;
-  dyAnsiCyan: string;
-  dyAnsiWhite: string;
-  dyAnsiBrightBlack: string;
-  dyAnsiBrightRed: string;
-  dyAnsiBrightGreen: string;
-  dyAnsiBrightYellow: string;
-  dyAnsiBrightBlue: string;
-  dyAnsiBrightMagenta: string;
-  dyAnsiBrightCyan: string;
-  dyAnsiBrightWhite: string;
 }
