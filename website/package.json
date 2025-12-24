@@ -1,13 +1,5 @@
 {
   "type": "module",
-  "scripts": {
-    "twcolors:generate": "node ./generate-tailwind-colors/generate-tailwind-colors.ts",
-    "twcolors:watch": "node --watch --watch-preserve-output ./generate-tailwind-colors/generate-tailwind-colors.ts",
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
   "devDependencies": {
     "@lucide/astro": "^0.552.0",
     "@tailwindcss/vite": "^4.1.18",

@@ -47,24 +47,11 @@
       }
     ]
   },
-  "scripts": {
-    "themes:generate": "node ./generate-themes/generate-themes.ts",
-    "themes:watch": "node --watch --watch-preserve-output ./generate-themes/generate-themes.ts",
-    "compile-web": "webpack",
-    "watch-web": "webpack --watch",
-    "package-web": "webpack --mode production --devtool hidden-source-map",
-    "lint": "eslint src",
-    "vsix-package": "vsce package",
-    "vsix-publish": "vsce publish",
-    "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. .",
-    "vscode:prepublish": "pnpm run package-web"
-  },
   "devDependencies": {
     "@types/chroma-js": "^3.1.2",
     "@types/node": "^24.10.1",
     "@types/vscode": "^1.105.0",
     "@types/webpack-env": "^1.18.8",
-    "@vscode/test-web": "^0.0.75",
     "@vscode/vsce": "^3.7.1",
     "chroma-js": "^3.1.2",
     "eslint": "^9.39.1",
