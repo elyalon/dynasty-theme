@@ -50,6 +50,18 @@
         "id": "Dynasty Theme (violet)",
         "uiTheme": "vs-dark",
         "path": "./themes/DynastyViolet-color-theme.json"
+      },
+      {
+        "label": "Dynasty Theme Ocean Light",
+        "id": "Dynasty Theme (ocean+light)",
+        "uiTheme": "vs",
+        "path": "./themes/DynastyOceanLight-color-theme.json"
+      },
+      {
+        "label": "Dynasty Theme Violet Light",
+        "id": "Dynasty Theme (violet+light)",
+        "uiTheme": "vs",
+        "path": "./themes/DynastyVioletLight-color-theme.json"
       }
     ]
   },

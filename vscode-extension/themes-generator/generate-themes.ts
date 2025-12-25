@@ -3,6 +3,8 @@ import * as path from "path";
 import chroma from "chroma-js";
 import violetVariant from "../../colors/variants/violet.json" with { type: "json" };
 import oceanVariant from "../../colors/variants/ocean.json" with { type: "json" };
+import violetLightVariant from "../../colors/variants/violetLight.json" with { type: "json" };
+import oceanLightVariant from "../../colors/variants/oceanLight.json" with { type: "json" };
 import {
   type VscodeTokenSpec,
   type VscodeWorkbenchColors,
@@ -452,3 +454,5 @@ function generateTheme(palette: Palette, suffix: string) {
 
 generateTheme(oceanVariant, "Ocean");
 generateTheme(violetVariant, "Violet");
+generateTheme(oceanLightVariant, "OceanLight");
+generateTheme(violetLightVariant, "VioletLight");

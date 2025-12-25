@@ -2,7 +2,7 @@ import chroma from "chroma-js";
 import * as fs from "fs";
 import * as path from "path";
 
-type Variant = "ocean" | "violet";
+type Variant = "ocean" | "violet" | "oceanLight" | "violetLight";
 
 const variantsPath = path.resolve(import.meta.dirname, "./variants");
 
@@ -100,6 +100,68 @@ function generatePalette(variant: Variant): void {
       dySyntaxString = chroma("oklch(71% 0.1183 135)").hex();
       dySyntaxNumber = chroma("oklch(71% 0.1128 329.6)").hex();
       break;
+    case "oceanLight":
+      dyNeutralTextBright = chroma("oklch(14% 0.0139 260)").hex();
+      dyNeutralTextMain = chroma("oklch(25% 0.0302 260)").hex();
+      dyNeutralTextAlt = chroma("oklch(40% 0.0467 260)").hex();
+      dyNeutralTextDim = chroma("oklch(60.4% 0.0345 260)").hex();
+
+      dyNeutralBorder = chroma("oklch(85% 0.0318 260)").hex();
+      dyNeutralBgSub = chroma("oklch(89.3% 0.0257 260)").hex();
+      dyNeutralBgAlt = chroma("oklch(92.4% 0.0216 260)").hex();
+      dyNeutralBgMain = chroma("oklch(97.9% 0.0095 260)").hex();
+
+      dyPrimary050 = chroma("oklch(97.1% 0.0131 260)").hex();
+      dyPrimary100 = chroma("oklch(94% 0.0296 260)").hex();
+      dyPrimary200 = chroma("oklch(88.5% 0.0565 260)").hex();
+      dyPrimary300 = chroma("oklch(78.4% 0.1124 260)").hex();
+      dyPrimary400 = chroma("oklch(71.7% 0.1499 260)").hex();
+      dyPrimary500 = chroma("oklch(63.3% 0.1611 260)").hex();
+      dyPrimary600 = chroma("oklch(56.9% 0.1558 260)").hex();
+      dyPrimary700 = chroma("oklch(50.5% 0.1348 260)").hex();
+      dyPrimary800 = chroma("oklch(44.3% 0.115 260)").hex();
+      dyPrimary900 = chroma("oklch(38.8% 0.0973 260)").hex();
+      dyPrimary950 = chroma("oklch(29.3% 0.0848 260)").hex();
+
+      dySyntaxType = chroma("oklch(45% 0.1203 76.7)").hex();
+      dySyntaxOperator = chroma("oklch(40% 0.1352 48.8)").hex();
+      dySyntaxKeyword = chroma("oklch(45% 0.1799 20.1)").hex();
+      dySyntaxSpecial = chroma("oklch(45% 0.1322 300)").hex();
+      dySyntaxFunction = chroma("oklch(40% 0.1406 259.2)").hex();
+      dySyntaxString = chroma("oklch(45% 0.1183 135)").hex();
+      dySyntaxNumber = chroma("oklch(45% 0.1128 329.6)").hex();
+      break;
+    case "violetLight":
+      dyNeutralTextBright = chroma("oklch(14% 0.0139 290)").hex();
+      dyNeutralTextMain = chroma("oklch(25% 0.0302 290)").hex();
+      dyNeutralTextAlt = chroma("oklch(40% 0.0467 290)").hex();
+      dyNeutralTextDim = chroma("oklch(55% 0.0497 290)").hex();
+
+      dyNeutralBorder = chroma("oklch(85% 0.0328 290)").hex();
+      dyNeutralBgSub = chroma("oklch(90% 0.0302 290)").hex();
+      dyNeutralBgAlt = chroma("oklch(95% 0.0276 290)").hex();
+      dyNeutralBgMain = chroma("oklch(98% 0.0243 290)").hex();
+
+      dyPrimary050 = chroma("oklch(97.1% 0.0131 290)").hex();
+      dyPrimary100 = chroma("oklch(94% 0.0296 290)").hex();
+      dyPrimary200 = chroma("oklch(88.5% 0.0565 290)").hex();
+      dyPrimary300 = chroma("oklch(78.4% 0.1124 290)").hex();
+      dyPrimary400 = chroma("oklch(71.7% 0.1499 290)").hex();
+      dyPrimary500 = chroma("oklch(63.3% 0.1611 290)").hex();
+      dyPrimary600 = chroma("oklch(56.9% 0.1558 290)").hex();
+      dyPrimary700 = chroma("oklch(50.5% 0.1348 290)").hex();
+      dyPrimary800 = chroma("oklch(44.3% 0.115 290)").hex();
+      dyPrimary900 = chroma("oklch(38.8% 0.0973 290)").hex();
+      dyPrimary950 = chroma("oklch(29.3% 0.0848 290)").hex();
+
+      dySyntaxType = chroma("oklch(45% 0.1203 76.7)").hex();
+      dySyntaxOperator = chroma("oklch(40% 0.1352 48.8)").hex();
+      dySyntaxKeyword = chroma("oklch(45% 0.1889 20.1)").hex();
+      dySyntaxSpecial = chroma("oklch(45% 0.1322 300)").hex();
+      dySyntaxFunction = chroma("oklch(40% 0.1103 259.2)").hex();
+      dySyntaxString = chroma("oklch(45% 0.1183 135)").hex();
+      dySyntaxNumber = chroma("oklch(45% 0.1128 329.6)").hex();
+      break;
   }
 
   const paletteObj: Record<string, string> = {
@@ -145,3 +207,5 @@ function generatePalette(variant: Variant): void {
 
 generatePalette("ocean");
 generatePalette("violet");
+generatePalette("oceanLight");
+generatePalette("violetLight");
