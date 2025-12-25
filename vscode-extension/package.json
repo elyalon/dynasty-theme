@@ -3,7 +3,7 @@
   "displayName": "Dynasty Theme",
   "icon": "./icon.jpg",
   "description": "A high-contrast color theme designed for clarity.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "publisher": "elyalon",
   "bugs": {
     "url": "https://github.com/elyalon/dynasty-theme/issues"
