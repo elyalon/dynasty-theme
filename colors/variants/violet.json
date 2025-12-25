@@ -18,11 +18,11 @@
   "dyPrimary800": "#54458e",
   "dyPrimary900": "#453974",
   "dyPrimary950": "#2d2253",
-  "dySyntaxType": "#e9b35e",
-  "dySyntaxOperator": "#e68650",
-  "dySyntaxKeyword": "#ec5962",
+  "dySyntaxType": "#e0aa55",
+  "dySyntaxOperator": "#e68751",
+  "dySyntaxKeyword": "#ef5560",
   "dySyntaxSpecial": "#9877cf",
-  "dySyntaxFunction": "#5a8cd9",
-  "dySyntaxString": "#67b9dc",
-  "dySyntaxNumber": "#88bc6a"
+  "dySyntaxFunction": "#628cce",
+  "dySyntaxString": "#81b265",
+  "dySyntaxNumber": "#c987c3"
 }

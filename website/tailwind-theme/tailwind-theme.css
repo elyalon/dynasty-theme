@@ -1,0 +1,61 @@
+@theme {
+  --color-dyNeutralTextBright: #dfe5ee;
+  --color-dyNeutralTextMain: #b7c3d7;
+  --color-dyNeutralTextAlt: #91a3bf;
+  --color-dyNeutralTextDim: #5b6d89;
+  --color-dyNeutralBorder: #263650;
+  --color-dyNeutralBgSub: #1a263a;
+  --color-dyNeutralBgAlt: #111c2d;
+  --color-dyNeutralBgMain: #09111e;
+  --color-dyPrimary050: #f0f6ff;
+  --color-dyPrimary100: #e0ecff;
+  --color-dyPrimary200: #c4daff;
+  --color-dyPrimary300: #8ebaff;
+  --color-dyPrimary400: #6aa3ff;
+  --color-dyPrimary500: #4c87ea;
+  --color-dyPrimary600: #3c74d1;
+  --color-dyPrimary700: #3362b0;
+  --color-dyPrimary800: #2b5192;
+  --color-dyPrimary900: #234378;
+  --color-dyPrimary950: #102a56;
+  --color-dySyntaxType: #e0aa55;
+  --color-dySyntaxOperator: #df814b;
+  --color-dySyntaxKeyword: #eb5a62;
+  --color-dySyntaxSpecial: #9877cf;
+  --color-dySyntaxFunction: #578de2;
+  --color-dySyntaxString: #7cad60;
+  --color-dySyntaxNumber: #c987c3;
+}
+
+@layer theme {
+  :root {
+    @variant violet {
+      --color-dyNeutralTextBright: #e4e3ed;
+      --color-dyNeutralTextMain: #c2c0d5;
+      --color-dyNeutralTextAlt: #a09dbd;
+      --color-dyNeutralTextDim: #6b6787;
+      --color-dyNeutralBorder: #353346;
+      --color-dyNeutralBgSub: #252334;
+      --color-dyNeutralBgAlt: #1b1a28;
+      --color-dyNeutralBgMain: #100f1a;
+      --color-dyPrimary050: #f5f4fe;
+      --color-dyPrimary100: #eae8fe;
+      --color-dyPrimary200: #d8d4fd;
+      --color-dyPrimary300: #b7acfc;
+      --color-dyPrimary400: #a391fa;
+      --color-dyPrimary500: #8b75e3;
+      --color-dyPrimary600: #7862cb;
+      --color-dyPrimary700: #6554ab;
+      --color-dyPrimary800: #54458e;
+      --color-dyPrimary900: #453974;
+      --color-dyPrimary950: #2d2253;
+      --color-dySyntaxType: #e0aa55;
+      --color-dySyntaxOperator: #e68751;
+      --color-dySyntaxKeyword: #ef5560;
+      --color-dySyntaxSpecial: #9877cf;
+      --color-dySyntaxFunction: #628cce;
+      --color-dySyntaxString: #81b265;
+      --color-dySyntaxNumber: #c987c3;
+    }
+  }
+}

@@ -1,13 +1,19 @@
 @import "tailwindcss";
-@import "../../generate-tailwind-colors/dynasty-tw-colors.css";
+
+@custom-variant violet (&:where(.violet, .violet *));
 
 @theme {
+  --color-*: initial;
+
   --color-debug: #f0f;
   --color-debugAlt: #f00;
 
   --font-mono: "Google Sans Code", monospace;
   --spacing: 4px;
 }
+
+/* this import needs to be after the `--color-*: initial;` declaration */
+@import "../../tailwind-theme/tailwind-theme.css";
 
 @layer base {
   :root {

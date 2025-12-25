@@ -1,12 +1,42 @@
 import * as fs from "fs";
 import * as path from "path";
 import chroma from "chroma-js";
-import paletteNone from "../../_shared/palettes/palette-none.json" with { type: "json" };
+import violetVariant from "../../colors/variants/violet.json" with { type: "json" };
+import oceanVariant from "../../colors/variants/ocean.json" with { type: "json" };
 import {
   type VscodeTokenSpec,
   type VscodeWorkbenchColors,
 } from "./vscode-schema-types.ts";
-import { type Palette } from "./palette-type.ts";
+
+// this type was generated using a JSON to Typescript generator
+interface Palette {
+  dyNeutralTextBright: string;
+  dyNeutralTextMain: string;
+  dyNeutralTextAlt: string;
+  dyNeutralTextDim: string;
+  dyNeutralBorder: string;
+  dyNeutralBgSub: string;
+  dyNeutralBgAlt: string;
+  dyNeutralBgMain: string;
+  dyPrimary050: string;
+  dyPrimary100: string;
+  dyPrimary200: string;
+  dyPrimary300: string;
+  dyPrimary400: string;
+  dyPrimary500: string;
+  dyPrimary600: string;
+  dyPrimary700: string;
+  dyPrimary800: string;
+  dyPrimary900: string;
+  dyPrimary950: string;
+  dySyntaxType: string;
+  dySyntaxOperator: string;
+  dySyntaxKeyword: string;
+  dySyntaxSpecial: string;
+  dySyntaxFunction: string;
+  dySyntaxString: string;
+  dySyntaxNumber: string;
+}
 
 const themesPath = path.resolve(import.meta.dirname, "../themes");
 
@@ -65,7 +95,6 @@ function getTokenColors(palette: Palette) {
     {
       scope: [
         "variable",
-        "punctuation.definition.variable",
         "entity.name.variable",
         "entity.name.constant",
         // resets to default text color when entering embedded scope
@@ -86,6 +115,8 @@ function getTokenColors(palette: Palette) {
         "source.tsx meta.brace",
         // for JSON keys' quotes
         "punctuation.support.type.property-name",
+        // for regex's slashes
+        "string.regexp punctuation.definition.string",
       ],
       settings: { foreground: palette.dyNeutralTextAlt },
     },
@@ -341,7 +372,7 @@ function getWorkbenchColors(palette: Palette) {
     "breadcrumb.focusForeground": palette.dyNeutralTextMain,
     "breadcrumb.activeSelectionForeground": palette.dyNeutralTextBright,
 
-    // split panes separator
+    // SPLIT PANES SEPARATOR
     "editorGroup.border": palette.dyNeutralBorder,
     "sash.hoverBorder": palette.dyPrimary600,
 
@@ -366,10 +397,16 @@ function getWorkbenchColors(palette: Palette) {
     "tab.border": palette.dyNeutralBorder,
     "tab.selectedBorderTop": palette.dyNeutralTextAlt,
 
+    // TREE VIEWS
+    "tree.indentGuidesStroke": palette.dyNeutralBorder,
+
     // LIST
     "list.activeSelectionBackground": palette.dyNeutralBgSub,
     "list.inactiveSelectionBackground": palette.dyNeutralBgSub,
     "list.hoverBackground": chroma(palette.dyNeutralBgSub).alpha(0.5).hex(),
+
+    // EXPLORER
+    "gitDecoration.ignoredResourceForeground": palette.dyNeutralTextDim,
 
     // PANEL
     "panel.border": palette.dyNeutralBorder,
@@ -413,7 +450,5 @@ function generateTheme(palette: Palette, suffix: string) {
   );
 }
 
-if (!fs.existsSync(themesPath)) {
-  fs.mkdirSync(themesPath);
-}
-generateTheme(paletteNone, "None");
+generateTheme(oceanVariant, "Ocean");
+generateTheme(violetVariant, "Violet");

@@ -40,10 +40,16 @@
     ],
     "themes": [
       {
-        "label": "Dynasty Theme",
+        "label": "Dynasty Theme Ocean",
         "id": "Dynasty Theme (Default)",
         "uiTheme": "vs-dark",
-        "path": "./themes/DynastyNone-color-theme.json"
+        "path": "./themes/DynastyOcean-color-theme.json"
+      },
+      {
+        "label": "Dynasty Theme Violet",
+        "id": "Dynasty Theme (violet)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/DynastyViolet-color-theme.json"
       }
     ]
   },
