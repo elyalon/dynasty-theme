@@ -1,3 +1,5 @@
-# Dynasty Theme
+# [Dynasty Theme](https://dynasty.ely.al)
 
-Monorepo for [Dynasty Theme](https://dynasty.ely.al).
+A high-contrast color theme designed for clarity.
+
+![A screenshot showcasing the Dynasty Theme](https://raw.githubusercontent.com/elyalon/dynasty-theme/refs/heads/main/_shared/screenshots/show1.jpg)
