@@ -3,21 +3,21 @@ import show1 from "../../../_shared/screenshots/show1.jpg";
 import show2 from "../../../_shared/screenshots/show2.jpg";
 ---
 
-<div class="border-t border-dyNeutralBorder bg-dyNeutralBgAlt pt-20 pb-55">
+<div class="border-t border-dyAliasBorder bg-dyAliasBgAlt pt-20 pb-55">
   <div class="mx-auto max-w-210 px-3">
-    <h2 class="mb-8 text-3xl font-semibold text-dyNeutralTextAlt">
+    <h2 class="mb-8 text-3xl font-semibold text-dyAliasText">
       Screenshots
     </h2>
     <div class="flex flex-col gap-10" id="screenshots-container">
       <img
         src={show1.src}
         alt="Dynasty theme screenshot 1"
-        class="cursor-zoom-in rounded-md border border-dyNeutralBorder shadow-xl/30"
+        class="cursor-zoom-in rounded-md border border-dyAliasBorder shadow-xl/30"
       />
       <img
         src={show2.src}
         alt="Dynasty theme screenshot 2"
-        class="cursor-zoom-in rounded-md border border-dyNeutralBorder shadow-xl/30"
+        class="cursor-zoom-in rounded-md border border-dyAliasBorder shadow-xl/30"
       />
     </div>
   </div>
@@ -37,7 +37,7 @@ import show2 from "../../../_shared/screenshots/show2.jpg";
     function openLightbox(src: string, alt: string) {
       const overlay = document.createElement("div");
       overlay.className =
-        "fixed inset-0 z-[1000] bg-dyNeutralBgMain/80 flex items-center justify-center p-4 cursor-zoom-out";
+        "fixed inset-0 z-[1000] bg-dyAliasBgMain/80 flex items-center justify-center p-4 cursor-zoom-out";
       overlay.setAttribute("role", "dialog");
       overlay.setAttribute("aria-label", "Image preview");
 

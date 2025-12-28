@@ -1,211 +1,195 @@
 import chroma from "chroma-js";
 import * as fs from "fs";
 import * as path from "path";
+import { sampleScale } from "./scales.ts";
 
 type Variant = "ocean" | "violet" | "oceanLight" | "violetLight";
 
 const variantsPath = path.resolve(import.meta.dirname, "./variants");
 
-function generatePalette(variant: Variant): void {
-  let dyNeutralTextBright;
-  let dyNeutralTextMain;
-  let dyNeutralTextAlt;
-  let dyNeutralTextDim;
+const variantsColors: Record<Variant, Record<string, string>> = {
+  ocean: {
+    dyErrorFg: chroma("oklch(65.9% 0.1799 20.1)").hex(),
+    dyWarningFg: chroma("oklch(77.2% 0.1203 76.7)").hex(),
+    dySuccessFg: chroma("oklch(69.5% 0.1183 135)").hex(),
+    dySyntaxType: chroma("oklch(77.2% 0.1203 76.7)").hex(),
+    dySyntaxOperator: chroma("oklch(69.5% 0.1352 48.8)").hex(),
+    dySyntaxKeyword: chroma("oklch(65.9% 0.1799 20.1)").hex(),
+    dySyntaxSpecial: chroma("oklch(63.7% 0.1322 300)").hex(),
+    dySyntaxFunction: chroma("oklch(64.6% 0.1406 259.2)").hex(),
+    dySyntaxString: chroma("oklch(69.5% 0.1183 135)").hex(),
+    dySyntaxNumber: chroma("oklch(71% 0.1128 329.6)").hex(),
+    ...sampleScale(
+      {
+        hue: 260,
+        points: [
+          { l: 0, c: 0 },
+          { l: 25, c: 0.04 },
+          { l: 55, c: 0.05 },
+          { l: 100, c: 0 },
+        ],
+      },
+      "dyScaleNeutral",
+    ),
+    ...sampleScale(
+      {
+        hue: 260,
+        points: [
+          { l: 0, c: 0 },
+          { l: 62, c: 0.2 },
+          { l: 100, c: 0 },
+        ],
+      },
+      "dyScalePrimary",
+    ),
+  },
+  violet: {
+    dyErrorFg: chroma("oklch(65.9% 0.1889 20.1)").hex(),
+    dyWarningFg: chroma("oklch(77.2% 0.1203 76.7)").hex(),
+    dySuccessFg: chroma("oklch(71% 0.1183 135)").hex(),
+    dySyntaxType: chroma("oklch(77.2% 0.1203 76.7)").hex(),
+    dySyntaxOperator: chroma("oklch(71.4% 0.1352 48.8)").hex(),
+    dySyntaxKeyword: chroma("oklch(65.9% 0.1889 20.1)").hex(),
+    dySyntaxSpecial: chroma("oklch(63.7% 0.1488 300)").hex(),
+    dySyntaxFunction: chroma("oklch(63.9% 0.1217 259.2)").hex(),
+    dySyntaxString: chroma("oklch(71% 0.1183 135)").hex(),
+    dySyntaxNumber: chroma("oklch(71% 0.1128 329.6)").hex(),
+    ...sampleScale(
+      {
+        hue: 290,
+        points: [
+          { l: 0, c: 0 },
+          { l: 25, c: 0.03 },
+          { l: 55, c: 0.04 },
+          { l: 100, c: 0 },
+        ],
+      },
+      "dyScaleNeutral",
+    ),
+    ...sampleScale(
+      {
+        hue: 290,
+        points: [
+          { l: 0, c: 0 },
+          { l: 62, c: 0.2 },
+          { l: 100, c: 0 },
+        ],
+      },
+      "dyScalePrimary",
+    ),
+  },
+  oceanLight: {
+    dyErrorFg: chroma("oklch(45% 0.1799 20.1)").hex(),
+    dyWarningFg: chroma("oklch(45% 0.1203 76.7)").hex(),
+    dySuccessFg: chroma("oklch(45% 0.1183 135)").hex(),
+    dySyntaxType: chroma("oklch(45% 0.1203 76.7)").hex(),
+    dySyntaxOperator: chroma("oklch(40% 0.1352 48.8)").hex(),
+    dySyntaxKeyword: chroma("oklch(45% 0.1799 20.1)").hex(),
+    dySyntaxSpecial: chroma("oklch(45% 0.1322 300)").hex(),
+    dySyntaxFunction: chroma("oklch(40% 0.1406 259.2)").hex(),
+    dySyntaxString: chroma("oklch(45% 0.1183 135)").hex(),
+    dySyntaxNumber: chroma("oklch(45% 0.1128 329.6)").hex(),
+    ...sampleScale(
+      {
+        hue: 260,
+        points: [
+          { l: 0, c: 0 },
+          { l: 40, c: 0.047 },
+          { l: 35, c: 0.055 },
+          { l: 85, c: 0.032 },
+          { l: 100, c: 0 },
+        ],
+      },
+      "dyScaleNeutral",
+    ),
+    ...sampleScale(
+      {
+        hue: 260,
+        points: [
+          { l: 0, c: 0 },
+          { l: 62, c: 0.2 },
+          { l: 100, c: 0 },
+        ],
+      },
+      "dyScalePrimary",
+    ),
+  },
+  violetLight: {
+    dyErrorFg: chroma("oklch(45% 0.1889 20.1)").hex(),
+    dyWarningFg: chroma("oklch(45% 0.1203 76.7)").hex(),
+    dySuccessFg: chroma("oklch(45% 0.1183 135)").hex(),
+    dySyntaxType: chroma("oklch(45% 0.1203 76.7)").hex(),
+    dySyntaxOperator: chroma("oklch(40% 0.1352 48.8)").hex(),
+    dySyntaxKeyword: chroma("oklch(45% 0.1889 20.1)").hex(),
+    dySyntaxSpecial: chroma("oklch(45% 0.1322 300)").hex(),
+    dySyntaxFunction: chroma("oklch(40% 0.1103 259.2)").hex(),
+    dySyntaxString: chroma("oklch(45% 0.1183 135)").hex(),
+    dySyntaxNumber: chroma("oklch(45% 0.1128 329.6)").hex(),
+    ...sampleScale(
+      {
+        hue: 290,
+        points: [
+          { l: 0, c: 0 },
+          { l: 20, c: 0.04 },
+          { l: 35, c: 0.055 },
+          { l: 70, c: 0.04 },
+          { l: 100, c: 0 },
+        ],
+      },
+      "dyScaleNeutral",
+    ),
+    ...sampleScale(
+      {
+        hue: 290,
+        points: [
+          { l: 0, c: 0 },
+          { l: 62, c: 0.2 },
+          { l: 100, c: 0 },
+        ],
+      },
+      "dyScalePrimary",
+    ),
+  },
+};
 
-  let dyNeutralBorder;
-  let dyNeutralBgSub;
-  let dyNeutralBgAlt;
-  let dyNeutralBgMain;
+// prettier-ignore
+function applyAliases(colors: Record<string, string>, isDark: boolean): void {
+  //                                         DARK                      LIGHT
+  colors.dyAliasSyntaxComment     = isDark ? colors.dyScaleNeutral53 : colors.dyScaleNeutral50;
+  colors.dyAliasSyntaxPunctuation = isDark ? colors.dyScaleNeutral71 : colors.dyScaleNeutral33;
+  colors.dyAliasText              = isDark ? colors.dyScaleNeutral81 : colors.dyScaleNeutral20;
+  colors.dyAliasTextDim           = isDark ? colors.dyScaleNeutral66 : colors.dyScaleNeutral50;
+  colors.dyAliasTextWidget        = isDark ? colors.dyScaleNeutral92 : colors.dyScaleNeutral98;
+  colors.dyAliasTextLink          = isDark ? colors.dyScalePrimary71 : colors.dyScalePrimary40;
+  colors.dyAliasBorder            = isDark ? colors.dyScaleNeutral33 : colors.dyScaleNeutral82;
+  colors.dyAliasBgMain            = isDark ? colors.dyScaleNeutral17 : colors.dyScaleNeutral98;
+  colors.dyAliasBgMainHover       = isDark ? colors.dyScaleNeutral21 : colors.dyScaleNeutral95;
+  colors.dyAliasBgAlt             = isDark ? colors.dyScaleNeutral21 : colors.dyScaleNeutral92;
+  colors.dyAliasBgAltHover        = isDark ? colors.dyScaleNeutral25 : colors.dyScaleNeutral88;
+  colors.dyAliasBgSub             = isDark ? colors.dyScaleNeutral26 : colors.dyScaleNeutral87;
+  colors.dyAliasBgSubHover        = isDark ? colors.dyScaleNeutral29 : colors.dyScaleNeutral84;
+  colors.dyAliasBgWidget          = isDark ? colors.dyScalePrimary50 : colors.dyScalePrimary50;
+  colors.dyAliasBgWidgetHover     = isDark ? colors.dyScalePrimary45 : colors.dyScalePrimary45;
+  colors.dyAliasFocusOutline      = isDark ? colors.dyScalePrimary63 : colors.dyScalePrimary63;
 
-  let dyPrimary050;
-  let dyPrimary100;
-  let dyPrimary200;
-  let dyPrimary300;
-  let dyPrimary400;
-  let dyPrimary500;
-  let dyPrimary600;
-  let dyPrimary700;
-  let dyPrimary800;
-  let dyPrimary900;
-  let dyPrimary950;
+  colors.dyAliasSelection         = isDark ? chroma(colors.dyScalePrimary71).alpha(0.2).hex() : chroma(colors.dyScalePrimary60).alpha(0.3).hex();
+}
 
-  let dySyntaxType;
-  let dySyntaxOperator;
-  let dySyntaxKeyword;
-  let dySyntaxSpecial;
-  let dySyntaxFunction;
-  let dySyntaxString;
-  let dySyntaxNumber;
+function generateVariant(variant: Variant, isDark: boolean): void {
+  const colors = variantsColors[variant];
 
-  switch (variant) {
-    case "ocean":
-      dyNeutralTextBright = chroma("oklch(92% 0.0139 260)").hex();
-      dyNeutralTextMain = chroma("oklch(81.5% 0.0302 260)").hex();
-      dyNeutralTextAlt = chroma("oklch(71% 0.0467 260)").hex();
-      dyNeutralTextDim = chroma("oklch(53.1% 0.0497 260)").hex();
+  applyAliases(colors, isDark);
 
-      dyNeutralBorder = chroma("oklch(33.1% 0.0517 260)").hex();
-      dyNeutralBgSub = chroma("oklch(26.7% 0.0417 260)").hex();
-      dyNeutralBgAlt = chroma("oklch(22.5% 0.0378 260)").hex();
-      dyNeutralBgMain = chroma("oklch(17.5% 0.0298 260)").hex();
-
-      dyPrimary050 = chroma("oklch(97.1% 0.0131 260)").hex();
-      dyPrimary100 = chroma("oklch(94% 0.0296 260)").hex();
-      dyPrimary200 = chroma("oklch(88.5% 0.0565 260)").hex();
-      dyPrimary300 = chroma("oklch(78.4% 0.1124 260)").hex();
-      dyPrimary400 = chroma("oklch(71.7% 0.1499 260)").hex();
-      dyPrimary500 = chroma("oklch(63.3% 0.1611 260)").hex();
-      dyPrimary600 = chroma("oklch(56.9% 0.1558 260)").hex();
-      dyPrimary700 = chroma("oklch(50.5% 0.1348 260)").hex();
-      dyPrimary800 = chroma("oklch(44.3% 0.115 260)").hex();
-      dyPrimary900 = chroma("oklch(38.8% 0.0973 260)").hex();
-      dyPrimary950 = chroma("oklch(29.3% 0.0848 260)").hex();
-
-      dySyntaxType = chroma("oklch(77.2% 0.1203 76.7)").hex();
-      dySyntaxOperator = chroma("oklch(69.5% 0.1352 48.8)").hex();
-      dySyntaxKeyword = chroma("oklch(65.9% 0.1799 20.1)").hex();
-      dySyntaxSpecial = chroma("oklch(63.7% 0.1322 300)").hex();
-      dySyntaxFunction = chroma("oklch(64.6% 0.1406 259.2)").hex();
-      dySyntaxString = chroma("oklch(69.5% 0.1183 135)").hex();
-      dySyntaxNumber = chroma("oklch(71% 0.1128 329.6)").hex();
-      break;
-    case "violet":
-      dyNeutralTextBright = chroma("oklch(92% 0.0139 290)").hex();
-      dyNeutralTextMain = chroma("oklch(81.5% 0.0302 290)").hex();
-      dyNeutralTextAlt = chroma("oklch(71% 0.0467 290)").hex();
-      dyNeutralTextDim = chroma("oklch(53.1% 0.0497 290)").hex();
-
-      dyNeutralBorder = chroma("oklch(33.1% 0.0328 290)").hex();
-      dyNeutralBgSub = chroma("oklch(26.7% 0.0302 290)").hex();
-      dyNeutralBgAlt = chroma("oklch(22.5% 0.0276 290)").hex();
-      dyNeutralBgMain = chroma("oklch(17.5% 0.0243 290)").hex();
-
-      dyPrimary050 = chroma("oklch(97.1% 0.0131 290)").hex();
-      dyPrimary100 = chroma("oklch(94% 0.0296 290)").hex();
-      dyPrimary200 = chroma("oklch(88.5% 0.0565 290)").hex();
-      dyPrimary300 = chroma("oklch(78.4% 0.1124 290)").hex();
-      dyPrimary400 = chroma("oklch(71.7% 0.1499 290)").hex();
-      dyPrimary500 = chroma("oklch(63.3% 0.1611 290)").hex();
-      dyPrimary600 = chroma("oklch(56.9% 0.1558 290)").hex();
-      dyPrimary700 = chroma("oklch(50.5% 0.1348 290)").hex();
-      dyPrimary800 = chroma("oklch(44.3% 0.115 290)").hex();
-      dyPrimary900 = chroma("oklch(38.8% 0.0973 290)").hex();
-      dyPrimary950 = chroma("oklch(29.3% 0.0848 290)").hex();
-
-      dySyntaxType = chroma("oklch(77.2% 0.1203 76.7)").hex();
-      dySyntaxOperator = chroma("oklch(71.4% 0.1352 48.8)").hex();
-      dySyntaxKeyword = chroma("oklch(65.9% 0.1889 20.1)").hex();
-      dySyntaxSpecial = chroma("oklch(63.7% 0.1322 300)").hex();
-      dySyntaxFunction = chroma("oklch(63.9% 0.1103 259.2)").hex();
-      dySyntaxString = chroma("oklch(71% 0.1183 135)").hex();
-      dySyntaxNumber = chroma("oklch(71% 0.1128 329.6)").hex();
-      break;
-    case "oceanLight":
-      dyNeutralTextBright = chroma("oklch(14% 0.0139 260)").hex();
-      dyNeutralTextMain = chroma("oklch(25% 0.0302 260)").hex();
-      dyNeutralTextAlt = chroma("oklch(40% 0.0467 260)").hex();
-      dyNeutralTextDim = chroma("oklch(60.4% 0.0345 260)").hex();
-
-      dyNeutralBorder = chroma("oklch(85% 0.0318 260)").hex();
-      dyNeutralBgSub = chroma("oklch(89.3% 0.0257 260)").hex();
-      dyNeutralBgAlt = chroma("oklch(92.4% 0.0216 260)").hex();
-      dyNeutralBgMain = chroma("oklch(97.9% 0.0095 260)").hex();
-
-      dyPrimary050 = chroma("oklch(97.1% 0.0131 260)").hex();
-      dyPrimary100 = chroma("oklch(94% 0.0296 260)").hex();
-      dyPrimary200 = chroma("oklch(88.5% 0.0565 260)").hex();
-      dyPrimary300 = chroma("oklch(78.4% 0.1124 260)").hex();
-      dyPrimary400 = chroma("oklch(71.7% 0.1499 260)").hex();
-      dyPrimary500 = chroma("oklch(63.3% 0.1611 260)").hex();
-      dyPrimary600 = chroma("oklch(56.9% 0.1558 260)").hex();
-      dyPrimary700 = chroma("oklch(50.5% 0.1348 260)").hex();
-      dyPrimary800 = chroma("oklch(44.3% 0.115 260)").hex();
-      dyPrimary900 = chroma("oklch(38.8% 0.0973 260)").hex();
-      dyPrimary950 = chroma("oklch(29.3% 0.0848 260)").hex();
-
-      dySyntaxType = chroma("oklch(45% 0.1203 76.7)").hex();
-      dySyntaxOperator = chroma("oklch(40% 0.1352 48.8)").hex();
-      dySyntaxKeyword = chroma("oklch(45% 0.1799 20.1)").hex();
-      dySyntaxSpecial = chroma("oklch(45% 0.1322 300)").hex();
-      dySyntaxFunction = chroma("oklch(40% 0.1406 259.2)").hex();
-      dySyntaxString = chroma("oklch(45% 0.1183 135)").hex();
-      dySyntaxNumber = chroma("oklch(45% 0.1128 329.6)").hex();
-      break;
-    case "violetLight":
-      dyNeutralTextBright = chroma("oklch(14% 0.0139 290)").hex();
-      dyNeutralTextMain = chroma("oklch(25% 0.0302 290)").hex();
-      dyNeutralTextAlt = chroma("oklch(40% 0.0467 290)").hex();
-      dyNeutralTextDim = chroma("oklch(55% 0.0497 290)").hex();
-
-      dyNeutralBorder = chroma("oklch(85% 0.0328 290)").hex();
-      dyNeutralBgSub = chroma("oklch(90% 0.0302 290)").hex();
-      dyNeutralBgAlt = chroma("oklch(95% 0.0276 290)").hex();
-      dyNeutralBgMain = chroma("oklch(98% 0.0243 290)").hex();
-
-      dyPrimary050 = chroma("oklch(97.1% 0.0131 290)").hex();
-      dyPrimary100 = chroma("oklch(94% 0.0296 290)").hex();
-      dyPrimary200 = chroma("oklch(88.5% 0.0565 290)").hex();
-      dyPrimary300 = chroma("oklch(78.4% 0.1124 290)").hex();
-      dyPrimary400 = chroma("oklch(71.7% 0.1499 290)").hex();
-      dyPrimary500 = chroma("oklch(63.3% 0.1611 290)").hex();
-      dyPrimary600 = chroma("oklch(56.9% 0.1558 290)").hex();
-      dyPrimary700 = chroma("oklch(50.5% 0.1348 290)").hex();
-      dyPrimary800 = chroma("oklch(44.3% 0.115 290)").hex();
-      dyPrimary900 = chroma("oklch(38.8% 0.0973 290)").hex();
-      dyPrimary950 = chroma("oklch(29.3% 0.0848 290)").hex();
-
-      dySyntaxType = chroma("oklch(45% 0.1203 76.7)").hex();
-      dySyntaxOperator = chroma("oklch(40% 0.1352 48.8)").hex();
-      dySyntaxKeyword = chroma("oklch(45% 0.1889 20.1)").hex();
-      dySyntaxSpecial = chroma("oklch(45% 0.1322 300)").hex();
-      dySyntaxFunction = chroma("oklch(40% 0.1103 259.2)").hex();
-      dySyntaxString = chroma("oklch(45% 0.1183 135)").hex();
-      dySyntaxNumber = chroma("oklch(45% 0.1128 329.6)").hex();
-      break;
-  }
-
-  const paletteObj: Record<string, string> = {
-    dyNeutralTextBright,
-    dyNeutralTextMain,
-    dyNeutralTextAlt,
-    dyNeutralTextDim,
-
-    dyNeutralBorder,
-    dyNeutralBgSub,
-    dyNeutralBgAlt,
-    dyNeutralBgMain,
-
-    dyPrimary050,
-    dyPrimary100,
-    dyPrimary200,
-    dyPrimary300,
-    dyPrimary400,
-    dyPrimary500,
-    dyPrimary600,
-    dyPrimary700,
-    dyPrimary800,
-    dyPrimary900,
-    dyPrimary950,
-
-    dySyntaxType,
-    dySyntaxOperator,
-    dySyntaxKeyword,
-    dySyntaxSpecial,
-    dySyntaxFunction,
-    dySyntaxString,
-    dySyntaxNumber,
-  };
-
-  const paletteJson = JSON.stringify(paletteObj, null, 2);
+  const variantJson = JSON.stringify(colors, null, 2);
 
   fs.writeFileSync(
     path.resolve(variantsPath, `${variant}.json`),
-    paletteJson,
+    variantJson,
     "utf8",
   );
 }
 
-generatePalette("ocean");
-generatePalette("violet");
-generatePalette("oceanLight");
-generatePalette("violetLight");
+generateVariant("ocean", true);
+generateVariant("violet", true);
+generateVariant("oceanLight", false);
+generateVariant("violetLight", false);

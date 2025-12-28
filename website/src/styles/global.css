@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
+@custom-variant oceanLight (&:where(.oceanLight, .oceanLight *));
 @custom-variant violet (&:where(.violet, .violet *));
+@custom-variant violetLight (&:where(.violetLight, .violetLight *));
 
 @theme {
   --color-*: initial;
@@ -25,10 +27,10 @@
   }
 
   .TOKEN_comment {
-    color: var(--color-dyNeutralTextDim);
+    color: var(--color-dyAliasTextDim);
   }
   .TOKEN_punctuation {
-    color: var(--color-dyNeutralTextAlt);
+    color: var(--color-dyAliasText);
   }
   .TOKEN_type {
     color: var(--color-dySyntaxType);
