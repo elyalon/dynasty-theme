@@ -1,7 +1,4 @@
 {
-  "dyErrorFg": "#eb5a62",
-  "dyWarningFg": "#e0aa55",
-  "dySuccessFg": "#7cad60",
   "dySyntaxType": "#e0aa55",
   "dySyntaxOperator": "#df814b",
   "dySyntaxKeyword": "#eb5a62",

@@ -1,7 +1,4 @@
 {
-  "dyErrorFg": "#a50024",
-  "dyWarningFg": "#7a4900",
-  "dySuccessFg": "#366314",
   "dySyntaxType": "#7a4900",
   "dySyntaxOperator": "#7d2700",
   "dySyntaxKeyword": "#a50024",
@@ -208,7 +205,7 @@
   "dyScalePrimary98": "#f8f7ff",
   "dyScalePrimary99": "#fbfbff",
   "dyAliasSyntaxComment": "#625f7d",
-  "dyAliasSyntaxPunctuation": "#35304f",
+  "dyAliasSyntaxPunctuation": "#3a3555",
   "dyAliasText": "#161227",
   "dyAliasTextDim": "#625f7d",
   "dyAliasTextWidget": "#f8f8fa",
@@ -223,5 +220,5 @@
   "dyAliasBgWidget": "#654cb7",
   "dyAliasBgWidgetHover": "#57419f",
   "dyAliasFocusOutline": "#8b6df4",
-  "dyAliasSelection": "#8263e94d"
+  "dyAliasSelection": "#a18ff933"
 }

@@ -1,7 +1,4 @@
 @theme {
-  --color-dyErrorFg: #eb5a62;
-  --color-dyWarningFg: #e0aa55;
-  --color-dySuccessFg: #7cad60;
   --color-dySyntaxType: #e0aa55;
   --color-dySyntaxOperator: #df814b;
   --color-dySyntaxKeyword: #eb5a62;
@@ -229,9 +226,6 @@
 @layer theme {
   :root {
     @variant oceanLight {
-      --color-dyErrorFg: #a10227;
-      --color-dyWarningFg: #7a4900;
-      --color-dySuccessFg: #366314;
       --color-dySyntaxType: #7a4900;
       --color-dySyntaxOperator: #7d2700;
       --color-dySyntaxKeyword: #a10227;
@@ -438,7 +432,7 @@
       --color-dyScalePrimary98: #f4f9ff;
       --color-dyScalePrimary99: #fafcff;
       --color-dyAliasSyntaxComment: #53647f;
-      --color-dyAliasSyntaxPunctuation: #2a3649;
+      --color-dyAliasSyntaxPunctuation: #293b57;
       --color-dyAliasText: #101621;
       --color-dyAliasTextDim: #53647f;
       --color-dyAliasTextWidget: #f7f8fb;
@@ -453,12 +447,9 @@
       --color-dyAliasBgWidget: #255ebd;
       --color-dyAliasBgWidgetHover: #1e51a4;
       --color-dyAliasFocusOutline: #3a83fc;
-      --color-dyAliasSelection: #317af14d;
+      --color-dyAliasSelection: #67a0ff33;
     }
     @variant violet {
-      --color-dyErrorFg: #ef5560;
-      --color-dyWarningFg: #e0aa55;
-      --color-dySuccessFg: #81b265;
       --color-dySyntaxType: #e0aa55;
       --color-dySyntaxOperator: #e68751;
       --color-dySyntaxKeyword: #ef5560;
@@ -683,9 +674,6 @@
       --color-dyAliasSelection: #a18ff933;
     }
     @variant violetLight {
-      --color-dyErrorFg: #a50024;
-      --color-dyWarningFg: #7a4900;
-      --color-dySuccessFg: #366314;
       --color-dySyntaxType: #7a4900;
       --color-dySyntaxOperator: #7d2700;
       --color-dySyntaxKeyword: #a50024;
@@ -892,7 +880,7 @@
       --color-dyScalePrimary98: #f8f7ff;
       --color-dyScalePrimary99: #fbfbff;
       --color-dyAliasSyntaxComment: #625f7d;
-      --color-dyAliasSyntaxPunctuation: #35304f;
+      --color-dyAliasSyntaxPunctuation: #3a3555;
       --color-dyAliasText: #161227;
       --color-dyAliasTextDim: #625f7d;
       --color-dyAliasTextWidget: #f8f8fa;
@@ -907,7 +895,7 @@
       --color-dyAliasBgWidget: #654cb7;
       --color-dyAliasBgWidgetHover: #57419f;
       --color-dyAliasFocusOutline: #8b6df4;
-      --color-dyAliasSelection: #8263e94d;
+      --color-dyAliasSelection: #a18ff933;
     }
   }
 }

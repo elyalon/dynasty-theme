@@ -12,9 +12,6 @@ import {
 
 // this type was generated using a JSON to Typescript generator
 export interface Colors {
-  dyErrorFg: string;
-  dyWarningFg: string;
-  dySuccessFg: string;
   dySyntaxType: string;
   dySyntaxOperator: string;
   dySyntaxKeyword: string;
@@ -435,7 +432,7 @@ function getWorkbenchColors(
     "disabledForeground": colors.dyAliasTextDim,
     "selection.background": colors.dyAliasSelection,
     "descriptionForeground": colors.dyAliasTextDim,
-    "errorForeground": colors.dyErrorFg,
+    "errorForeground": colors.dySyntaxKeyword,
     "focusBorder": colors.dyAliasFocusOutline,
 
     // WEB-VIEW RENDERING

@@ -9,9 +9,6 @@ const variantsPath = path.resolve(import.meta.dirname, "./variants");
 
 const variantsColors: Record<Variant, Record<string, string>> = {
   ocean: {
-    dyErrorFg: chroma("oklch(65.9% 0.1799 20.1)").hex(),
-    dyWarningFg: chroma("oklch(77.2% 0.1203 76.7)").hex(),
-    dySuccessFg: chroma("oklch(69.5% 0.1183 135)").hex(),
     dySyntaxType: chroma("oklch(77.2% 0.1203 76.7)").hex(),
     dySyntaxOperator: chroma("oklch(69.5% 0.1352 48.8)").hex(),
     dySyntaxKeyword: chroma("oklch(65.9% 0.1799 20.1)").hex(),
@@ -44,9 +41,6 @@ const variantsColors: Record<Variant, Record<string, string>> = {
     ),
   },
   violet: {
-    dyErrorFg: chroma("oklch(65.9% 0.1889 20.1)").hex(),
-    dyWarningFg: chroma("oklch(77.2% 0.1203 76.7)").hex(),
-    dySuccessFg: chroma("oklch(71% 0.1183 135)").hex(),
     dySyntaxType: chroma("oklch(77.2% 0.1203 76.7)").hex(),
     dySyntaxOperator: chroma("oklch(71.4% 0.1352 48.8)").hex(),
     dySyntaxKeyword: chroma("oklch(65.9% 0.1889 20.1)").hex(),
@@ -79,9 +73,6 @@ const variantsColors: Record<Variant, Record<string, string>> = {
     ),
   },
   oceanLight: {
-    dyErrorFg: chroma("oklch(45% 0.1799 20.1)").hex(),
-    dyWarningFg: chroma("oklch(45% 0.1203 76.7)").hex(),
-    dySuccessFg: chroma("oklch(45% 0.1183 135)").hex(),
     dySyntaxType: chroma("oklch(45% 0.1203 76.7)").hex(),
     dySyntaxOperator: chroma("oklch(40% 0.1352 48.8)").hex(),
     dySyntaxKeyword: chroma("oklch(45% 0.1799 20.1)").hex(),
@@ -115,9 +106,6 @@ const variantsColors: Record<Variant, Record<string, string>> = {
     ),
   },
   violetLight: {
-    dyErrorFg: chroma("oklch(45% 0.1889 20.1)").hex(),
-    dyWarningFg: chroma("oklch(45% 0.1203 76.7)").hex(),
-    dySuccessFg: chroma("oklch(45% 0.1183 135)").hex(),
     dySyntaxType: chroma("oklch(45% 0.1203 76.7)").hex(),
     dySyntaxOperator: chroma("oklch(40% 0.1352 48.8)").hex(),
     dySyntaxKeyword: chroma("oklch(45% 0.1889 20.1)").hex(),
@@ -156,7 +144,7 @@ const variantsColors: Record<Variant, Record<string, string>> = {
 function applyAliases(colors: Record<string, string>, isDark: boolean): void {
   //                                         DARK                      LIGHT
   colors.dyAliasSyntaxComment     = isDark ? colors.dyScaleNeutral53 : colors.dyScaleNeutral50;
-  colors.dyAliasSyntaxPunctuation = isDark ? colors.dyScaleNeutral71 : colors.dyScaleNeutral33;
+  colors.dyAliasSyntaxPunctuation = isDark ? colors.dyScaleNeutral71 : colors.dyScaleNeutral35;
   colors.dyAliasText              = isDark ? colors.dyScaleNeutral81 : colors.dyScaleNeutral20;
   colors.dyAliasTextDim           = isDark ? colors.dyScaleNeutral66 : colors.dyScaleNeutral50;
   colors.dyAliasTextWidget        = isDark ? colors.dyScaleNeutral92 : colors.dyScaleNeutral98;
@@ -172,7 +160,7 @@ function applyAliases(colors: Record<string, string>, isDark: boolean): void {
   colors.dyAliasBgWidgetHover     = isDark ? colors.dyScalePrimary45 : colors.dyScalePrimary45;
   colors.dyAliasFocusOutline      = isDark ? colors.dyScalePrimary63 : colors.dyScalePrimary63;
 
-  colors.dyAliasSelection         = isDark ? chroma(colors.dyScalePrimary71).alpha(0.2).hex() : chroma(colors.dyScalePrimary60).alpha(0.3).hex();
+  colors.dyAliasSelection         = isDark ? chroma(colors.dyScalePrimary71).alpha(0.2).hex() : chroma(colors.dyScalePrimary71).alpha(0.2).hex();
 }
 
 function generateVariant(variant: Variant, isDark: boolean): void {

@@ -194,10 +194,6 @@
     }
   ],
   "colors": {
-    "editor.findMatchBackground": "#53270d",
-    "editor.findMatchHighlightBackground": "#0000",
-    "editor.findMatchHighlightBorder": "#833904",
-    "editor.findRangeHighlightBackground": "#0f1828",
     "foreground": "#b9c1cf",
     "icon.foreground": "#b9c1cf",
     "disabledForeground": "#8593aa",
@@ -227,6 +223,10 @@
     "editor.wordHighlightTextBackground": "#53647f33",
     "editor.wordHighlightBackground": "#53647f33",
     "editor.wordHighlightStrongBackground": "#53647f33",
+    "editor.findMatchBackground": "#53270d",
+    "editor.findMatchHighlightBackground": "#0000",
+    "editor.findMatchHighlightBorder": "#833904",
+    "editor.findRangeHighlightBackground": "#0f1828",
     "debugToolBar.background": "#0f1828",
     "debugToolBar.border": "#28364b",
     "editorBracketHighlight.foreground1": "#c5923e",
