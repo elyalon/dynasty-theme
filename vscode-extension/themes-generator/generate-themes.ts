@@ -240,7 +240,7 @@ const themesPath = path.resolve(import.meta.dirname, "../themes");
 
 const transparentColor = "#0000";
 const debugColor = "#f0f";
-const debugColor2 = "#f00";
+const debugColorAlt = "#f00";
 
 function getSemanticTokenColors(colors: Colors) {
   return {
